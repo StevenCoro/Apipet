@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_main"
-    tools:context=".MainScreen"
-    tools:layout_editor_absoluteY="25dp">
+    android:background="@drawable/fondo_consideraciones"
+    tools:context=".ConsidScreen">
 
     <TextView
         android:id="@+id/text_view_bienvenido"
@@ -15,7 +14,7 @@
         android:layout_marginTop="110dp"
         android:elevation="0dp"
         android:fontFamily="@font/lato_bold"
-        android:text="@string/BienvenidoPantallaMain"
+        android:text="Consideraciones"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,13 +23,14 @@
 
     <Button
         android:id="@+id/option_btn"
-        android:layout_width="50px"
-        android:layout_height="50px"
-        android:background="@drawable/icono_options"
+        android:layout_width="65px"
+        android:layout_height="65px"
+        android:background="@drawable/icono_back"
         android:elevation="0dp"
+        android:onClick="Back"
         app:layout_constraintBottom_toTopOf="@+id/text_view_bienvenido"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13999999" />
@@ -52,17 +52,6 @@
         app:layout_constraintVertical_bias="0.24">
 
 
-        <ImageView
-            android:id="@+id/imagen_mascotas"
-            android:layout_width="74px"
-            android:layout_height="76px"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:adjustViewBounds="false"
-            android:cropToPadding="false"
-            android:elevation="0dp"
-            app:srcCompat="@drawable/mascotas_main" />
-
         <Button
             android:id="@+id/btn_mascotas"
             android:layout_width="match_parent"
@@ -71,7 +60,7 @@
             android:elevation="0dp"
             android:fontFamily="@font/varela_round"
             android:onClick="Mascotas"
-            android:text="Mascotas"
+            android:text="Cuidados de tu mascota"
             android:textColor="@color/textColor"
             android:textSize="45px" />
     </android.support.v7.widget.CardView>
@@ -93,15 +82,6 @@
         app:layout_constraintVertical_bias="0.051">
 
 
-        <ImageView
-            android:id="@+id/imagen_mapa"
-            android:layout_width="74px"
-            android:layout_height="76px"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:elevation="0dp"
-            app:srcCompat="@drawable/mapa_main" />
-
         <Button
             android:id="@+id/btn_mapa"
             android:layout_width="match_parent"
@@ -110,7 +90,7 @@
             android:elevation="0dp"
 
             android:fontFamily="@font/varela_round"
-            android:text="Mapa"
+            android:text="Pautas para tener mascota"
             android:textColor="@color/textColor"
             android:textSize="45px" />
     </android.support.v7.widget.CardView>
@@ -132,15 +112,6 @@
         app:layout_constraintVertical_bias="0.425">
 
 
-        <ImageView
-            android:id="@+id/imagen_consideraciones"
-            android:layout_width="74px"
-            android:layout_height="76px"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:elevation="0dp"
-            app:srcCompat="@drawable/consideraciones_main" />
-
         <Button
             android:id="@+id/btn_consideraciones"
             android:layout_width="match_parent"
@@ -148,11 +119,9 @@
             android:background="@android:color/transparent"
             android:elevation="0dp"
             android:fontFamily="@font/varela_round"
-            android:onClick="Consideraciones"
-            android:text="Consideraciones"
+            android:text="Alimentación de tu mascota"
             android:textColor="@color/textColor"
             android:textSize="45px" />
     </android.support.v7.widget.CardView>
-
 
 </android.support.constraint.ConstraintLayout>

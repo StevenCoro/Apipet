@@ -23,7 +23,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".MascotasScreen" />
-        <activity android:name=".InicioSesion"></activity>
+        <activity android:name=".InicioSesion" />
+        <activity android:name=".ConsidScreen"></activity>
     </application>
 
 </manifest>
