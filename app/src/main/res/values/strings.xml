@@ -6,6 +6,7 @@
     <string name="title_activity_consid_screen">ConsidScreen</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_pautas_mascota">PautasMascota</string>
 
 
 </resources>

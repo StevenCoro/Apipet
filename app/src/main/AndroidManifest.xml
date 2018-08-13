@@ -24,7 +24,8 @@
 
         <activity android:name=".MascotasScreen" />
         <activity android:name=".InicioSesion" />
-        <activity android:name=".ConsidScreen"></activity>
+        <activity android:name=".ConsidScreen" />
+        <activity android:name=".PautasMascotas"></activity>
     </application>
 
 </manifest>

@@ -90,6 +90,7 @@
             android:elevation="0dp"
 
             android:fontFamily="@font/varela_round"
+            android:onClick="PautasParaMascota"
             android:text="Pautas para tener mascota"
             android:textColor="@color/textColor"
             android:textSize="45px" />

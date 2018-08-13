@@ -33,4 +33,9 @@ public class ConsidScreen extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+    public void PautasParaMascota(View view){
+        Intent i = new Intent(this, PautasMascotas.class);
+        startActivity(i);
+        finish();
+    }
 }
