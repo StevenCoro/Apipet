@@ -13,16 +13,32 @@
         android:layout_marginTop="110dp"
         android:elevation="0dp"
         android:fontFamily="@font/lato_bold"
-        android:text="Consideraciones"
+        android:text="Pautas para tener una mascota"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/option_btn"
+        android:layout_width="65px"
+        android:layout_height="65px"
+        android:background="@drawable/icono_back"
+        android:elevation="0dp"
+        android:onClick="Back"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_bienvenido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <android.support.v7.widget.CardView
         android:layout_width="950px"
         android:layout_height="1510px"
+        android:layout_marginBottom="8dp"
+        android:elevation="0px"
+        app:cardElevation="0px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,13 +53,36 @@
             android:layout_marginTop="150px"
             android:elevation="0px" />
 
+
         <Button
             android:id="@+id/btnVideo"
             android:layout_width="600px"
             android:layout_height="400px"
             android:layout_marginLeft="175px"
-            android:background="@drawable/boton_transparente"
-            android:layout_marginTop="150px"
-            android:text="Button" />
+            android:layout_marginTop="700px"
+            android:background="@android:color/transparent"
+            android:elevation="0px" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="748px"
+            android:layout_height="547px"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="700px"
+            android:fontFamily="@font/lato_bold"
+            android:text="Para tener una mascota tu debes considerar algunas pautas o normas para la sana convivencia de estas con ellas mismas o con su entorno (medio ambiente, ciudadanos, objetos, etc). Cuando decidimos adquirir una mascota es necesario tener conocimiento que estos dependen del ser humano y son los propietarios o tenededores quienes deben asegurar su bienestar y supervivencia; por lo que es necesario satisfacer sus necesidades básicas, a saber"
+            android:textSize="35px" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="260px"
+            android:layout_height="110px"
+            android:layout_marginLeft="350px"
+            android:layout_marginTop="1200px"
+            android:background="@color/colorPrimary"
+            android:elevation="0px"
+            android:onClick="VerMas"
+            android:text="ver mas"
+            android:textColor="@color/colorAccent" />
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

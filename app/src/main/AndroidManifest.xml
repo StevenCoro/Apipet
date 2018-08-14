@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="apipet.web.apipet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icono_dos"
@@ -25,7 +27,8 @@
         <activity android:name=".MascotasScreen" />
         <activity android:name=".InicioSesion" />
         <activity android:name=".ConsidScreen" />
-        <activity android:name=".PautasMascotas"></activity>
+        <activity android:name=".PautasMascotas" />
+        <activity android:name=".WebPautasMascota"></activity>
     </application>
 
 </manifest>
