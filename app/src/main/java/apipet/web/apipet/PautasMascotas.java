@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -29,10 +30,19 @@ public class PautasMascotas extends AppCompatActivity {
         video = (VideoView)findViewById(R.id.videoView);
         controlVideo = new MediaController(this);
 
-                String uriPath2 = "android.resource://apipet.web.apipet/"+R.raw.ejemplo;
+        String fullScreen =  getIntent().getStringExtra("fullScreenInd");
+        if("y".equals(fullScreen)){
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getSupportActionBar().hide();
+        }
+
+
+        String uriPath2 = "android.resource://apipet.web.apipet/"+R.raw.ejemplo;
         Uri uri2 = Uri.parse(uriPath2);
         video.setVideoURI(uri2);
         video.setMediaController(controlVideo);
+        controlVideo = new FullScreenMediaController(this);
         controlVideo.setAnchorView(video);
         video.requestFocus();
         video.start();
