@@ -43,4 +43,9 @@ public class MainScreen extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+    public void Mapa(View view){
+        Intent i = new Intent(this, MapScreen.class);
+        startActivity(i);
+        finish();
+    }
 }

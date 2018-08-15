@@ -29,7 +29,7 @@ public class ConsidScreen extends AppCompatActivity {
         hideNavigationBar();
     }
     public void Back(View view){
-        Intent i = new Intent(this, MascotasScreen.class);
+        Intent i = new Intent(this, MainScreen.class);
         startActivity(i);
         finish();
     }

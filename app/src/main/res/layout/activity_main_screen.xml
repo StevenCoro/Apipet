@@ -110,6 +110,7 @@
             android:elevation="0dp"
 
             android:fontFamily="@font/varela_round"
+            android:onClick="Mapa"
             android:text="Mapa"
             android:textColor="@color/textColor"
             android:textSize="45px" />
