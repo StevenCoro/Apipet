@@ -1,19 +1,26 @@
 package apipet.web.apipet;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
+public class MapScreen extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
+    private Marker  markerExito, markerDoctorPet;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +57,50 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
         hideNavigationBar();
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng rionegro = new LatLng(6.144809634626859, -75.37547391822147);
+        LatLng doctorPet = new LatLng(6.149245088205296, -75.37840385773495);
+        LatLng exito = new LatLng(6.1485018460937395, -75.37822723388672);
+
+        markerExito = googleMap.addMarker(new MarkerOptions()
+                .position(exito)
+                .title("Éxito Rionegro").snippet("Se permite el ingreso de animales pero con condiciones")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_lugares)));
+
+        markerDoctorPet= googleMap.addMarker(new MarkerOptions()
+                .position(doctorPet)
+                .title("Veterinaria Doctor Pet")
+                .snippet("Ubicada en la cra 55b al frente del éxito, tienen atención de lunes a viernes de 6:00am a 8:00pm")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rionegro,13));
+        googleMap.setOnMarkerClickListener(this);
+        googleMap.setOnInfoWindowClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         hideNavigationBar();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        return false;
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+    if (marker.equals(markerExito)){
+        ExitoInformacion.newInstance(marker.getTitle(),getString(R.string.InformacionExito)).show(getSupportFragmentManager(), null);
+
+    }
+
+
+    }
+    public void Back(View view){
+        Intent i = new Intent(this, MainScreen.class);
+        startActivity(i);
+        finish();
     }
 }

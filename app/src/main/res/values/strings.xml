@@ -8,6 +8,17 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_pautas_mascota">PautasMascota</string>
     <string name="title_activity_map_screen">Map</string>
+    <string name="InformacionExito">Exito Rionegro Dirección: Cra. 56, Rionegro, Antioquia
+Horario:
+miércoles	8:00–21:00
+jueves	8:00–21:00
+viernes	8:00–21:00
+sábado	8:00–21:00
+domingo	8:00–21:00
+lunes	8:00–21:00
+martes	8:00–21:00
+Sugerir una edición
+Teléfono: (4) 6152090</string>
 
 
 </resources>
