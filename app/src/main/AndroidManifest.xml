@@ -57,7 +57,10 @@
 
         <activity
             android:name=".MapScreen"
-            android:label="@string/title_activity_map_screen"></activity>
+            android:label="@string/title_activity_map_screen" />
+        <activity android:name=".RazasScreen" />
+        <activity android:name=".CaninosScreen" />
+        <activity android:name=".FelinosScreen"></activity>
     </application>
 
 </manifest>

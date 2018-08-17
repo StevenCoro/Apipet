@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/fondo_caninos"
+    android:layout_height="match_parent"
+    tools:context=".CaninosScreen">
+
+    <TextView
+        android:id="@+id/text_view_bienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:elevation="0dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Caninos"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/option_btn"
+        android:layout_width="65px"
+        android:layout_height="65px"
+        android:background="@drawable/icono_back"
+        android:elevation="0dp"
+        android:onClick="Back"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_bienvenido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="950px"
+        android:layout_height="1300px"
+        android:layout_marginBottom="60dp"
+        android:elevation="0px"
+        app:cardBackgroundColor="@color/colorNegroTranslucido"
+        app:cardElevation="0px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="850px"
+            android:layout_height="180px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            app:cardBackgroundColor="@color/colorAzulTranslucido">
+
+            <TextView
+                android:id="@+id/tv_felino_criollo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/varela_round"
+                android:text="Criollo"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/img_felino_criollo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/canino_criollo_icono" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="850px"
+            android:layout_height="180px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="175dp"
+            app:cardBackgroundColor="@color/colorAzulTranslucido">
+
+            <ImageView
+                android:id="@+id/img_persa"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/golden_retriever_icono" />
+
+            <TextView
+                android:id="@+id/tv_persa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Golden retriever"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="850px"
+            android:layout_height="180px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="300dp"
+            app:cardBackgroundColor="@color/colorAzulTranslucido">
+
+            <ImageView
+                android:id="@+id/img_angora"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/pitbull_icono" />
+
+            <TextView
+                android:id="@+id/tv_angora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Pitbull"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="850px"
+            android:layout_height="180px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="425dp"
+            app:cardBackgroundColor="@color/colorAzulTranslucido" >
+
+            <ImageView
+                android:id="@+id/img_ragdoll"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/bulldog_icono" />
+
+            <TextView
+                android:id="@+id/tv_ragdoll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Bulldog"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp" />
+        </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
