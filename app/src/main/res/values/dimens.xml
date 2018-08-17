@@ -1,3 +1,12 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="boton_principal_ancho">120px</dimen>
+    <dimen name="boton_principal_largo">786px</dimen>
+    <dimen name="iconos_pantalla_principal_ancho">76px</dimen>
+    <dimen name="iconos_pantalla_principal_largo">74px</dimen>
+    <dimen name="texto_botones_pequeños">15sp</dimen>
+    <dimen name="texto_botones_principales">17sp</dimen>
+    <dimen name="titulos_pantallas">24sp</dimen>
+    <dimen name="texto_formularios">13.5sp</dimen>
+    <dimen name="titulo_pantalla_inicio">32sp</dimen>
 </resources>

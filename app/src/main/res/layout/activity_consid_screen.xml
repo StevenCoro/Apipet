@@ -35,94 +35,66 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13999999" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view_mascotas"
+    <Button
+        android:id="@+id/btn_mascotas"
         android:layout_width="786px"
         android:layout_height="120px"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/boton_principal"
         android:elevation="0dp"
-        app:cardCornerRadius="50px"
-        app:cardElevation="0dp"
+        android:fontFamily="@font/varela_round"
+        android:onClick="Mascotas"
+        android:text="Cuidados de tu mascota"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido"
-        app:layout_constraintVertical_bias="0.24">
+        app:layout_constraintVertical_bias="0.24000001" />
 
-
-        <Button
-            android:id="@+id/btn_mascotas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:elevation="0dp"
-            android:fontFamily="@font/varela_round"
-            android:onClick="Mascotas"
-            android:text="Cuidados de tu mascota"
-            android:textColor="@color/textColor"
-            android:textSize="45px" />
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view_mapa"
+    <Button
+        android:id="@+id/btn_pautas"
         android:layout_width="786px"
         android:layout_height="120px"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="50dp"
+
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/boton_principal"
+        android:elevation="0dp"
+        android:fontFamily="@font/varela_round"
+        android:onClick="PautasParaMascota"
+        android:text="Pautas para tener mascota"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <Button
+        android:id="@+id/btn_alimentacion"
+        android:layout_width="786px"
+        android:layout_height="120px"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/boton_principal"
         android:elevation="0dp"
-        app:cardCornerRadius="50px"
-        app:cardElevation="0dp"
+        android:fontFamily="@font/varela_round"
+        android:text="Alimentación de tu mascota"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido"
-        app:layout_constraintVertical_bias="0.051">
-
-
-        <Button
-            android:id="@+id/btn_mapa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:elevation="0dp"
-
-            android:fontFamily="@font/varela_round"
-            android:onClick="PautasParaMascota"
-            android:text="Pautas para tener mascota"
-            android:textColor="@color/textColor"
-            android:textSize="45px" />
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view_consideraciones"
-        android:layout_width="786px"
-        android:layout_height="120px"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
-        android:elevation="0dp"
-        app:cardCornerRadius="50px"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido"
-        app:layout_constraintVertical_bias="0.425">
-
-
-        <Button
-            android:id="@+id/btn_consideraciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:elevation="0dp"
-            android:fontFamily="@font/varela_round"
-            android:text="Alimentación de tu mascota"
-            android:textColor="@color/textColor"
-            android:textSize="45px" />
-    </android.support.v7.widget.CardView>
+        app:layout_constraintVertical_bias="0.42000002" />
 
 </android.support.constraint.ConstraintLayout>

@@ -9,34 +9,34 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/titulo_pantalla_inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/varela_round"
         android:text="Bienvenido a Apipet"
         android:textColor="@color/colorAccent"
-        android:textSize="80px"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/texto_pantalla_inicio"
         android:layout_width="767px"
         android:layout_height="308px"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/varela_round"
         android:text="En Apipet puedes encontraras los mejores lugares para tu mascota, puedes registrar tus mascotas y buscar otras razas tambien!! tenemos sugerencias para ti, para que cuides tu mascota y tengan una agradable vida juntos"
         android:textColor="@color/colorAccent"
-        android:textSize="35px"
+        android:textSize="13.5sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_pantalla_inicio" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_registrarse"
         android:layout_width="334px"
         android:layout_height="80px"
         android:layout_marginEnd="8dp"
@@ -44,11 +44,13 @@
         android:layout_marginTop="2dp"
         android:background="@drawable/boton_transparente"
         android:elevation="0px"
+        android:fontFamily="@font/varela_round"
         android:text="Registrate"
         android:textColor="@color/colorAccent"
+        android:textSize="40px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/texto_pantalla_inicio" />
 
     <EditText
         android:id="@+id/etUser"
@@ -63,46 +65,39 @@
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrarse"
         app:layout_constraintVertical_bias="0.798" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="797px"
         android:layout_height="50dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
+    <Button
+        android:id="@+id/btn_ingresar"
         android:layout_width="167dp"
-        android:layout_height="80px"
-        android:elevation="0px"
-        app:cardElevation="0px"
+        android:layout_height="85px"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="40px"
+        android:background="@drawable/boton_negro"
+        android:elevation="0px"
+        android:fontFamily="@font/varela_round"
+        android:onClick="Ingresar"
+        android:text="Ingresar"
+        android:textColor="@color/colorAccent"
+        android:textSize="40px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:elevation="0px"
-            android:onClick="Ingresar"
-            android:text="Ingresar"
-            android:textColor="@color/colorAccent" />
-    </android.support.v7.widget.CardView>
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
