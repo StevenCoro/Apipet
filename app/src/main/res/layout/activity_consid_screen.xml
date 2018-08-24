@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_consideraciones"
-    tools:context=".ConsidScreen">
+    tools:context=".ui.ConsidScreen">
 
     <TextView
         android:id="@+id/text_view_bienvenido"

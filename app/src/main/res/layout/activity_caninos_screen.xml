@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/fondo_caninos"
     android:layout_height="match_parent"
-    tools:context=".CaninosScreen">
+    tools:context=".ui.CaninosScreen">
 
     <TextView
         android:id="@+id/text_view_bienvenido"

@@ -19,6 +19,9 @@ lunes	8:00–21:00
 martes	8:00–21:00
 Sugerir una edición
 Teléfono: (4) 6152090</string>
+    <string name="ingrese_un_email">Ingrese un correo</string>
+    <string name="ingrese_una_contrase_a">Ingrese una contraseña</string>
+    <string name="registrarse">Registrarse</string>
 
 
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_splash"
-    tools:context=".SplashScreen">
+    tools:context=".ui.SplashScreen">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif"
@@ -43,11 +43,11 @@
         android:layout_width="1000px"
         android:layout_height="105px"
         android:layout_marginTop="350dp"
-        android:background="@drawable/boton_principal"
+        android:background="@drawable/boton_blanco"
         android:fontFamily="@font/varela_round"
         android:text="@string/TextoSplashScreen"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="35px"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
