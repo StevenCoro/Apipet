@@ -19,9 +19,122 @@ lunes	8:00–21:00
 martes	8:00–21:00
 Sugerir una edición
 Teléfono: (4) 6152090</string>
+
+
+
+
+
+
+
+
+    <string name="InformacionDoctorPet">
+        Dirección: Cl 43 #55B - 24, Rionegro, Antioquia
+        Horario:
+        Lun- Vier: 8:30 am - 6:00 pm
+        Sab: 9:00 am - 2:00 pm
+        Teléfono: 318 827 9616</string><string name="DoctorPet">Doctor Pet</string>
+
+
+
+    <string name="InformacionCentroVeterinarioSanAntonio">
+        Dirección: #19ab- 55ad-104, La Ceja-Río Negro, Rionegro, Antioquia
+        Horario:
+       Abierto las 24 horas
+        Teléfono: 320 727 3762</string><string name="CentroVeterinarioSanAntonio">Centro veterinario San Antonio</string>
+
+
+    <string name="InformacionLaGranjitaCentroVeterinario">
+        Dirección: Cra. 56 #160, Rionegro, Antioquia
+        Horario:
+        Lun- Sab: 8:00 am - 6:30 pm
+        Teléfono:  5616190</string><string name="LaGranjitaCentroVeterinario">Veterinaria La Granjita</string>
+
+
+    <string name="InformacionVeterinariaCaninos">
+        Dirección: Cl. 38, Rionegro, Antioquia
+        Horario:
+        Desconocido
+        Teléfono: 5620359</string><string name="VeterinariaCaninos">Veterinaria Caninos</string>
+
+
+    <string name="InformacionVeterinariaSanBernardo">
+        Dirección: Av. Santander #5158, Rionegro, Antioquia
+        Horario:
+        Desconocido
+        Teléfono: 5616891</string><string name="VeterinariaSanBernardo">Veterinaria San Bernardo</string>
+
+
+    <string name="InformacionVeterinariaAvesYMascotas">
+        Dirección: Cra. 47 #5551, Rionegro, Antioquia
+        Horario:
+        Abierto las 24 horas
+        Teléfono: 5619586</string><string name="VeterinariaAvesYMascotas">Veterinaria Aves Y Mascotas</string>
+
+
+    <string name="InformacionVeterinariaAgroQuirama">
+        Dirección: Cra. 47 #5420, Rionegro, Antioquia
+        Horario:
+        Desconocido
+        Teléfono: 5321926</string><string name="VeterinariaAgroQuirama">Veterinaria Agro Quirama</string>
+
+
+    <string name="InformacionAnimalLoversStore">
+        Dirección: Cra. 46b #40b62, Rionegro, Antioquia
+        Horario:
+        Lun- Sab: 9:00 am - 7:00 pm
+        Teléfono: 5628992</string><string name="VeterinariaAnimalLoversStore">Animals Lovers Store</string>
+
+
+    <string name="InformacionClinicaDePequenosAnimales">
+        Dirección: Cl. 38 #55a101, Rionegro, Antioquia
+        Horario:
+        Desconocido
+        Teléfono: Desconocido</string><string name="ClinicaDePequenosAnimales">Clinica De Pequeños Animales</string>
+
+
+    <string name="InformacionVeterinariaCVPets24Horas">
+        Dirección: Calle 43 N 56-52. Diagonal CC San Nicolás, Rionegro, Antioquia
+        Horario:
+        Abierto las 24 horas
+        Teléfono: 3664969</string><string name="VeterinariaCVPets24Horas">Veterinaria CVPets 24 horas</string>
+
+
+    <string name="InformacionAgroPerez">
+        Dirección: Cra. 47 #5431, Rionegro, Antioquia
+        Horario:
+        Lun- Sab: 8:00 am - 6:30 pm
+        Teléfono: 5617021</string><string name="VeterinariaAgroPerez">Agro Pérez</string>
+
+    <string name="InformacionClinicaVeterinariaDelValle">
+        Dirección: Via a Llano Grande, Rionegro, Antioquia
+        Horario:
+        Desconocido
+        Teléfono: 321 709 9928</string><string name="ClinicaVeterinariaDelValle">Clinica Veterinaria Del Valle</string>
+
+
+    <string name="InformacionVeterinariaLosValencia">
+        Dirección: Cra. 47 #53-64, Rionegro, Antioquia
+        Horario:
+        Lun- Sab: 7:00 am - 8:00 pm
+        Teléfono: 5610193</string><string name="VeterinariaLosValencia">Veterinaria Los Valencia</string>
+
+
+    <string name="InformacionClinicaCVPets">
+        Dirección: Cra. 62a #4435, Rionegro, Antioquia
+        Horario:
+        Abierto las 24 horas
+        Teléfono: 3664969</string><string name="ClinicaCVPets">Clinica CVPets</string>
+
     <string name="ingrese_un_email">Ingrese un correo</string>
     <string name="ingrese_una_contrase_a">Ingrese una contraseña</string>
     <string name="registrarse">Registrarse</string>
+    <string name="title_activity_option_main_screen">OptionMainScreen</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 
 </resources>

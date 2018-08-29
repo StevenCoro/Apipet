@@ -30,6 +30,27 @@ public class InicioSesion extends AppCompatActivity {
         tvPassword = (TextView) findViewById(R.id.etPassword);
         btnIngresar = (Button) findViewById(R.id.btn_ingresar);
 
+        Button btn_registro = (Button)findViewById(R.id.btn_registrarse);
+        btn_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i2 = new Intent(getApplicationContext(),RegistroScreen.class);
+                startActivity(i2);
+                finish();
+
+            }
+        });
+        Button btn_ingresar = (Button)findViewById(R.id.btn_ingresar);
+        btn_ingresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
+                startActivity(i2);
+                finish();
+
+            }
+        });
+
     }
 
     @Override
@@ -46,14 +67,5 @@ public class InicioSesion extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
-    public void Ingresar(View view){
-        Intent i = new Intent(this, MainScreen.class);
-        startActivity(i);
-        finish();
-    }
-    public void Registrar(View view){
-        Intent i = new Intent(this, RegistroScreen.class);
-        startActivity(i);
-        finish();
-    }
+
 }

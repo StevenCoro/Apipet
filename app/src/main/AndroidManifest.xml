@@ -61,7 +61,7 @@
             android:label="@string/title_activity_map_screen" />
         <activity android:name=".ui.RazasScreen" />
         <activity android:name=".ui.CaninosScreen" />
-        <activity android:name=".ui.FelinosScreen"></activity>
+        <activity android:name=".ui.FelinosScreen" />
     </application>
 
 </manifest>

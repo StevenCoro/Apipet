@@ -69,7 +69,6 @@
             android:background="@android:color/transparent"
             android:elevation="0dp"
             android:fontFamily="@font/varela_round"
-            android:onClick="Mapa"
             android:text="Mapa"
             android:textColor="@color/textColor"
             android:textSize="17sp" />
@@ -111,7 +110,6 @@
             android:background="@android:color/transparent"
             android:elevation="0dp"
             android:fontFamily="@font/varela_round"
-            android:onClick="Mascotas"
             android:text="Mascotas"
             android:textColor="@color/textColor"
             android:textSize="17sp" />
@@ -151,7 +149,6 @@
             android:background="@android:color/transparent"
             android:elevation="0dp"
             android:fontFamily="@font/varela_round"
-            android:onClick="Consideraciones"
             android:text="Consideraciones"
             android:textColor="@color/textColor"
             android:textSize="17sp" />
