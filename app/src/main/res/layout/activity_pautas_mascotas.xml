@@ -36,7 +36,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="950px"
         android:layout_height="1510px"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="150dp"
         android:elevation="0px"
         app:cardBackgroundColor="@color/colorNegroTranslucido"
         app:cardElevation="0px"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <VideoView
             android:id="@+id/videoView"

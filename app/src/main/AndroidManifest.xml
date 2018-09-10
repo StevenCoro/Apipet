@@ -17,6 +17,10 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="21" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -62,6 +66,8 @@
         <activity android:name=".ui.RazasScreen" />
         <activity android:name=".ui.CaninosScreen" />
         <activity android:name=".ui.FelinosScreen" />
+        <activity android:name=".ui.MisMascotasScreen" />
+        <activity android:name=".ui.fragment.AddPetScreen"></activity>
     </application>
 
 </manifest>
