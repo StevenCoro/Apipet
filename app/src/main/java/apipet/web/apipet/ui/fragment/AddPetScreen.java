@@ -1,10 +1,17 @@
 package apipet.web.apipet.ui.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,9 +19,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 import apipet.web.apipet.R;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
@@ -27,15 +40,25 @@ import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota4;
 public class AddPetScreen extends AppCompatActivity {
 
     private Spinner spinnerTipo, spinnerRaza, spinnerGenero;
-    public static final String nombreDelArchivo = "datosNombre1.txt";
+    public static final String nombreDelArchivo1 = "datosNombre1.txt";
     public static final String nombreDelArchivo2 = "datosNombre2.txt";
     public static final String nombreDelArchivo3 = "datosNombre3.txt";
     public static final String nombreDelArchivo4 = "datosNombre4.txt";
     public static final String nombreDelArchivo5 = "datosNombre5.txt";
-    public int cont=0;
+
+
+
     EditText etNombre;
     ImageView imagenMascota;
+    ImageView imagen_mascota, imagen_mascota2, imagen_mascota3, imagen_mascota4;
 
+    public static String path;
+
+    public static final String carpetaRaiz="ImagenesDePeluditos/";
+    public static final String rutaImagen =carpetaRaiz+"Peluditos";
+
+    final int codigoSeleccionSubirImagen =10;
+    final int codigoSeleccionTomarFoto =20;
 
 
     @Override
@@ -49,8 +72,6 @@ public class AddPetScreen extends AppCompatActivity {
         spinnerTipo.setAdapter(adapter);
 
         String selection = spinnerTipo.getSelectedItem().toString();
-
-
 
 
         if(selection.equals("Canino")){
@@ -84,8 +105,11 @@ public class AddPetScreen extends AppCompatActivity {
             }
         });
 
-        imagenMascota = (ImageView)(findViewById(R.id.imagen_add_mascota));
-
+        imagenMascota =(findViewById(R.id.imagen_add_mascota));
+        imagen_mascota =(findViewById(R.id.imagen_mascota));
+        imagen_mascota2 =(findViewById(R.id.imagen_mascota2));
+        imagen_mascota3 =(findViewById(R.id.imagen_mascota3));
+        imagen_mascota4 =(findViewById(R.id.imagen_mascota4));
 
     }
 
@@ -94,23 +118,89 @@ public class AddPetScreen extends AppCompatActivity {
     }
 
     private void cargarImagen() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), 10);
 
+        final CharSequence[] opciones= {"Tomar Foto", "Subir Imagen"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(AddPetScreen.this);
+        alertOpciones.setTitle("Seleccione una opción");
+        alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (opciones[i].equals("Tomar Foto")){
+                            TomarFoto();
+                        }
+                        else{
+                            if (opciones[i].equals("Subir Imagen")){
+
+                                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                intent.setType("image/");
+                                startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), codigoSeleccionSubirImagen);
+
+                            }
+                        }
+                    }
+                });
+                alertOpciones.show();
+
+
+    }
+
+    private void TomarFoto() {
+        File fileImagen = new File(Environment.getExternalStorageDirectory(), rutaImagen);
+        boolean isCreada = fileImagen.exists();
+        String nombreImagen = "";
+
+        if (!isCreada){
+            isCreada=fileImagen.mkdirs();
+        }
+        if (isCreada){
+            nombreImagen= (System.currentTimeMillis()/1000)+".jpg";
+        }
+
+        path=Environment.getExternalStorageDirectory()+File.separator+rutaImagen+File.separator+nombreImagen;
+
+        File imagen = new File(path);
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
+        startActivityForResult(intent,codigoSeleccionTomarFoto);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode==RESULT_OK){
-            Uri path = data.getData();
-            imagenMascota.setImageURI(path);
+
+            switch (requestCode){
+                case codigoSeleccionSubirImagen:
+                     Uri path2 = data.getData();
+                    imagenMascota.setImageURI(path2);
+
+
+                    break;
+
+                case codigoSeleccionTomarFoto:
+                    MediaScannerConnection.scanFile(this, new String[]{path}, null,
+                            new MediaScannerConnection.OnScanCompletedListener() {
+                                @Override
+                                public void onScanCompleted(String path, Uri uri) {
+                                    Log.i("Ruta de almacenamiento", "path: "+path);
+                                }
+                            });
+
+                    Bitmap bitmap2 = BitmapFactory.decodeFile(path);
+                    imagenMascota.setImageBitmap(bitmap2);
+                    break;
+            }
+
+
         }
 
     }
 
     public void GuardarDatos(View view){
+        int cont =1;
+
+
         etNombre = findViewById(R.id.etNombre);
         String nombreMascota = etNombre.getText().toString();
         String seleccionTipo = spinnerTipo.getSelectedItem().toString();
@@ -118,74 +208,73 @@ public class AddPetScreen extends AppCompatActivity {
         String seleccionGenero = spinnerGenero.getSelectedItem().toString();
 
 
+
         FileOutputStream fos = null;
-        cont=cont+1;
+
         if (nombreMascota.isEmpty()){
             Toast.makeText(this, "Debes ingresar un nombre", Toast.LENGTH_LONG).show();
         }
         else{
-        try {
+            try {
 
-            switch (cont) {
-                case 1:
-
-                    fos = openFileOutput(nombreDelArchivo, MODE_PRIVATE);
+                if (cont==1){
+                    fos = openFileOutput(nombreDelArchivo1, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo, Toast.LENGTH_LONG).show();
-                    cont=cont+1;
-                    break;
+                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo1, Toast.LENGTH_LONG).show();
 
-                case 2:
 
-                    fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
-                    fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
+                }
+                else {
+                    if (cont==2){
+                        fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
+                        fos.write(nombreMascota.getBytes());
+                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
 
-                    break;
-
-                case 3:
-
+                    }
+                }
+                if (cont==3) {
                     fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
                     Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo3, Toast.LENGTH_LONG).show();
 
-                    break;
+                }
+                else {
+                    if (cont==4) {
+                        fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
+                        fos.write(nombreMascota.getBytes());
+                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
 
-                case 4:
+                    }
+                }
+                if (cont==5){
+                   fos = openFileOutput(nombreDelArchivo5, MODE_PRIVATE);
+                   fos.write(nombreMascota.getBytes());
+                   Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo5, Toast.LENGTH_LONG).show();
+                }
 
-                    fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
-                    fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
-
-                    break;
-
-                case 5:
-                    fos = openFileOutput(nombreDelArchivo5, MODE_PRIVATE);
-                    fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo5, Toast.LENGTH_LONG).show();
-
-                    break;
-                    default: break;
-
+                Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
+                startActivity(i2);
+                etNombre.getText().clear();
             }
-
-            Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
-            startActivity(i2);
-            etNombre.getText().clear();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if(fos!=null){
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            catch (FileNotFoundException e) {
+                   e.printStackTrace();
+            }
+            catch (IOException e) {
+                  e.printStackTrace();
+            }
+            finally {
+                if(fos!=null){
+                    try {
+                        fos.close();
+                    }
+                    catch (IOException e) {
+                          e.printStackTrace();
+                    }
                 }
             }
         }
-    }}
+
+    }
 
 
 

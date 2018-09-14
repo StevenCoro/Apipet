@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import apipet.web.apipet.R;
 import apipet.web.apipet.ui.fragment.AddPetScreen;
-import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo;
+import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo1;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo2;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo3;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo4;
@@ -86,7 +86,7 @@ public class MisMascotasScreen extends AppCompatActivity {
 
         FileInputStream fis = null;
         try {
-            fis = openFileInput(nombreDelArchivo);
+            fis = openFileInput(nombreDelArchivo1);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
