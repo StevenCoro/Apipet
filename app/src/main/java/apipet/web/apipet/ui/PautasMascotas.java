@@ -20,10 +20,35 @@ public class PautasMascotas extends AppCompatActivity {
     private MediaController controlVideo;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pautas_mascotas);
         hideNavigationBar();
+
+        Button btn_atras = (Button)findViewById(R.id.back_btn);
+        btn_atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+             onBackPressed();
+
+            }
+        });
+
+        Button btn_ver_mas = (Button)findViewById(R.id.btn_ver_mas);
+        btn_ver_mas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i2 = new Intent(getApplicationContext(),WebPautasMascota.class);
+                startActivity(i2);
+
+            }
+        });
+
 
 
 
@@ -71,16 +96,6 @@ public class PautasMascotas extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
                         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-    }
-    public void Back(View view){
-        Intent i = new Intent(this,ConsidScreen.class);
-        startActivity(i);
-        finish();
-    }
-    public void VerMas(View view){
-        Intent i = new Intent(this,WebPautasMascota.class);
-        startActivity(i);
-        finish();
     }
 
     @Override

@@ -94,13 +94,11 @@ public class AddPetScreen extends AppCompatActivity {
 
         hideNavigationBar();
 
-        Button btn_atras = (Button)findViewById(R.id.btn_back);
-        btn_atras.setOnClickListener(new View.OnClickListener() {
+        Button btn_back = (Button)findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
-                startActivity(i2);
-                finish();
+                onBackPressed();
 
             }
         });
@@ -194,6 +192,12 @@ public class AddPetScreen extends AppCompatActivity {
 
 
         }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
     }
 

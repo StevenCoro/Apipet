@@ -36,7 +36,6 @@ public class InicioSesion extends AppCompatActivity {
             public void onClick(View v2) {
                 Intent i2 = new Intent(getApplicationContext(),RegistroScreen.class);
                 startActivity(i2);
-                finish();
 
             }
         });

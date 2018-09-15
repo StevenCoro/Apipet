@@ -42,6 +42,11 @@ public class MisMascotasScreen extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mis_mascotas_screen);
@@ -60,13 +65,11 @@ public class MisMascotasScreen extends AppCompatActivity {
          CardView cardViewMascota4 = (CardView)findViewById(R.id.cardViewMascota4);
 
 
-        Button btn_atras = (Button)findViewById(R.id.btn_back);
+        Button btn_atras = (Button)findViewById(R.id.back_btn);
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MascotasScreen.class);
-                startActivity(i2);
-                finish();
+              onBackPressed();
 
             }
         });
@@ -77,7 +80,6 @@ public class MisMascotasScreen extends AppCompatActivity {
             public void onClick(View v2) {
                 Intent i2 = new Intent(getApplicationContext(),AddPetScreen.class);
                 startActivity(i2);
-                finish();
 
             }
         });

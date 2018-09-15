@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import apipet.web.apipet.R;
 
@@ -14,6 +15,15 @@ public class CaninosScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caninos_screen);
         hideNavigationBar();
+
+        Button back_btn = findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+               onBackPressed();
+
+            }
+        });
     }
 
     public void hideNavigationBar(){
@@ -27,12 +37,14 @@ public class CaninosScreen extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onPostResume() {
         super.onPostResume();
         hideNavigationBar();
     }
-    public void Back(View view){
-        Intent i = new Intent(this, RazasScreen.class);
-        startActivity(i);
-        finish();}
+
 }

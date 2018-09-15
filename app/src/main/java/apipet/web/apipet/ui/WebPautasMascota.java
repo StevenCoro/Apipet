@@ -7,6 +7,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 import apipet.web.apipet.R;
 
@@ -24,6 +25,15 @@ public class WebPautasMascota extends AppCompatActivity {
         webSettigs.setJavaScriptEnabled(true);
         hideNavigationBar();
 
+        Button back_btn= (Button)findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+              onBackPressed();
+
+            }
+        });
+
     }
 
     @Override
@@ -34,6 +44,7 @@ public class WebPautasMascota extends AppCompatActivity {
             web.goBack();
         }else{
             super.onBackPressed();
+
         }
     }
 
@@ -51,9 +62,5 @@ public class WebPautasMascota extends AppCompatActivity {
     protected void onPostResume() {
         super.onPostResume();
     }
-    public void Back(View view){
-        Intent i = new Intent(this,PautasMascotas.class);
-        startActivity(i);
-        finish();
-    }
+
 }

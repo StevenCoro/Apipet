@@ -34,6 +34,10 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
     Dialog MyDialog;
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +50,15 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
         mapFragment.getMapAsync(this);
 
 
-        Button btn_atras = (Button)findViewById(R.id.option_btn);
+        Button btn_atras = (Button)findViewById(R.id.back_btn);
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
-                startActivity(i2);
-                finish();
-
+                onBackPressed();
             }
         });
+
+
 
     }
 

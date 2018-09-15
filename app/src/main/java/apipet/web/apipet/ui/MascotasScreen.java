@@ -13,6 +13,11 @@ import apipet.web.apipet.R;
 public class MascotasScreen extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -26,7 +31,6 @@ public class MascotasScreen extends AppCompatActivity {
             public void onClick(View v2) {
                 Intent i2 = new Intent(getApplicationContext(),RazasScreen.class);
                 startActivity(i2);
-                finish();
 
             }
         });
@@ -37,21 +41,19 @@ public class MascotasScreen extends AppCompatActivity {
             public void onClick(View v2) {
                 Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
                 startActivity(i2);
-                finish();
 
             }
         });
 
-        Button btn_atras = (Button)findViewById(R.id.btn_back);
+        Button btn_atras = (Button)findViewById(R.id.back_btn);
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
-                startActivity(i2);
-                finish();
+             onBackPressed();
 
             }
         });
+
     }
 
     @Override
@@ -69,5 +71,6 @@ public class MascotasScreen extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
+
 
 }
