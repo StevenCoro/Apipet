@@ -1,13 +1,18 @@
 package apipet.web.apipet.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import apipet.web.apipet.R;
@@ -15,7 +20,7 @@ import apipet.web.apipet.R;
 public class MainScreen extends AppCompatActivity  implements View.OnClickListener{
 
 
-
+    int cont = 0;
     CardView cardView_opciones;
 
 
@@ -95,10 +100,44 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finishAffinity();
-        System.exit(0);
-        Toast.makeText(this, "Cerrar", Toast.LENGTH_LONG).show();
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0,750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        TextView tv = new TextView(MainScreen.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0,0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+
+        tv.setPadding(10, 10,10,10);
+        tv.setText("Presiona de nuevo para salir");
+        toast.setView(tv);
+
+
+
+
+        if (cont==0){
+            toast.show();
+            cont++;
+        }
+        else {
+            super.onBackPressed();
+            finishAffinity();
+            System.exit(0);
+        }
+        new CountDownTimer(3000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+            cont =0;
+            }
+        }.start();
 
     }
 

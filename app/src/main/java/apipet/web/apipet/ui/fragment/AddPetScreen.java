@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
@@ -12,12 +13,16 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -29,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import apipet.web.apipet.R;
+import apipet.web.apipet.ui.MainScreen;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
 import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota1;
@@ -202,6 +208,17 @@ public class AddPetScreen extends AppCompatActivity {
     }
 
     public void GuardarDatos(View view){
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0,750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        TextView tv = new TextView(AddPetScreen.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0,0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+
+        tv.setPadding(10, 10,10,10);
         int cont =1;
 
 
@@ -216,7 +233,9 @@ public class AddPetScreen extends AppCompatActivity {
         FileOutputStream fos = null;
 
         if (nombreMascota.isEmpty()){
-            Toast.makeText(this, "Debes ingresar un nombre", Toast.LENGTH_LONG).show();
+            tv.setText("Debes ingresar un nombre");
+            toast.setView(tv);
+            toast.show();
         }
         else{
             try {
@@ -224,7 +243,9 @@ public class AddPetScreen extends AppCompatActivity {
                 if (cont==1){
                     fos = openFileOutput(nombreDelArchivo1, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo1, Toast.LENGTH_LONG).show();
+                    tv.setText("Guardado con éxito en: "+ getFilesDir()+"/" + nombreDelArchivo1);
+                    toast.setView(tv);
+                    toast.show();
 
 
                 }

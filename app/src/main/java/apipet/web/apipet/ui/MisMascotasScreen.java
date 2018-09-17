@@ -43,7 +43,8 @@ public class MisMascotasScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent i2 = new Intent(getApplicationContext(),MascotasScreen.class);
+        startActivity(i2);
     }
 
     @Override
