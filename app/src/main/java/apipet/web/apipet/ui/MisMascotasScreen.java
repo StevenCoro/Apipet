@@ -79,8 +79,8 @@ public class MisMascotasScreen extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),AddPetScreen.class);
-                startActivity(i2);
+                Intent i = new Intent(getApplicationContext(),AddPetScreen.class);
+                startActivity(i);
 
             }
         });

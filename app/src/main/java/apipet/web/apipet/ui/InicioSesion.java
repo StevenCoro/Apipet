@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +30,7 @@ public class InicioSesion extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_SHORT);
 
         TextView tv = new TextView(InicioSesion.this);
-        tv.setBackgroundColor(Color.argb(100, 0, 0,0));
+        tv.setBackgroundColor(Color.argb(99, 0, 0, 0));
         tv.setTextColor(Color.WHITE);
         tv.setTextSize(15);
 

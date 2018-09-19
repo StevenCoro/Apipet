@@ -1,45 +1,29 @@
 package apipet.web.apipet.ui;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import apipet.web.apipet.R;
 
-public class CaninosScreen extends AppCompatActivity {
+public class informacion_caninos_criollo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_caninos_screen);
         hideNavigationBar();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_informacion_caninos_criollo);
 
-        Button back_btn = findViewById(R.id.back_btn);
-        back_btn.setOnClickListener(new View.OnClickListener() {
+        Button btn_atras = (Button)findViewById(R.id.back_btn);
+        btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-               onBackPressed();
-
-            }
-        });
-
-        Button btn_criollo = findViewById(R.id.btn_criollo);
-        btn_criollo.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View v2) {
-                Intent i = new Intent(getApplicationContext(),informacion_caninos_criollo.class);
-                startActivity(i);
-
+                onBackPressed();
 
             }
         });
     }
-
     public void hideNavigationBar(){
         this.getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN|
@@ -60,5 +44,4 @@ public class CaninosScreen extends AppCompatActivity {
         super.onPostResume();
         hideNavigationBar();
     }
-
 }

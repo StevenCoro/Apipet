@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import apipet.web.apipet.R;
+import apipet.web.apipet.io.GuardarImagenes;
 import apipet.web.apipet.ui.MainScreen;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
@@ -139,6 +140,7 @@ public class AddPetScreen extends AppCompatActivity {
                                 intent.setType("image/");
                                 startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), codigoSeleccionSubirImagen);
 
+
                             }
                         }
                     }
@@ -178,6 +180,12 @@ public class AddPetScreen extends AppCompatActivity {
                 case codigoSeleccionSubirImagen:
                      Uri path2 = data.getData();
                     imagenMascota.setImageURI(path2);
+
+                    imagenMascota.buildDrawingCache();
+                    Bitmap bmap = imagenMascota.getDrawingCache();
+
+                    GuardarImagenes savefile = new GuardarImagenes();
+                    savefile.SaveImage(getApplicationContext(), bmap);
 
 
                     break;

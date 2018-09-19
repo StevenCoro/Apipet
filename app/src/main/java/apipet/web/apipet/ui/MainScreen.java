@@ -21,6 +21,7 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
 
 
     int cont = 0;
+    boolean visible = false;
     CardView cardView_opciones;
 
 
@@ -62,13 +63,14 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
 
             }
         });
-        final Button btn_opciones = (Button)findViewById(R.id.option_btn);
+         final Button btn_opciones = (Button)findViewById(R.id.option_btn);
         btn_opciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-
                 cardView_opciones.setVisibility(View.VISIBLE);
                 btn_opciones.setVisibility(View.GONE);
+                visible = true;
+
 
             }
 
@@ -80,6 +82,7 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
 
                 cardView_opciones.setVisibility(View.GONE);
                 btn_opciones.setVisibility(View.VISIBLE);
+                visible = false;
 
             }
 
@@ -101,43 +104,49 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
     @Override
     public void onBackPressed() {
 
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0,750);
-        toast.setDuration(Toast.LENGTH_SHORT);
 
-        TextView tv = new TextView(MainScreen.this);
-        tv.setBackgroundColor(Color.argb(100, 0, 0,0));
-        tv.setTextColor(Color.WHITE);
-        tv.setTextSize(15);
-
-        tv.setPadding(10, 10,10,10);
-        tv.setText("Presiona de nuevo para salir");
-        toast.setView(tv);
-
-
-
-
-        if (cont==0){
-            toast.show();
-            cont++;
+         if(visible) {
+            Button btn_opciones = findViewById(R.id.option_btn);
+            cardView_opciones.setVisibility(View.GONE);
+            btn_opciones.setVisibility(View.VISIBLE);
+            visible = false;
         }
-        else {
-            super.onBackPressed();
-            finishAffinity();
-            System.exit(0);
+        else if(!visible){
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+            toast.setDuration(Toast.LENGTH_SHORT);
+
+            TextView tv = new TextView(MainScreen.this);
+            tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+            tv.setTextColor(Color.WHITE);
+            tv.setTextSize(15);
+
+            tv.setPadding(10, 10, 10, 10);
+            tv.setText("Presiona de nuevo para salir");
+            toast.setView(tv);
+
+            if (cont == 0) {
+                toast.show();
+                cont++;
+            } else {
+                super.onBackPressed();
+                finishAffinity();
+                System.exit(0);
+            }
+            new CountDownTimer(3000, 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    cont = 0;
+                }
+            }.start();
         }
-        new CountDownTimer(3000, 1000){
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-            cont =0;
-            }
-        }.start();
 
     }
 

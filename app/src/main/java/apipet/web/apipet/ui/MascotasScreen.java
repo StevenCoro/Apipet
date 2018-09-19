@@ -14,7 +14,8 @@ public class MascotasScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent i = new Intent(getApplicationContext(), MainScreen.class);
+        startActivity(i);
     }
 
     @Override

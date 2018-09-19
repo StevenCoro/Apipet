@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/info_caninos_criollo"
+    tools:context=".ui.informacion_caninos_criollo">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="65px"
+        android:layout_height="65px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/icono_back"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_bienvenido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nombre_raza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="260dp"
+                android:fontFamily="@font/lato_bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Criollos"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.044"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+
+            <TextView
+                android:id="@+id/tv_descripcion_raza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/varela_round"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Un criollo es aquel que no pertenece a ninguna de las razas reconocidas por las organizaciones de los criadores.  Y es que son el resultado de una crianza no selectiva."
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nombre_raza" />
+
+            <TextView
+                android:id="@+id/tv_titulo_procedencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Procedencia:"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_raza" />
+
+            <TextView
+                android:id="@+id/tv_procedencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/varela_round"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/tv_procedencia_canino_criollo"
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_procedencia" />
+
+            <TextView
+                android:id="@+id/tv_titulo_estatura_peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Estatura y peso:"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_procedencia" />
+
+            <TextView
+                android:id="@+id/tv_estatura_peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/varela_round"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="-Pequeños: Hasta 30cm. Su peso ronda los 15 kg. \n-Medianos: Miden entre 30 y 40 cm. Pueden llegar a pesar hasta 25kg. \n-Grandes: Suelen medir hasta 60cm. Pesan hasta 45kg."
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_estatura_peso" />
+
+            <TextView
+                android:id="@+id/tv_titulo_tiempo_vida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Tiempo de vida:"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_estatura_peso" />
+
+            <TextView
+                android:id="@+id/tv_tiempo_vida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/varela_round"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="De 16 a 18 años, con registros de hasta 20 años. "
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_tiempo_vida" />
+
+            <TextView
+                android:id="@+id/tv_titulo_caracteristicas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Características:"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tiempo_vida" />
+
+            <TextView
+                android:id="@+id/tv_caracteristicas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/varela_round"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate. "
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_caracteristicas" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
