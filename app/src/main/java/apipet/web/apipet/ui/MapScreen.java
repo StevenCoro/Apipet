@@ -37,6 +37,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        hideNavigationBar();
     }
 
     @Override
@@ -317,12 +318,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
 
 
     }
-    public void Back(View view){
-        Intent i = new Intent(this, MainScreen.class);
-        startActivity(i);
-        finish();
-    }
-
     @Override
     public void onClick(View v) {
 

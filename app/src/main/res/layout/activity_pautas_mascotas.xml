@@ -79,7 +79,7 @@
             android:id="@+id/btn_ver_mas"
             android:layout_width="300px"
             android:layout_height="100px"
-            android:layout_marginLeft="350px"
+            android:layout_marginLeft="125dp"
             android:layout_marginTop="1200px"
             android:background="@drawable/boton_negro"
             android:elevation="0px"
