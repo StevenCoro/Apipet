@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_mascotas"
     tools:context=".ui.MascotasScreen">
+
     <TextView
         android:id="@+id/text_view_mascotas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
-        android:fontFamily="@font/lato_bold"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Mascotas"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"

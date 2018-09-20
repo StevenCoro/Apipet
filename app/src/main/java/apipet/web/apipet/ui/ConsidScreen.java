@@ -1,14 +1,67 @@
 package apipet.web.apipet.ui;
 
 import android.content.Intent;
+import android.graphics.Rect;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 
 import apipet.web.apipet.R;
 
 public class ConsidScreen extends AppCompatActivity {
+    private Handler mHandler = new Handler();
+    private Runnable decor_view_settings = new Runnable()
+    {
+        public void run()
+        {
+            getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+
+                    Rect r = new Rect();
+                    getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
+                    int screenHeight = getWindow().getDecorView().getRootView().getHeight();
+
+                    int keypadHeight = screenHeight - r.bottom;
+
+                    //Log.d(TAG, "keypadHeight = " + keypadHeight);
+
+                    if (keypadHeight > screenHeight * 0.15) {
+                        mHandler.postDelayed(decor_view_settings, 500);
+                        mHandler.post(decor_view_settings);
+                        hideNavigationBar();
+                    }
+                    else {
+
+                        mHandler.post(decor_view_settings);
+                        hideNavigationBar();
+                    }
+                }
+            });
+
+
+
+        }
+    };
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        super.onWindowFocusChanged(hasFocus);
+
+        if(hasFocus)
+        {
+            mHandler.post(decor_view_settings);
+            hideNavigationBar();
+        }
+        else {
+            mHandler.post(decor_view_settings);
+            hideNavigationBar();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

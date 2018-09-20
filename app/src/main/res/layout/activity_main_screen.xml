@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:elevation="0dp"
-        android:fontFamily="@font/lato_bold"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="@string/BienvenidoPantallaMain"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"

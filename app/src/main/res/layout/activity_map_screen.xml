@@ -12,7 +12,6 @@
         android:layout_height="65px"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
-        android:onClick="Back"
         app:layout_constraintBottom_toTopOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"

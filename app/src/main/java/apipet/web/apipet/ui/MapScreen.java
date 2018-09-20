@@ -2,7 +2,6 @@ package apipet.web.apipet.ui;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -10,8 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,7 +17,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import apipet.web.apipet.ui.fragment.ExitoInformacion;
 import apipet.web.apipet.R;
 
@@ -33,18 +29,32 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
             , markerVeterinariaLosValencia, markerAgroPerez;
     Dialog MyDialog;
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
+
+
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        hideNavigationBar();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_screen);
-        hideNavigationBar();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -63,15 +73,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
 
     }
 
-    public void hideNavigationBar() {
-        this.getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_FULLSCREEN |
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
-                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-    }
+
 
 
     /**
@@ -86,7 +88,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        hideNavigationBar();
+
         // Add a marker in Sydney and move the camera
         LatLng rionegro = new LatLng(6.144809634626859, -75.37547391822147);
         LatLng doctorPet = new LatLng(6.149191003444293, -75.37856574565893);
@@ -197,7 +199,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
     @Override
     protected void onResume() {
         super.onResume();
-        hideNavigationBar();
     }
 
     @Override
