@@ -1,31 +1,103 @@
 package apipet.web.apipet.ui;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
+
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import org.json.JSONObject;
 import apipet.web.apipet.R;
 
-public class RegistroScreen extends AppCompatActivity {
+public class RegistroScreen extends AppCompatActivity implements com.android.volley.Response.Listener<JSONObject>, com.android.volley.Response.ErrorListener{
 
-    /*TextView tvText;
-    TextView tvPassword;
-    Button btnRegistrar;*/
+   EditText correo_usuario, contrasena_usuario;
+   Button btn_registrarse;
+   RequestQueue request;
+   JsonObjectRequest jsonObjectRequest;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registro_screen);
+        hideNavigationBar();
+
+        correo_usuario = findViewById(R.id.etUsuario);
+        contrasena_usuario = findViewById(R.id.etclave);
+        btn_registrarse = findViewById(R.id.btn_register);
+
+        request = Volley.newRequestQueue(getApplicationContext());
+
+
+        btn_registrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cargarWebService();
+
+            }
+        });
+    }
+
+    private void cargarWebService() {
+
+
+        String url = "http://192.168.0.14/apipet/JSONRegistro.php?correo="+correo_usuario.getText().toString()+"&contrasena="+contrasena_usuario.getText().toString();
+
+        url = url.replace(" ", "%20");
+
+        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        request.add(jsonObjectRequest);
+    }
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(getApplicationContext(),"Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+
+        correo_usuario.setText("");
+        contrasena_usuario.setText("");
+    }
+
+
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+
+        Toast.makeText(getApplicationContext(),"No se pudo registrar"+ error.toString(), Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+    public void hideNavigationBar(){
+        this.getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN|
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        hideNavigationBar();
+    }
 
     private Handler mHandler = new Handler();
     private Runnable decor_view_settings = new Runnable()
@@ -61,7 +133,6 @@ public class RegistroScreen extends AppCompatActivity {
 
         }
     };
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus)
     {
@@ -77,113 +148,9 @@ public class RegistroScreen extends AppCompatActivity {
             hideNavigationBar();
         }
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_screen);
-        hideNavigationBar();
-    }
-
-    public void hideNavigationBar(){
-        this.getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_FULLSCREEN|
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|
-                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|
-                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        hideNavigationBar();
-    }
-
-    public class activity_register extends AppCompatActivity implements View.OnClickListener {
-
-        //defining view objects
-        private EditText TextEmail;
-        private EditText TextPassword;
-        private Button btnRegistrar;
-        private ProgressDialog progressDialog;
 
 
-        //Declaramos un objeto firebaseAuth
-        private FirebaseAuth firebaseAuth;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_registro_screen);
-
-            //inicializamos el objeto firebaseAuth
-            firebaseAuth = FirebaseAuth.getInstance();
-
-            //Referenciamos los views
-            TextEmail = (EditText) findViewById(R.id.edEmail);
-            TextPassword = (EditText) findViewById(R.id.editText2);
-
-            btnRegistrar = (Button) findViewById(R.id.btn_registrarse);
-
-            progressDialog = new ProgressDialog(this);
-
-            //attaching listener to button
-            btnRegistrar.setOnClickListener(this);
-        }
-
-        private void registrarUsuario(){
-
-            //Obtenemos el email y la contraseña desde las cajas de texto
-            String email = TextEmail.getText().toString().trim();
-            String password  = TextPassword.getText().toString().trim();
-
-            //Verificamos que las cajas de texto no esten vacías
-            if(TextUtils.isEmpty(email)){
-                Toast.makeText(this,"Se debe ingresar un email",Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            if(TextUtils.isEmpty(password)){
-                Toast.makeText(this,"Falta ingresar la contraseña",Toast.LENGTH_LONG).show();
-                return;
-            }
-
-
-            progressDialog.setMessage("Realizando registro en linea...");
-            progressDialog.show();
-
-            //creating a new user
-            firebaseAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            //checking if success
-                            if(task.isSuccessful()){
-
-                                Toast.makeText(activity_register.this,"Se ha registrado el usuario con el email: "+ TextEmail.getText(),Toast.LENGTH_LONG).show();
-                            }else{
-
-                                Toast.makeText(activity_register.this,"No se pudo registrar el usuario ",Toast.LENGTH_LONG).show();
-                            }
-                            progressDialog.dismiss();
-                        }
-                    });
-
-        }
-
-        @Override
-        public void onClick(View view) {
-            //Invocamos al método:
-            registrarUsuario();
-        }
     }
 
 
 
-}

@@ -8,23 +8,17 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-
 import apipet.web.apipet.R;
-
 public class InicioSesion extends AppCompatActivity {
 
     TextView tvEmail;
     TextView tvPassword;
     Button btnIngresar;
-    FirebaseAuth mAuth;
     int cont =0;
 
 
@@ -128,11 +122,11 @@ public class InicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
-        tvEmail = (TextView) findViewById(R.id.etUser);
-        tvPassword = (TextView) findViewById(R.id.etPassword);
-        btnIngresar = (Button) findViewById(R.id.btn_ingresar);
+        tvEmail =  findViewById(R.id.etUser);
+        tvPassword = findViewById(R.id.etPassword);
+        btnIngresar =  findViewById(R.id.btn_ingresar);
 
-        Button btn_registro = (Button)findViewById(R.id.btn_registrarse);
+        Button btn_registro = (Button)findViewById(R.id.btn_register);
         btn_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
@@ -141,8 +135,8 @@ public class InicioSesion extends AppCompatActivity {
 
             }
         });
-        Button btn_ingresar = (Button)findViewById(R.id.btn_ingresar);
-        btn_ingresar.setOnClickListener(new View.OnClickListener() {
+
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
                 Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
