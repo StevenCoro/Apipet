@@ -13,10 +13,9 @@
         android:id="@+id/btn_register"
         android:layout_width="167dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="81dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/boton_negro"
         android:elevation="0px"
         android:fontFamily="@font/varela_round"
@@ -26,7 +25,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etclave" />
+        app:layout_constraintTop_toBottomOf="@+id/etclave2"
+        app:layout_constraintVertical_bias="0.466" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -44,34 +44,16 @@
         app:layout_constraintVertical_bias="0.143"
         app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="1000px"
-        android:layout_height="105px"
-        android:layout_marginTop="192dp"
-        android:background="@drawable/boton_blanco"
-        android:fontFamily="@font/varela_round"
-        android:text="@string/TextoSplashScreen"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="35px"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="450dp"
         android:ems="10"
         android:hint="@string/ingrese_un_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/etclave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,13 +62,56 @@
         android:id="@+id/etclave"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="165dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/ingrese_una_contrase_a"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
+
+    <EditText
+        android:id="@+id/etclave2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Repita su contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etclave" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="450dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/etUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/varela_round"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/TextoSplashScreen"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15.5sp" />
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

@@ -11,68 +11,104 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import apipet.web.apipet.R;
-public class InicioSesion extends AppCompatActivity {
+import apipet.web.apipet.io.Usuario;
 
-    TextView tvEmail;
-    TextView tvPassword;
+public class InicioSesion extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+
+    EditText etEmail, etPassword;
     Button btnIngresar;
     int cont =0;
 
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_inicio_sesion);
 
+        etEmail =  findViewById(R.id.etUser);
+        etPassword = findViewById(R.id.etPassword);
+        btnIngresar =  findViewById(R.id.btn_ingresar);
 
-    private Handler mHandler = new Handler();
-    private Runnable decor_view_settings = new Runnable()
-    {
-        public void run()
-        {
-            getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                @Override
-                public void onGlobalLayout() {
+        request = Volley.newRequestQueue(getApplicationContext());
 
-                    Rect r = new Rect();
-                    getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
-                    int screenHeight = getWindow().getDecorView().getRootView().getHeight();
+        Button btn_registro = (Button)findViewById(R.id.btn_register);
+        btn_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i2 = new Intent(getApplicationContext(),RegistroScreen.class);
+                startActivity(i2);
 
-                    int keypadHeight = screenHeight - r.bottom;
+            }
+        });
 
-                    //Log.d(TAG, "keypadHeight = " + keypadHeight);
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                /*Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
+                startActivity(i2);
+                finish();*/
+                cargarWebService();
 
-                    if (keypadHeight > screenHeight * 0.15) {
-                        mHandler.postDelayed(decor_view_settings, 1500);
-                        mHandler.post(decor_view_settings);
-                        hideNavigationBar();
-                    }
-                    else {
+            }
+        });
 
-                        mHandler.post(decor_view_settings);
-                        hideNavigationBar();
-                    }
-                }
-            });
+    }
 
+    private void cargarWebService() {
+        String url = "http://192.168.0.14/apipet/JSONInicio.php?correo="+etEmail.getText().toString();
 
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        request.add(jsonObjectRequest);
+    }
 
-        }
-    };
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus)
-    {
-        super.onWindowFocusChanged(hasFocus);
+    public void onErrorResponse(VolleyError error) {
 
-        if(hasFocus)
-        {
-            mHandler.post(decor_view_settings);
-            hideNavigationBar();
-        }
-        else {
-            mHandler.post(decor_view_settings);
-            hideNavigationBar();
-        }
     }
+
+    @Override
+    public void onResponse (JSONObject response) {
+
+        Toast.makeText(getApplicationContext(), "Mensaje: "+response, Toast.LENGTH_SHORT).show();
+
+
+
+        Usuario miUsuario = new Usuario();
+
+        JSONArray json = response.optJSONArray("usuarios");
+        JSONObject jsonObject = null;
+
+
+        try {
+            jsonObject = json.getJSONObject(0);
+            miUsuario.setClave(jsonObject.optString("contrasena"));
+            miUsuario.setCorreo(jsonObject.optString("correo"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        etPassword.setText(miUsuario.getClave());
+
+
+    }
+
+
+
 
 
 
@@ -117,36 +153,7 @@ public class InicioSesion extends AppCompatActivity {
         }.start();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_sesion);
 
-        tvEmail =  findViewById(R.id.etUser);
-        tvPassword = findViewById(R.id.etPassword);
-        btnIngresar =  findViewById(R.id.btn_ingresar);
-
-        Button btn_registro = (Button)findViewById(R.id.btn_register);
-        btn_registro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),RegistroScreen.class);
-                startActivity(i2);
-
-            }
-        });
-
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
-                startActivity(i2);
-                finish();
-
-            }
-        });
-
-    }
 
     @Override
     protected void onPostResume() {
@@ -161,6 +168,53 @@ public class InicioSesion extends AppCompatActivity {
                         View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
                         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+    }
+
+    private Handler mHandler = new Handler();
+    private Runnable decor_view_settings = new Runnable()
+    {
+        public void run()
+        {
+            getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+
+                    Rect r = new Rect();
+                    getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
+                    int screenHeight = getWindow().getDecorView().getRootView().getHeight();
+
+                    int keypadHeight = screenHeight - r.bottom;
+
+                    //Log.d(TAG, "keypadHeight = " + keypadHeight);
+
+                    if (keypadHeight > screenHeight * 0.15) {
+                        hideNavigationBar();
+                    }
+                    else {
+                        hideNavigationBar();
+                    }
+                }
+            });
+
+
+
+        }
+    };
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        super.onWindowFocusChanged(hasFocus);
+
+        if(hasFocus)
+        {
+            mHandler.post(decor_view_settings);
+            hideNavigationBar();
+        }
+        else {
+            mHandler.post(decor_view_settings);
+            hideNavigationBar();
+        }
     }
 
 

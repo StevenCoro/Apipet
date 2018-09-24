@@ -145,6 +145,15 @@ Teléfono: (4) 6152090</string>
 
 
     <string name="tv_procedencia_canino_criollo">Su ascendencia es desconocida. \nReúne características de una o más razas. \nDesciende de poblaciones de animales callejeros o salvajes.</string>
+    <string name="tv_nombre_raza_caninos_criollo">Criollos</string>
+    <string name="tv_descripcion_raza_caninos_criollo">Un criollo es aquel que no pertenece a ninguna de las razas reconocidas por las organizaciones de los criadores. Y es que son el resultado de una crianza no selectiva.</string>
+    <string name="tv_titulo_procedencia_caninos_criollo">Procedencia:</string>
+    <string name="tv_titulo_estastatura_peso_caninos_criollo">Estatura y peso:</string>
+    <string name="tv_estatura_peso_caninos_criollo">-Pequeños: Hasta 30cm. Su peso ronda los 15 kg.  -Medianos: Miden entre 30 y 40 cm. Pueden llegar a pesar hasta 25kg.  -Grandes: Suelen medir hasta 60cm. Pesan hasta 45kg.</string>
+    <string name="tv_titulo_tiempo_vida_caninos_criollo">Tiempo de vida:</string>
+    <string name="tv_tiempo_vida_caninos_criollo">De 16 a 18 años, con registros de hasta 20 años.</string>
+    <string name="tv_titulo_caracteristicas_caninos_criollo">Características:</string>
+    <string name="tv_caracteristicas_caninos_criollo">Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate.</string>
 
 
 </resources>

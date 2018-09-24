@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import apipet.web.apipet.R;
 
 public class SplashScreen extends AppCompatActivity {
-    private static int pantallaEspera=2000;
+    private static int pantallaEspera=1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

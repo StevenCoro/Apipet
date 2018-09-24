@@ -23,19 +23,18 @@
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="65px"
-        android:layout_height="65px"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_bienvenido"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view_golden"
+        android:id="@+id/card_view_golden_retriever"
         android:layout_width="850px"
         android:layout_height="180px"
         android:layout_gravity="center_horizontal"
@@ -43,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/card_view_pitbull"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view_criollo">
+        app:layout_constraintTop_toBottomOf="@+id/card_view_canino_criollo">
 
         <Button
             android:id="@+id/btn_golden"
@@ -70,7 +69,7 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view_ragdoll"
+        android:id="@+id/card_view_bulldog"
         android:layout_width="850px"
         android:layout_height="180px"
         android:layout_gravity="center_horizontal"
@@ -81,13 +80,13 @@
         app:layout_constraintTop_toBottomOf="@+id/card_view_pitbull">
 
         <Button
-            android:id="@+id/btn_ragdoll"
+            android:id="@+id/btn_bulldog"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent" />
 
         <ImageView
-            android:id="@+id/img_ragdoll"
+            android:id="@+id/img_bulldog"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
@@ -99,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Ragdoll"
+            android:text="Bulldog"
             android:textColor="@color/colorPrimary"
             android:textSize="17sp" />
     </android.support.v7.widget.CardView>
@@ -110,10 +109,10 @@
         android:layout_height="180px"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toTopOf="@+id/card_view_ragdoll"
+        app:layout_constraintBottom_toTopOf="@+id/card_view_bulldog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_view_golden">
+        app:layout_constraintTop_toBottomOf="@+id/card_view_golden_retriever">
 
         <Button
             android:id="@+id/btn_pitbull"
@@ -140,18 +139,18 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view_criollo"
+        android:id="@+id/card_view_canino_criollo"
         android:layout_width="850px"
         android:layout_height="180px"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toTopOf="@+id/card_view_golden"
+        app:layout_constraintBottom_toTopOf="@+id/card_view_golden_retriever"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido">
 
         <Button
-            android:id="@+id/btn_criollo"
+            android:id="@+id/btn_canino_criollo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent" />

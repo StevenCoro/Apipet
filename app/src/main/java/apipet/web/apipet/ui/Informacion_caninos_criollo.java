@@ -1,6 +1,5 @@
 package apipet.web.apipet.ui;
 
-import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +10,13 @@ import android.widget.Button;
 
 import apipet.web.apipet.R;
 
-public class RazasScreen extends AppCompatActivity {
+public class Informacion_caninos_criollo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_razas_screen);
+        setContentView(R.layout.activity_informacion_caninos_criollo);
+
         hideNavigationBar();
 
         Button btn_atras = (Button)findViewById(R.id.back_btn);
@@ -27,33 +27,7 @@ public class RazasScreen extends AppCompatActivity {
 
             }
         });
-
-        Button btn_felinos = (Button)findViewById(R.id.btn_felinos);
-        btn_felinos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),FelinosScreen.class);
-                startActivity(i2);
-
-            }
-        });
-        Button btn_caninos = (Button)findViewById(R.id.btn_caninos);
-        btn_caninos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),CaninosScreen.class);
-                startActivity(i2);
-
-            }
-        });
     }
-
-    @Override
-    public void onBackPressed() {
-
-        super.onBackPressed();
-    }
-
     public void hideNavigationBar(){
         this.getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_FULLSCREEN|
@@ -65,8 +39,14 @@ public class RazasScreen extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onPostResume() {
         super.onPostResume();
         hideNavigationBar();
     }
+
 }

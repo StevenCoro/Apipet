@@ -1,15 +1,19 @@
 package apipet.web.apipet.ui;
 
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -61,10 +65,24 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
     }
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(getApplicationContext(),"Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
 
+        TextView tv = new TextView(RegistroScreen.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+
+        tv.setPadding(10, 10, 10, 10);
+        tv.setText("Se ha registrado con éxito");
+        toast.setView(tv);
+        toast.show();
         correo_usuario.setText("");
         contrasena_usuario.setText("");
+        Intent i = new Intent(getApplicationContext(), MainScreen.class);
+        startActivity(i);
+
     }
 
 
@@ -73,7 +91,19 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
     public void onErrorResponse(VolleyError error) {
 
 
-        Toast.makeText(getApplicationContext(),"No se pudo registrar"+ error.toString(), Toast.LENGTH_SHORT).show();
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        TextView tv = new TextView(RegistroScreen.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+
+        tv.setPadding(10, 10, 10, 10);
+        tv.setText("No se ha podido registrar:"+ error.toString());
+        toast.setView(tv);
+        toast.show();
         Log.i("ERROR", error.toString());
 
     }
@@ -117,13 +147,9 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
                     //Log.d(TAG, "keypadHeight = " + keypadHeight);
 
                     if (keypadHeight > screenHeight * 0.15) {
-                        mHandler.postDelayed(decor_view_settings, 500);
-                        mHandler.post(decor_view_settings);
                         hideNavigationBar();
                     }
                     else {
-
-                        mHandler.post(decor_view_settings);
                         hideNavigationBar();
                     }
                 }
@@ -133,6 +159,7 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
 
         }
     };
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus)
     {
@@ -148,6 +175,7 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
             hideNavigationBar();
         }
     }
+
 
 
     }
