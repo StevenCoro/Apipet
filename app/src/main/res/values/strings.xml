@@ -132,28 +132,31 @@ Teléfono: (4) 6152090</string>
         \nTeléfono: 3664969</string>
     <string name="ClinicaCVPets">Clinica CVPets</string>
 
+
     <string name="ingrese_un_email">Ingrese un correo</string>
     <string name="ingrese_una_contrase_a">Ingrese una contraseña</string>
     <string name="registrarse">Registrarse</string>
-    <string name="title_activity_option_main_screen">OptionMainScreen</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-
-    <string name="tv_procedencia_canino_criollo">Su ascendencia es desconocida. \nReúne características de una o más razas. \nDesciende de poblaciones de animales callejeros o salvajes.</string>
-    <string name="tv_nombre_raza_caninos_criollo">Criollos</string>
     <string name="tv_descripcion_raza_caninos_criollo">Un criollo es aquel que no pertenece a ninguna de las razas reconocidas por las organizaciones de los criadores. Y es que son el resultado de una crianza no selectiva.</string>
-    <string name="tv_titulo_procedencia_caninos_criollo">Procedencia:</string>
-    <string name="tv_titulo_estastatura_peso_caninos_criollo">Estatura y peso:</string>
+    <string name="tv_procedencia_canino_criollo">Su ascendencia es desconocida. \nReúne características de una o más razas. \nDesciende de poblaciones de animales callejeros o salvajes.</string>
     <string name="tv_estatura_peso_caninos_criollo">-Pequeños: Hasta 30cm. Su peso ronda los 15 kg.  -Medianos: Miden entre 30 y 40 cm. Pueden llegar a pesar hasta 25kg.  -Grandes: Suelen medir hasta 60cm. Pesan hasta 45kg.</string>
-    <string name="tv_titulo_tiempo_vida_caninos_criollo">Tiempo de vida:</string>
     <string name="tv_tiempo_vida_caninos_criollo">De 16 a 18 años, con registros de hasta 20 años.</string>
-    <string name="tv_titulo_caracteristicas_caninos_criollo">Características:</string>
     <string name="tv_caracteristicas_caninos_criollo">Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate.</string>
+
+
+    <string name="tv_nombre_raza_caninos_golden">Golden retriever</string>
+    <string name="tv_descripcion_raza_caninos_golden">Los Golden Retriever son perros  muy leales a su núcleo cercano y se muestran dulces y afectuosos con sus humanos. Se llevan muy bien con los niños y, aunque en general son amistosos, también pueden ser territoriales. Por eso no debe descuidarse su socialización desde pequeños.</string>
+    <string name="tv_titulo_procedencia_caninos_golden">Procedencia:</string>
+    <string name="tv_procedencia_canino_golden">Su origen hay que buscarlo en Escocia en el siglo diecinueve, concretamente hacia 1850 y en las décadas posteriores. El Golden retriever se originó a partir solamente de perros cazadores. \nSabemos que la estirpe de los perros golden retriever se originó exactamente con un perdiguero dorado llamado Nous que fue comprado a un zapatero de Brighton y una Tweed Water Spanial llamada Belle.</string>
+    <string name="tv_titulo_estastatura_peso_caninos_golden">Estatura y peso:</string>
+    <string name="tv_estatura_peso_caninos_golden">Miden entre 51 y 61 cm. \nPeso: de 27 a 32 kg en las hembras y de 32 a 37 kg en los machos. </string>
+    <string name="tv_titulo_tiempo_vida_caninos_golden">Tiempo de vida:</string>
+    <string name="tv_tiempo_vida_caninos_golden">De 10 a 12 años.</string>
+    <string name="tv_titulo_caracteristicas_caninos_golden">Características:</string>
+    <string name="tv_caracteristicas_caninos_golden">Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate.</string>
+    <string name="tv_alimentacion_golden_retriever">Se alimentan con unos 520 g diarios de alimento completo seco.</string>
+
+
 
 
 </resources>
