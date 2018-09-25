@@ -77,35 +77,42 @@ public class AddPetScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet_screen);
 
-        spinnerTipo = (Spinner)findViewById(R.id.spnTipo);
+        spinnerTipo = findViewById(R.id.spnTipo);
         String [] tipo = {"Canino", "Felino"};
-        ArrayAdapter <String> adapter= new ArrayAdapter<String>(this, R.layout.spinner_item_add_pet, tipo);
+        ArrayAdapter <String> adapter= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, tipo);
         spinnerTipo.setAdapter(adapter);
-
+        int eleccion=0;
         String selection = spinnerTipo.getSelectedItem().toString();
-
-
-        if(selection.equals("Canino")){
-            spinnerRaza = (Spinner)findViewById(R.id.spnRaza);
-            String [] raza = {"Criollo", "Golden retriever", "Pitbull", "Bulldog"};
-            ArrayAdapter <String> adapter2= new ArrayAdapter<String>(this, R.layout.spinner_item_add_pet, raza);
-            spinnerRaza.setAdapter(adapter2);
-
+        if (selection.equals("Canino")){
+            eleccion = 1;
         }
-        if(selection.equals("Felino")){
-            spinnerRaza = (Spinner)findViewById(R.id.spnRaza);
-            String[]raza = {"Criollo", "Persa", "Angora", "Ragdoll"};
-            ArrayAdapter <String> adapter3= new ArrayAdapter<String>(this, R.layout.spinner_item_add_pet, raza);
-            spinnerRaza.setAdapter(adapter3);}
+        if (selection.equals("Felino")){
+            eleccion=2;
+        }
 
-        spinnerGenero = (Spinner)findViewById(R.id.spnGenero);
+        switch (eleccion){
+            case 1:
+                spinnerRaza = findViewById(R.id.spnRaza);
+                String [] razas_caninos = {"Criollo", "Golden retriever", "Pitbull", "Bulldog"};
+                ArrayAdapter <String> adapter2= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_caninos);
+                spinnerRaza.setAdapter(adapter2);
+                break;
+            case 2:
+                spinnerRaza = findViewById(R.id.spnRaza);
+                String[]razas_felinos = {"Criollo", "Persa", "Angora", "Ragdoll"};
+                ArrayAdapter <String> adapter3= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_felinos);
+                spinnerRaza.setAdapter(adapter3);
+                break;
+        }
+
+        spinnerGenero = findViewById(R.id.spnGenero);
         String [] genero = {"Macho", "Hembra"};
-        ArrayAdapter <String> adapter4= new ArrayAdapter<String>(this, R.layout.spinner_item_add_pet, genero);
+        ArrayAdapter <String> adapter4= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, genero);
         spinnerGenero.setAdapter(adapter4);
 
         hideNavigationBar();
 
-        Button btn_back = (Button)findViewById(R.id.btn_back);
+        Button btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {

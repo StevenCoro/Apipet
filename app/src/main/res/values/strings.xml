@@ -142,19 +142,43 @@ Teléfono: (4) 6152090</string>
     <string name="tv_estatura_peso_caninos_criollo">-Pequeños: Hasta 30cm. Su peso ronda los 15 kg.  -Medianos: Miden entre 30 y 40 cm. Pueden llegar a pesar hasta 25kg.  -Grandes: Suelen medir hasta 60cm. Pesan hasta 45kg.</string>
     <string name="tv_tiempo_vida_caninos_criollo">De 16 a 18 años, con registros de hasta 20 años.</string>
     <string name="tv_caracteristicas_caninos_criollo">Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate.</string>
+    <string name="tv_alimentacion_caninos_criollo">Depende del tamaño del perro. Para una mayor información acuda a su veterinario de confianza.</string>
 
 
     <string name="tv_nombre_raza_caninos_golden">Golden retriever</string>
     <string name="tv_descripcion_raza_caninos_golden">Los Golden Retriever son perros  muy leales a su núcleo cercano y se muestran dulces y afectuosos con sus humanos. Se llevan muy bien con los niños y, aunque en general son amistosos, también pueden ser territoriales. Por eso no debe descuidarse su socialización desde pequeños.</string>
-    <string name="tv_titulo_procedencia_caninos_golden">Procedencia:</string>
-    <string name="tv_procedencia_canino_golden">Su origen hay que buscarlo en Escocia en el siglo diecinueve, concretamente hacia 1850 y en las décadas posteriores. El Golden retriever se originó a partir solamente de perros cazadores. \nSabemos que la estirpe de los perros golden retriever se originó exactamente con un perdiguero dorado llamado Nous que fue comprado a un zapatero de Brighton y una Tweed Water Spanial llamada Belle.</string>
-    <string name="tv_titulo_estastatura_peso_caninos_golden">Estatura y peso:</string>
-    <string name="tv_estatura_peso_caninos_golden">Miden entre 51 y 61 cm. \nPeso: de 27 a 32 kg en las hembras y de 32 a 37 kg en los machos. </string>
-    <string name="tv_titulo_tiempo_vida_caninos_golden">Tiempo de vida:</string>
+    <string name="tv_procedencia_canino_golden">Su origen hay que buscarlo en Escocia en el siglo diecinueve, concretamente hacia 1850 y en las décadas posteriores. El Golden retriever se originó a partir solamente de perros cazadores.
+        \nSabemos que la estirpe de los perros golden retriever se originó exactamente con un perdiguero dorado llamado Nous que fue comprado a un zapatero de Brighton y una Tweed Water Spanial llamada Belle.</string>
+    <string name="tv_estatura_peso_caninos_golden">Miden entre 51 y 61 cm. \nPesan de 27 a 32 kg en las hembras y de 32 a 37 kg en los machos. </string>
     <string name="tv_tiempo_vida_caninos_golden">De 10 a 12 años.</string>
-    <string name="tv_titulo_caracteristicas_caninos_golden">Características:</string>
     <string name="tv_caracteristicas_caninos_golden">Un criollo es afectuoso, dócil y juguetón y puede ser bastante agradecido con las personas que le cambiaron la vida. Ningún perro es agresivo a menos que se le maltrate.</string>
-    <string name="tv_alimentacion_golden_retriever">Se alimentan con unos 520 g diarios de alimento completo seco.</string>
+    <string name="tv_alimentacion_caninos_golden_retriever">Se alimentan con unos 520 g diarios de alimento seco.</string>
+
+
+    <string name="tv_nombre_raza_caninos_pitbull">Pitbull</string>
+    <string name="tv_descripcion_raza_caninos_pitbull">El American Pit Bull Terrier es una raza con una inmerecida fama de violencia y agresividad. Debido a sus orígenes (fue utilizado como perro de pelea) y al actual mal uso que le dan algunos mal dueños, no es de extrañar
+        que protagonice un sinfín de leyendas urbanas en las que es pintado como un monstruo.\nContrariamente a esta creencia popular, los dueños del Pitbull afirman que es un perro de lo más cariñoso y divertido.\nes entusiasta, fiel, divertido, vital, protector y de ideas muy fijas. Asimila bien los cambios y se le considera un
+        compañero excelente para los dueños que le puedan dedicar parte de su tiempo. Con los niños es muy tolerante, se dejará manosear por ellos y participará encantado en sus juegos.</string>
+    <string name="tv_procedencia_canino_pitbull">Los orígenes del American Pit Bull Terrier van muy ligados a los del American Staffordshire Terrier. \nAmbas razas proceden del Staffordshire Bull Terrier, llevado desde
+        Inglaterra a Estados Unidos a finales del siglo XIX. \nEste perro inglés se usaba básicamente como perro de pelea, y el prestigioso American Kennel Club rechazó su inscripción. Debido a esta negativa se fundó el United Kennel Club, para así poder registrar al que hoy conocemos como American Pit Bull Terrier.</string>
+    <string name="tv_estatura_peso_caninos_pitbull">Miden entre 38 a 48 cm en los machos y de 35 a 45 cm en las hembras.\nSu peso es de 15 a 28 kg en los machos y entre 14 y 23 kg en las hembras.</string>
+    <string name="tv_tiempo_vida_caninos_pitbull">Su tiempo de vida es de 8 a 15 años.</string>
+    <string name="tv_caracteristicas_caninos_pitbull">El American Pit Bull Terrier es un perro ágil, atlético, fuerte y con una musculatura muy bien definida. \nTiene un cuerpo más largo que alto y una cabeza ancha. Sus orejas son de tamaño mediano y las lleva caídas. En muchos países son recortadas en forma de punta,
+        pero en la mayoría no está permitido. La cola es de implantación baja, ancha en la base y se va afilando progresivamente. Su pelo es brillante, liso, corto, tieso y puede ser de todos los colores.</string>
+    <string name="tv_alimentacion_caninos_pitbull">Se alimentan con unos 380 g diarios de alimento seco.</string>
+
+
+    <string name="tv_nombre_raza_caninos_bulldog">Bulldog</string>
+    <string name="tv_descripcion_raza_caninos_bulldog">El Bulldog Inglés es un perro valeroso y combativo al que pocas veces oiremos lloriquear. Según las personas que han convivido con esta raza, este es un animal muy testarudo que nunca se queja,
+        ni cuando tiene hambre o sed ni cuando siente dolor. Vamos, un todoterreno de perro al que tendremos que controlar por si se hiere o pasa sed. \nSiempre está atento a lo que sucede a su alrededor y con los extraños se puede mostrar vigilante pero no agresivo. Aunque sorprenda, es un animal que no soporta la
+        brutalidad y que necesita el cariño de sus dueños. Es un perro adecuado para los niños, ya que sabe dosificar su fuerza y es muy paciente. Tiene un carácter bueno, amistoso, dócil y atento.</string>
+    <string name="tv_procedencia_canino_bulldog">Los ancestros del Bulldog Inglés, los mastiffs, eran utilizados para hacer correr a las reses antes de llevarlas al matadero, de este modo se mejoraba la calidad de la carne. Durante la Edad Media se puso de moda organizar enfrentamientos entre toros
+        (bulls) y estos perros, afición que fue creciendo con los siglos.En 1835 el Parlamento británico prohibió estas peleas pero la actividad no cesó hasta finales del siglo XIX. Por estos años el Bulldog Inglés estuvo a punto de desaparecer hasta que se empezó a estandarizar la raza.</string>
+    <string name="tv_estatura_peso_caninos_bulldog">Miden entre 30 a 40 cm \nSu peso ronda alrededor de 25 kg</string>
+    <string name="tv_tiempo_vida_caninos_bulldog">Su tiempo de vida es de 8 a 10 años.</string>
+    <string name="tv_caracteristicas_caninos_bulldog">El Bulldog Inglés es un perro robusto, compacto, potente y ancho. Tiene una cabeza bastante grande en relación con el cuerpo en donde la piel es suelta y arrugada. El hocico es corto y ancho y los labios son gruesos y colgantes. Sus patas son cortas, fuertes y musculosas. La cola es corta,
+        recta y se inclina hacia abajo. Tiene un pelo fino, corto y espeso que acostumbra a ser atigrado unicolor con máscara. El Bulldog Inglés también puede ser de colores uniformes pero brillantes y puros como el rojo y sus diferentes tonos, el atigrado, el blanco y el moteado..</string>
+    <string name="tv_alimentacion_caninos_bulldog">Se alimentan con unos 400 a 450 g diarios de alimento seco.</string>
 
 
 

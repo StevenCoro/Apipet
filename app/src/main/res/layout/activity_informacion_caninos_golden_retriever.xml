@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/info_caninos_golden_retriever"
     tools:context=".ui.Informacion_caninos_golden_retriever">
         <Button
             android:id="@+id/back_btn"
@@ -217,7 +218,7 @@
                     android:fontFamily="@font/varela_round"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="@string/tv_alimentacion_golden_retriever"
+                    android:text="@string/tv_alimentacion_caninos_golden_retriever"
                     android:textColor="@color/textColor"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
