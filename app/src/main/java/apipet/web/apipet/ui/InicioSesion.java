@@ -45,7 +45,7 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        Button btn_registro = (Button)findViewById(R.id.btn_register);
+        Button btn_registro = findViewById(R.id.btn_register);
         btn_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
@@ -58,9 +58,9 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                /*Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
+                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
                 startActivity(i2);
-                finish();*/
+                finish();
                 cargarWebService();
 
             }

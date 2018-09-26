@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +48,7 @@ import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota3;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota4;
 
 
-public class AddPetScreen extends AppCompatActivity {
+public class AddPetScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     private Spinner spinnerTipo, spinnerRaza, spinnerGenero;
@@ -70,6 +71,12 @@ public class AddPetScreen extends AppCompatActivity {
 
     final int codigoSeleccionSubirImagen =10;
     final int codigoSeleccionTomarFoto =20;
+     String [] tipo = {"Canino", "Felino"};
+     String [] razas_caninos = {"Criollo", "Golden retriever", "Pitbull", "Bulldog"};
+     String [] razas_felinos = {"Criollo", "Persa", "Angora", "Ragdoll"};
+     String [] genero = {"Macho", "Hembra"};
+
+    ArrayAdapter<String> adapter_caninos, adapter_felinos, adapter_genero;
 
 
     @Override
@@ -77,38 +84,23 @@ public class AddPetScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet_screen);
 
+
         spinnerTipo = findViewById(R.id.spnTipo);
-        String [] tipo = {"Canino", "Felino"};
         ArrayAdapter <String> adapter= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, tipo);
         spinnerTipo.setAdapter(adapter);
-        int eleccion=0;
-        String selection = spinnerTipo.getSelectedItem().toString();
-        if (selection.equals("Canino")){
-            eleccion = 1;
-        }
-        if (selection.equals("Felino")){
-            eleccion=2;
-        }
+        spinnerTipo.setOnItemSelectedListener(this);
 
-        switch (eleccion){
-            case 1:
-                spinnerRaza = findViewById(R.id.spnRaza);
-                String [] razas_caninos = {"Criollo", "Golden retriever", "Pitbull", "Bulldog"};
-                ArrayAdapter <String> adapter2= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_caninos);
-                spinnerRaza.setAdapter(adapter2);
-                break;
-            case 2:
-                spinnerRaza = findViewById(R.id.spnRaza);
-                String[]razas_felinos = {"Criollo", "Persa", "Angora", "Ragdoll"};
-                ArrayAdapter <String> adapter3= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_felinos);
-                spinnerRaza.setAdapter(adapter3);
-                break;
-        }
+
+        spinnerRaza = findViewById(R.id.spnRaza);
+        adapter_caninos = new  ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_caninos);
+        adapter_felinos = new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, razas_felinos);
+        spinnerRaza.setOnItemSelectedListener(this);
+
 
         spinnerGenero = findViewById(R.id.spnGenero);
-        String [] genero = {"Macho", "Hembra"};
-        ArrayAdapter <String> adapter4= new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, genero);
-        spinnerGenero.setAdapter(adapter4);
+        adapter_genero = new ArrayAdapter<>(this, R.layout.spinner_item_add_pet, genero);
+        spinnerGenero.setAdapter(adapter_genero);
+        spinnerGenero.setOnItemSelectedListener(this);
 
         hideNavigationBar();
 
@@ -383,5 +375,26 @@ public class AddPetScreen extends AppCompatActivity {
             mHandler.post(decor_view_settings);
             hideNavigationBar();
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> a, View v, int position, long arg3) {
+            Toast.makeText(this, "Posicion: "+position, Toast.LENGTH_SHORT).show();
+        switch (position){
+            case 0:
+                spinnerRaza.setAdapter(adapter_caninos);
+                break;
+            case 1:
+                spinnerRaza.setAdapter(adapter_felinos);
+                break;
+
+
+        }
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
