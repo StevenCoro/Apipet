@@ -104,7 +104,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
 
         hideNavigationBar();
 
-        Button btn_back = findViewById(R.id.btn_back);
+        Button btn_back = findViewById(R.id.back_btn);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {

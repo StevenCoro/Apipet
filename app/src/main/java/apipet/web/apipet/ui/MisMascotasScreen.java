@@ -68,11 +68,6 @@ public class MisMascotasScreen extends AppCompatActivity {
           CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
 
 
-          if (visible){
-              btn_atras.setVisibility(View.GONE);
-          }
-
-
 
 
         final Button btn_atras = findViewById(R.id.back_btn);
@@ -91,7 +86,6 @@ public class MisMascotasScreen extends AppCompatActivity {
             public void onClick(View v2) {
 
                 cardViewOpciones.setVisibility(View.GONE);
-                btn_atras.setVisibility(View.VISIBLE);
                 visible = false;
 
             }
@@ -103,12 +97,29 @@ public class MisMascotasScreen extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v2) {
                cardViewOpciones.setVisibility(View.VISIBLE);
-                btn_atras.setVisibility(View.GONE);
                 visible = true;
 
                 return false;
             }
 
+        });
+
+
+        btn_uno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+
+                if (visible){
+
+                }
+                else{
+                    Intent i = new Intent(getApplicationContext(),PetScreen.class);
+                    startActivity(i);
+
+                }
+
+
+            }
         });
 
 

@@ -66,7 +66,7 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
             }
         });
          final Button btn_opciones = (Button)findViewById(R.id.option_btn);
-        btn_opciones.setOnClickListener(new View.OnClickListener() {
+            btn_opciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
                 cardView_opciones.setVisibility(View.VISIBLE);
