@@ -39,9 +39,9 @@ import java.io.InputStreamReader;
 
 import apipet.web.apipet.R;
 import apipet.web.apipet.io.GuardarImagenes;
-import apipet.web.apipet.ui.MainScreen;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
+import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota1;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota1;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota2;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota3;
@@ -51,7 +51,7 @@ import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota4;
 public class AddPetScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
-    private Spinner spinnerTipo, spinnerRaza, spinnerGenero;
+    Spinner spinnerTipo, spinnerRaza, spinnerGenero;
     public static final String nombreDelArchivo1 = "datosNombre1.txt";
     public static final String nombreDelArchivo2 = "datosNombre2.txt";
     public static final String nombreDelArchivo3 = "datosNombre3.txt";
@@ -125,7 +125,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         cargarImagen();
     }
 
-    private void cargarImagen() {
+    public void cargarImagen() {
 
         final CharSequence[] opciones= {"Tomar Foto", "Subir Imagen"};
         final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(AddPetScreen.this);
@@ -183,6 +183,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                 case codigoSeleccionSubirImagen:
                      Uri path2 = data.getData();
                     imagenMascota.setImageURI(path2);
+                    imagenMascota1.setImageURI(path2);
 
                     imagenMascota.buildDrawingCache();
                     Bitmap bmap = imagenMascota.getDrawingCache();

@@ -76,7 +76,8 @@
         <activity android:name=".ui.Informacion_felinos_criollo" />
         <activity android:name=".ui.Informacion_felinos_persa" />
         <activity android:name=".ui.Informacion_felinos_angora" />
-        <activity android:name=".ui.Informacion_felinos_ragdoll"></activity>
+        <activity android:name=".ui.Informacion_felinos_ragdoll" />
+        <activity android:name=".ui.PetScreen"></activity>
     </application>
 
 </manifest>

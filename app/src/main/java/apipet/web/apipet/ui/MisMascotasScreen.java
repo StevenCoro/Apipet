@@ -1,15 +1,12 @@
 package apipet.web.apipet.ui;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.net.Uri;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,11 +23,14 @@ import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo3;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo4;
 public class MisMascotasScreen extends AppCompatActivity {
 
-    ImageView imagenMascota1;
+    public static ImageView imagenMascota1;
     public static TextView tvNombreMascota1;
     public static TextView tvNombreMascota2;
     public static TextView tvNombreMascota3;
     public static TextView tvNombreMascota4;
+    boolean visible = false;
+    Button btn_atras;
+    CardView cardViewOpciones;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -42,11 +42,9 @@ public class MisMascotasScreen extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent i2 = new Intent(getApplicationContext(),MascotasScreen.class);
-        startActivity(i2);
-    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +52,30 @@ public class MisMascotasScreen extends AppCompatActivity {
         setContentView(R.layout.activity_mis_mascotas_screen);
         hideNavigationBar();
 
-         imagenMascota1 = (ImageView)(findViewById(R.id.imagen_mascota));
+
+        cardViewOpciones = findViewById(R.id.cardViewOpciones);
+
+         imagenMascota1 = (findViewById(R.id.imagen_mascota));
 
          tvNombreMascota1 =findViewById(R.id.tvNombreMascota1);
          tvNombreMascota2 =findViewById(R.id.tvNombreMascota2);
          tvNombreMascota3 =findViewById(R.id.tvNombreMascota3);
          tvNombreMascota4 =findViewById(R.id.tvNombreMascota4);
 
-         CardView cardViewMascota1 = (CardView)findViewById(R.id.cardViewMascota1);
-         CardView cardViewMascota2 = (CardView)findViewById(R.id.cardViewMascota2);
-         CardView cardViewMascota3 = (CardView)findViewById(R.id.cardViewMascota3);
-         CardView cardViewMascota4 = (CardView)findViewById(R.id.cardViewMascota4);
+          CardView cardViewMascota1 = findViewById(R.id.cardViewMascota1);
+          CardView cardViewMascota2 = findViewById(R.id.cardViewMascota2);
+          CardView cardViewMascota3 = findViewById(R.id.cardViewMascota3);
+          CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
 
 
-        Button btn_atras = (Button)findViewById(R.id.back_btn);
+          if (visible){
+              btn_atras.setVisibility(View.GONE);
+          }
+
+
+
+
+        final Button btn_atras = findViewById(R.id.back_btn);
         btn_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
@@ -76,7 +84,37 @@ public class MisMascotasScreen extends AppCompatActivity {
             }
         });
 
-        Button btn_add = (Button)findViewById(R.id.btn_add);
+
+        Button btn_close_option = findViewById(R.id.btn_close);
+        btn_close_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+
+                cardViewOpciones.setVisibility(View.GONE);
+                btn_atras.setVisibility(View.VISIBLE);
+                visible = false;
+
+            }
+
+        });
+
+        Button btn_uno = findViewById(R.id.btn_uno);
+        btn_uno.setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View v2) {
+               cardViewOpciones.setVisibility(View.VISIBLE);
+                btn_atras.setVisibility(View.GONE);
+                visible = true;
+
+                return false;
+            }
+
+        });
+
+
+
+
+        Button btn_add = findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
@@ -176,15 +214,18 @@ public class MisMascotasScreen extends AppCompatActivity {
 
 
     }
-    public void AddImagenMascota(View view){
-        cargarImagen();
-    }
 
-    private void cargarImagen() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), 10);
+    @Override
+    public void onBackPressed() {
 
+        if(visible) {
+
+            cardViewOpciones.setVisibility(View.GONE);
+            visible = false;
+        }
+        else if(!visible){
+            super.onBackPressed();
+        }
     }
 
     public void hideNavigationBar(){
