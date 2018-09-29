@@ -26,6 +26,41 @@ public class FelinosScreen extends AppCompatActivity {
 
             }
         });
+        Button btn_felinos_criollo = findViewById(R.id.btn_felino_criollo);
+        btn_felinos_criollo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i1 = new Intent(getApplicationContext(),Informacion_felinos_criollo.class);
+                startActivity(i1);
+            }
+        });
+
+        Button btn_felinos_angora = findViewById(R.id.btn_felino_angora);
+        btn_felinos_angora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i1 = new Intent(getApplicationContext(),Informacion_felinos_angora.class);
+                startActivity(i1);
+            }
+        });
+
+        Button btn_felinos_persa = findViewById(R.id.btn_felino_persa);
+        btn_felinos_persa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i1 = new Intent(getApplicationContext(),Informacion_felinos_persa.class);
+                startActivity(i1);
+            }
+        });
+
+        Button btn_felinos_ragdoll = findViewById(R.id.btn_felino_ragdoll);
+        btn_felinos_ragdoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent i1 = new Intent(getApplicationContext(),Informacion_felinos_ragdoll.class);
+                startActivity(i1);
+            }
+        });
     }
 
 

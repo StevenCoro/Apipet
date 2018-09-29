@@ -44,6 +44,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_felino_criollo">
 
+        <Button
+            android:id="@+id/btn_felino_persa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
         <ImageView
             android:id="@+id/img_persa"
             android:layout_width="60dp"
@@ -73,6 +79,12 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_angora">
+
+        <Button
+            android:id="@+id/btn_felino_ragdoll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
 
         <ImageView
             android:id="@+id/img_ragdoll"
@@ -104,6 +116,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_persa">
 
+        <Button
+            android:id="@+id/btn_felino_angora"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
         <ImageView
             android:id="@+id/img_angora"
             android:layout_width="60dp"
@@ -132,6 +150,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido">
+
+        <Button
+            android:id="@+id/btn_felino_criollo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
 
         <TextView
             android:id="@+id/tv_felino_criollo"

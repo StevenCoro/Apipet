@@ -23,7 +23,7 @@ public class WebPautasMascota extends AppCompatActivity {
         setContentView(R.layout.activity_web_pautas_mascota);
         web = (WebView)findViewById(R.id.webView);
         web.setWebViewClient(new WebViewClient());
-        web.loadUrl("https://www.google.com/");
+        web.loadUrl("https://encolombia.com/vida-estilo/mascotas/perros/cuida-a-tu-perro/normas-y-multas-para-amos-irresponsables/");
         WebSettings webSettigs = web.getSettings();
         webSettigs.setJavaScriptEnabled(true);
         hideNavigationBar();
