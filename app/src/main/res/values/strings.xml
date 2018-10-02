@@ -22,97 +22,71 @@ Teléfono: (4) 6152090</string>
 
 
     <string name="InformacionDoctorPet">
-        Dirección: Cl 43 #55B - 24, Rionegro, Antioquia
-        \nHorario:
-        \nLun- Vier: 8:30 am - 6:00 pm
+        \n·Horario: Lunes - Viernes: 8:30 am - 6:00 pm
         \nSab: 9:00 am - 2:00 pm
-        \nTeléfono: 318 827 9616</string>
+        \n
+        \n·Teléfono: 318 827 9616</string>
     <string name="DoctorPet">Doctor Pet</string>
 
 
     <string name="InformacionCentroVeterinarioSanAntonio">
-        Dirección: #19ab- 55ad-104, La Ceja-Río Negro, Rionegro, Antioquia
-        \nHorario:
-       \nAbierto las 24 horas
-        \nTeléfono: 320 727 3762</string>
+        ·Esta veterinaria tiene servicio de urgencia, cirujía, consultas en general hacen fisioterapia, oftalmología y cardiología.
+        \nSon especializados en imagénología, dermatología y ortopedia.
+        \n
+        \n·Horario: Abierto las 24 horas
+        \n
+        \n·Teléfono: 320 727 3762</string>
     <string name="CentroVeterinarioSanAntonio">Centro veterinario San Antonio</string>
 
 
     <string name="InformacionLaGranjitaCentroVeterinario">
-        Dirección: Cra. 56 #160, Rionegro, Antioquia
-        \nHorario:
-        \nLun- Sab: 8:00 am - 6:30 pm
+        \nHorario: Lun- Sab: 8:00 am - 6:30 pm
         \nTeléfono:  5616190</string>
     <string name="LaGranjitaCentroVeterinario">Veterinaria La Granjita</string>
 
 
     <string name="InformacionVeterinariaCaninos">
-        Dirección: Cl. 38, Rionegro, Antioquia
-        \nHorario:
-       \nDesconocido
+        \nHorario: Desconocido
         \nTeléfono: 5620359</string>
-    <string name="VeterinariaCaninos">Veterinaria Caninos</string>
+    <string name="VeterinariaCaninos">Veterinaria Caninos Médicos Veterinarios</string>
 
 
     <string name="InformacionVeterinariaSanBernardo">
-        Dirección: Av. Santander #5158, Rionegro, Antioquia
         \nHorario:
         \nDesconocido
         \nTeléfono: 5616891</string>
     <string name="VeterinariaSanBernardo">Veterinaria San Bernardo</string>
 
-
-    <string name="InformacionVeterinariaAvesYMascotas">
-        Dirección: Cra. 47 #5551, Rionegro, Antioquia
-        \nHorario:
-        \nAbierto las 24 horas
-        \nTeléfono: 5619586</string>
-    <string name="VeterinariaAvesYMascotas">Veterinaria Aves Y Mascotas</string>
-
-
     <string name="InformacionVeterinariaAgroQuirama">
-        Dirección: Cra. 47 #5420, Rionegro, Antioquia
-        \nHorario:
-        \nDesconocido
-        \nTeléfono: 5321926</string>
+        ·En este lugar puedes encontrar una gran cantidad de fármacos, tienen servicios de cirugía, odontología y adopción
+        \n
+        \n·Horario: Lunes - Sábado: 8:00 am - 6:00 pm
+        \n
+        \n·Teléfono: 532 19 26</string>
     <string name="VeterinariaAgroQuirama">Veterinaria Agro Quirama</string>
 
 
     <string name="InformacionAnimalLoversStore">
-        Dirección: Cra. 46b #40b62, Rionegro, Antioquia
-        \nHorario:
-        \nLun- Sab: 9:00 am - 7:00 pm
-        \nTeléfono: 5628992</string>
+        ·Es una tienda de mascotas que tiene servicio de peluquería canina, consulta odontologica, hacen cirugías superficiales pero no tiene hospitalización, también tiene servicios a domicilio.
+        \n
+        \n·Horario:Lunes - Viernes: 9:00 am - 7:00 pm
+        \nSábados: 9:00 am - 5:00 pm
+        \n
+        \n·Teléfono: 562 89 92</string>
     <string name="VeterinariaAnimalLoversStore">Animals Lovers Store</string>
 
 
-    <string name="InformacionClinicaDePequenosAnimales">
-        Dirección: Cl. 38 #55a101, Rionegro, Antioquia
-        \nHorario:
-        \nDesconocido
-        \nTeléfono: Desconocido</string>
-    <string name="ClinicaDePequenosAnimales">Clinica De Pequeños Animales</string>
-
-
     <string name="InformacionVeterinariaCVPets24Horas">
-        Dirección: Calle 43 N 56-52. Diagonal CC San Nicolás, Rionegro, Antioquia
         \nHorario:
         \nAbierto las 24 horas
         \nTeléfono: 3664969</string>
     <string name="VeterinariaCVPets24Horas">Veterinaria CVPets 24 horas</string>
 
 
-    <string name="InformacionAgroPerez">
-        Dirección: Cra. 47 #5431, Rionegro, Antioquia
-        \nHorario:
-        \nLun- Sab: 8:00 am - 6:30 pm
-        \nTeléfono: 5617021</string>
-    <string name="VeterinariaAgroPerez">Agro Pérez</string>
-
     <string name="InformacionClinicaVeterinariaDelValle">
-        Dirección: Via a Llano Grande, Rionegro, Antioquia
-        \nHorario:
-        \nDesconocido
+        Se hacen cirugías de tejido blando.
+        \nHorario: Lunes - Viernes: 8:00 am - 5:00 pm
+        \nSábados: 10:00 am - 4:00 pm
         \nTeléfono: 321 709 9928</string>
     <string name="ClinicaVeterinariaDelValle">Clinica Veterinaria Del Valle</string>
 

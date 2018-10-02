@@ -95,15 +95,12 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
         LatLng exito = new LatLng(6.1485018460937395, -75.37822723388672);
         LatLng veterinariaSanAntonio = new LatLng(6.1279032, -75.38182210000002);
         LatLng veterinariaLaGranjita = new LatLng(6.1513946, -75.37844189999998);
-        LatLng veterinariaCaninos = new LatLng(6.1392491, -75.38280900000001);
+        LatLng veterinariaCaninos = new LatLng(6.1380243, -75.38442570000001);
         LatLng veterinariaSanBernardo = new LatLng(6.154878399999999, -75.37314429999998);
-        LatLng veterinariaAvesYMascotas = new LatLng(6.157351299999999, -75.3705483);
         LatLng veterinariaAgroQuirama = new LatLng(6.1565503, -75.37095369999997);
         LatLng animalLoversStore = new LatLng(6.149365882100768, -75.36773443222046);
-        LatLng clinicaDepequenosAnimales = new LatLng(6.1380243, -75.38442570000001);
         LatLng veterinariaCVPets = new LatLng(6.149088537362608, -75.37930279970169);
-        LatLng agroPerez = new LatLng(6.1566375, -75.37091199999998);
-        LatLng clinicaVeterinariaDelValle = new LatLng(6.1257445, -75.41936450000003);
+        LatLng clinicaVeterinariaDelValle = new LatLng(6.132544857643609, -75.4019847495116);
         LatLng veterinariaLosValencia = new LatLng(6.1564086, -75.3710213);
         LatLng clinicaCVPets = new LatLng(6.1493921, -75.38352750000001);
 
@@ -138,10 +135,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
                 .title("Veterinaria San Bernardo")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
-        markerVeterinariaAvesYMascotas = googleMap.addMarker(new MarkerOptions()
-                .position(veterinariaAvesYMascotas)
-                .title("Veterinaria Aves Y Mascotas")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
 
         markerVeterinariaAgroQuirama = googleMap.addMarker(new MarkerOptions()
                 .position(veterinariaAgroQuirama)
@@ -153,20 +147,13 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
                 .title("Animal Lovers Store")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
-        markerClinicaDePequeñosAnimales = googleMap.addMarker(new MarkerOptions()
-                .position(clinicaDepequenosAnimales)
-                .title("Clinica De Pequeños Animales")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
 
         markerVeterinariaCVPets = googleMap.addMarker(new MarkerOptions()
                 .position(veterinariaCVPets)
                 .title("Veterinaria CVPets")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
-        markerAgroPerez = googleMap.addMarker(new MarkerOptions()
-                .position(agroPerez)
-                .title("Agro Pérez")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
         markerVeterinariaDelValle = googleMap.addMarker(new MarkerOptions()
                 .position(clinicaVeterinariaDelValle)
@@ -248,13 +235,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
             MyDialog.setTitle("My Custom Dialog");
             MyDialog.show();
     }
-        if (marker.equals(markerVeterinariaAvesYMascotas)){
-            MyDialog = new Dialog(MapScreen.this);
-            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            MyDialog.setContentView(R.layout.fragment_veterinaria_aves_y_mascotas);
-            MyDialog.setTitle("My Custom Dialog");
-            MyDialog.show();
-    }
+
         if (marker.equals(markerVeterinariaAgroQuirama)){
             MyDialog = new Dialog(MapScreen.this);
             MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -269,27 +250,15 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
             MyDialog.setTitle("My Custom Dialog");
             MyDialog.show();
     }
-        if (marker.equals(markerClinicaDePequeñosAnimales)){
-            MyDialog = new Dialog(MapScreen.this);
-            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            MyDialog.setContentView(R.layout.fragment_pequenos_animales);
-            MyDialog.setTitle("My Custom Dialog");
-            MyDialog.show();
-    }
-        if (marker.equals(markerVeterinariaCVPets)){
+
+         if (marker.equals(markerVeterinariaCVPets)){
             MyDialog = new Dialog(MapScreen.this);
             MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             MyDialog.setContentView(R.layout.fragment_veterinaria_cvpets);
             MyDialog.setTitle("My Custom Dialog");
             MyDialog.show();
     }
-        if (marker.equals(markerAgroPerez)){
-            MyDialog = new Dialog(MapScreen.this);
-            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            MyDialog.setContentView(R.layout.fragment_agro_perez);
-            MyDialog.setTitle("My Custom Dialog");
-            MyDialog.show();
-    }
+
         if (marker.equals(markerVeterinariaDelValle)){
             MyDialog = new Dialog(MapScreen.this);
             MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
