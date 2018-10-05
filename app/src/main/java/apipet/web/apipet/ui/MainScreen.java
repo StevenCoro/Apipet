@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import apipet.web.apipet.R;
 
 public class MainScreen extends AppCompatActivity  implements View.OnClickListener{
@@ -93,7 +95,7 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
         btn_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-
+                FirebaseAuth.getInstance().signOut();
                 finishAffinity();
                 System.exit(0);
 

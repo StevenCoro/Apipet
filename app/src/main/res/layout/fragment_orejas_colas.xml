@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="331dp"
-        android:layout_height="316dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:fontFamily="@font/lato_bold"
-        android:text="@string/InformacionClinicaCVPets"
+        android:text="@string/InformacionKanu"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +27,7 @@
         android:id="@+id/iv_san_antonio"
         android:layout_width="412dp"
         android:layout_height="247dp"
-        android:background="@drawable/fv_agro_quirama"
+        android:background="@drawable/fv_orejas_y_colas"
         android:contentDescription="TODO"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +45,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:fontFamily="@font/comfortaa_bold"
-        android:text="@string/ClinicaCVPets"
+        android:text="@string/VeterinariaSanBernardo"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"

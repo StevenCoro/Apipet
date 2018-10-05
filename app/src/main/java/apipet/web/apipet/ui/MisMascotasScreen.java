@@ -3,6 +3,7 @@ package apipet.web.apipet.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -10,7 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +40,7 @@ public class MisMascotasScreen extends AppCompatActivity {
     boolean visible = false;
     Button btn_atras;
     CardView cardViewOpciones;
+    private StorageReference mStorage;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -46,12 +56,15 @@ public class MisMascotasScreen extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mis_mascotas_screen);
         hideNavigationBar();
 
+        mStorage = FirebaseStorage.getInstance().getReference();
 
         cardViewOpciones = findViewById(R.id.cardViewOpciones);
 
@@ -66,7 +79,6 @@ public class MisMascotasScreen extends AppCompatActivity {
           CardView cardViewMascota2 = findViewById(R.id.cardViewMascota2);
           CardView cardViewMascota3 = findViewById(R.id.cardViewMascota3);
           CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
-
 
 
 

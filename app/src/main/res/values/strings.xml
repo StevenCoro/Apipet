@@ -25,7 +25,9 @@ Teléfono: (4) 6152090</string>
         \n·Horario: Lunes - Viernes: 8:30 am - 6:00 pm
         \nSab: 9:00 am - 2:00 pm
         \n
-        \n·Teléfono: 318 827 9616</string>
+        \n·Teléfono: 318 827 9616
+        \n
+    </string>
     <string name="DoctorPet">Doctor Pet</string>
 
 
@@ -35,26 +37,49 @@ Teléfono: (4) 6152090</string>
         \n
         \n·Horario: Abierto las 24 horas
         \n
-        \n·Teléfono: 320 727 3762</string>
+        \n·Teléfono: 320 727 3762
+        \n
+
+    </string>
     <string name="CentroVeterinarioSanAntonio">Centro veterinario San Antonio</string>
 
 
     <string name="InformacionLaGranjitaCentroVeterinario">
-        \nHorario: Lun- Sab: 8:00 am - 6:30 pm
-        \nTeléfono:  5616190</string>
+       ·Esta veterinaria cuenta con servicios de peluquería, guardería, cirugías y profilaxis.
+        \nVenden todo tipo de productos para tu mascota.
+        \n
+        \n·Horario: Lunes - Sábado: 8:00 am - 6:00 pm
+        \n
+        \n·Teléfono: 561 61 90
+        \n
+
+    </string>
     <string name="LaGranjitaCentroVeterinario">Veterinaria La Granjita</string>
 
 
     <string name="InformacionVeterinariaCaninos">
-        \nHorario: Desconocido
-        \nTeléfono: 5620359</string>
-    <string name="VeterinariaCaninos">Veterinaria Caninos Médicos Veterinarios</string>
+        ·Es una veterinaria que cuenta con los servicios básicos, consultas en general, cirugías básicas como: esterilización, operaciones de tejidos blandos, etc.
+        \nPara ir a esta veterinaria necesitas pedir una cita primero.
+        \n
+        \n·Horario: Lunes - Viernes: 8:30 - 5:30
+        \nSábado: 9:00 - 1:00
+        \n
+        \n·Teléfono: 562 03 59
+        \n
+    </string>
+    <string name="VeterinariaCaninos">Caninos Médicos Veterinarios</string>
 
 
     <string name="InformacionVeterinariaSanBernardo">
-        \nHorario:
-        \nDesconocido
-        \nTeléfono: 5616891</string>
+        ·Aqui puedes encontrar servicio de baño y peluqueria muy completa tambien incluye el profilaxis.
+        \nVenta de accesorios y medicamentos
+        \nSi necesitas servicio médico lo puedes encontrar a partir de las 9:00 am hasta las 5:00 pm.
+        \n
+        \n·Horario: Lunes - Sábado: 8:00 - 6:00 pm
+        \n
+        \n·Teléfono: 561 68 91
+        \n
+    </string>
     <string name="VeterinariaSanBernardo">Veterinaria San Bernardo</string>
 
     <string name="InformacionVeterinariaAgroQuirama">
@@ -62,7 +87,9 @@ Teléfono: (4) 6152090</string>
         \n
         \n·Horario: Lunes - Sábado: 8:00 am - 6:00 pm
         \n
-        \n·Teléfono: 532 19 26</string>
+        \n·Teléfono: 532 19 26
+        \n
+    </string>
     <string name="VeterinariaAgroQuirama">Veterinaria Agro Quirama</string>
 
 
@@ -72,39 +99,86 @@ Teléfono: (4) 6152090</string>
         \n·Horario:Lunes - Viernes: 9:00 am - 7:00 pm
         \nSábados: 9:00 am - 5:00 pm
         \n
-        \n·Teléfono: 562 89 92</string>
+        \n·Teléfono: 562 89 92
+        \n
+    </string>
     <string name="VeterinariaAnimalLoversStore">Animals Lovers Store</string>
 
 
     <string name="InformacionVeterinariaCVPets24Horas">
-        \nHorario:
-        \nAbierto las 24 horas
-        \nTeléfono: 3664969</string>
+        ·Aquí puedes encontrar servicio de hospitalización, oftalmología, toda clase de cirugías, venta de medicamentos y accesorios.
+        \n
+        \n·Horario: Abierto las 24 horas
+        \n
+        \n·Teléfono: 366 49 69
+        \n
+
+        </string>
     <string name="VeterinariaCVPets24Horas">Veterinaria CVPets 24 horas</string>
 
 
     <string name="InformacionClinicaVeterinariaDelValle">
-        Se hacen cirugías de tejido blando.
-        \nHorario: Lunes - Viernes: 8:00 am - 5:00 pm
+        ·Veterinaria con venta de accesorios, tiene servicios de laboratorio, cirugía de tegidos blandos, odontología, farmacia y domicilios.
+        \nTiene una interesante cuenta en Instagram donde suben fotos de los pequeños peludos que visitan este hermoso lugar.
+        \n
+        \n·Horario: Lunes - Viernes: 8:00 am - 5:00 pm
         \nSábados: 10:00 am - 4:00 pm
-        \nTeléfono: 321 709 9928</string>
-    <string name="ClinicaVeterinariaDelValle">Clinica Veterinaria Del Valle</string>
+        \n
+        \n·Teléfono: 321 709 9928
+        \n
+        \n·Instagram: @ClinicaDelValle
+        \n
+    </string>
+    <string name="ClinicaVeterinariaDelValle">Clínica Veterinaria Del Valle</string>
 
 
-    <string name="InformacionVeterinariaLosValencia">
-        Dirección: Cra. 47 #53-64, Rionegro, Antioquia
-        \nHorario:
-        \nLun- Sab: 7:00 am - 8:00 pm
-        \nTeléfono: 5610193</string>
-    <string name="VeterinariaLosValencia">Veterinaria Los Valencia</string>
+    <string name="InformacionKanu">
+        ·Esta gran tienda tiene su propia marca de accesorios como snacks, collares, juguetes y entre otros.
+        \nTienen servicio de vacunación, peluquería y cirugías menores como castración.
+        \n
+        \n·Horario:Lunes - Jueves: 8:00 am - 7:00 pm
+        \nViernes - Sábados: 8:00 am - 7:30 pm
+        \nDomingos y festivos: 8:00 am - 7:00 pm
+        \n
+        \n·Teléfono: 444 52 68
+        \n
+        \n·Página Web: www.kanu.pet
+        \n
+    </string>
+    <string name="VeterinariaKanu">Centro de mascotas Kanú</string>
+
+    <string name="InformacionPetland">
+        ·Esta veterinaria tiene servicios de adopción, venta y compra de mascotas, servicios de cirugía, laboratorio y consulta médica.
+        \ntienen su propia página web y su cuenta en instagram para que mires a sus pequeños peluditos.
+        \n
+        \n·Horario:Lunes - Sábado: 9:00 am - 7:00 pm
+        \n
+        \n·Teléfono: 448 99 68
+        \n
+        \n·Página Web: www.petplacestore.co
+        \n
+        \n·Instagram: @petplacestore
+        \n
+    </string>
+    <string name="VeterinariaPetLand">Veterinaria PetLand</string>
+
+    <string name="InformacionPetigree">
+        ·En este maravilloso Petshop y veterinaria puedes llevar a tu mascota para que tome un baño o le corten el pelo, por si tu mascota se enferma tambien tiene servicios de cirugía y laboratorio.
+        \nSi no puedes ir hasta allá, ellos tienen domicilio gratis.
+        \n¡Recompensa a tu peludo con un delicioso helado exclusivo para ellos!
+        \n
+        \n·Horario:Lunes - Sábado: 9:00 am - 7:30 pm
+        \n
+        \n·Teléfono: 423 25 56
+        \n
+        \n·Página Web: www.petigree.com.co
+        \n
+    </string>
+    <string name="VeterinariaPetigree">Veterinaria PetLand</string>
 
 
-    <string name="InformacionClinicaCVPets">
-        Dirección: Cra. 62a #4435, Rionegro, Antioquia
-        \nHorario:
-        \nAbierto las 24 horas
-        \nTeléfono: 3664969</string>
-    <string name="ClinicaCVPets">Clinica CVPets</string>
+
+
 
 
     <string name="ingrese_un_email">Ingrese un correo</string>

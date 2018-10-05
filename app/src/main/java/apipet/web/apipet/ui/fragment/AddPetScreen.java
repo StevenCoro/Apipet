@@ -29,6 +29,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,6 +69,8 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     ImageView imagenMascota;
     ImageView imagen_mascota, imagen_mascota2, imagen_mascota3, imagen_mascota4;
 
+    private StorageReference mStorage;
+
     public static String path;
 
     public static final String carpetaRaiz="ImagenesDePeluditos/";
@@ -83,6 +90,8 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet_screen);
+
+        mStorage = FirebaseStorage.getInstance().getReference();
 
 
         spinnerTipo = findViewById(R.id.spnTipo);
@@ -181,7 +190,17 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
 
             switch (requestCode){
                 case codigoSeleccionSubirImagen:
-                     Uri path2 = data.getData();
+
+                    Uri path2 = data.getData();
+
+                    StorageReference destino = mStorage.child("Peluditos").child(path2.getLastPathSegment());
+
+                    destino.putFile(path2).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(AddPetScreen.this, "Se ha guardado la foto", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     imagenMascota.setImageURI(path2);
                     imagenMascota1.setImageURI(path2);
 
@@ -380,7 +399,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> a, View v, int position, long arg3) {
-            Toast.makeText(this, "Posicion: "+position, Toast.LENGTH_SHORT).show();
+
         switch (position){
             case 0:
                 spinnerRaza.setAdapter(adapter_caninos);

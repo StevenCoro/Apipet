@@ -24,9 +24,9 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
 
     private GoogleMap mMap;
     private Marker markerExito, markerDoctorPet, markerLaGranjita, markerVeterinariaSanBernardo, markerVeterinariaCaninos
-            , markerVeterinariaAgroQuirama, markerVeterinariaAvesYMascotas, markerVeterinariaCVPets, markerAnimalLoversStore
-            , markerCentroVeterinarioSanAntonio, markerClinicaDePequeñosAnimales, markerVeterinariaDelValle, markerClinicaCVPets
-            , markerVeterinariaLosValencia, markerAgroPerez;
+            , markerVeterinariaAgroQuirama, markerVeterinariaCVPets, markerAnimalLoversStore
+            , markerCentroVeterinarioSanAntonio, markerVeterinariaDelValle, markerKanu
+            , markerPetLand, markerPetigree, markerOrejasYColas;
     Dialog MyDialog;
 
     @Override
@@ -94,15 +94,18 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
         LatLng doctorPet = new LatLng(6.149191003444293, -75.37856574565893);
         LatLng exito = new LatLng(6.1485018460937395, -75.37822723388672);
         LatLng veterinariaSanAntonio = new LatLng(6.1279032, -75.38182210000002);
-        LatLng veterinariaLaGranjita = new LatLng(6.1513946, -75.37844189999998);
-        LatLng veterinariaCaninos = new LatLng(6.1380243, -75.38442570000001);
+        LatLng veterinariaLaGranjita = new LatLng(6.145088105435121, -75.37932234963792);
+        LatLng veterinariaCaninos = new LatLng(6.1390017, -75.3848885);
         LatLng veterinariaSanBernardo = new LatLng(6.154878399999999, -75.37314429999998);
         LatLng veterinariaAgroQuirama = new LatLng(6.1565503, -75.37095369999997);
         LatLng animalLoversStore = new LatLng(6.149365882100768, -75.36773443222046);
         LatLng veterinariaCVPets = new LatLng(6.149088537362608, -75.37930279970169);
         LatLng clinicaVeterinariaDelValle = new LatLng(6.132544857643609, -75.4019847495116);
-        LatLng veterinariaLosValencia = new LatLng(6.1564086, -75.3710213);
-        LatLng clinicaCVPets = new LatLng(6.1493921, -75.38352750000001);
+        LatLng veterinariaKanu = new LatLng(6.125982303327703, -75.41916664685185);
+        LatLng veterinariaPetLand = new LatLng(6.125877272250506, -75.41963151377627);
+        LatLng veterinariaPetigree = new LatLng(6.145649, -75.379218);
+        LatLng veterinariaOrejasYColas = new LatLng(6.143998, -75.379844);
+
 
         markerExito = googleMap.addMarker(new MarkerOptions()
                 .position(exito)
@@ -160,15 +163,27 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
                 .title("Clinica Veterinaria Del Valle")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
-        markerVeterinariaLosValencia = googleMap.addMarker(new MarkerOptions()
-                .position(veterinariaLosValencia)
-                .title("Veterinaria Los Valencia")
+        markerKanu = googleMap.addMarker(new MarkerOptions()
+                .position(veterinariaKanu)
+                .title("Centro de mascotas Kanú")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
 
-        markerClinicaCVPets = googleMap.addMarker(new MarkerOptions()
-                .position(clinicaCVPets)
-                .title("Clinica CVPets")
+        markerPetLand = googleMap.addMarker(new MarkerOptions()
+                .position(veterinariaPetLand)
+                .title("Veterinaria PetLand")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
+        markerPetigree = googleMap.addMarker(new MarkerOptions()
+                .position(veterinariaPetigree)
+                .title("Centro de mascotas Petigree")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
+        markerOrejasYColas = googleMap.addMarker(new MarkerOptions()
+                .position(veterinariaOrejasYColas)
+                .title("Orejas y colas")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_mapa_veterinarias)));
+
+
 
 
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -266,20 +281,40 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback, G
             MyDialog.setTitle("My Custom Dialog");
             MyDialog.show();
     }
-        if (marker.equals(markerVeterinariaLosValencia)){
+
+        if (marker.equals(markerKanu)){
             MyDialog = new Dialog(MapScreen.this);
             MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            MyDialog.setContentView(R.layout.fragment_veterinaria_los_valencia);
-            MyDialog.setTitle("My Custom Dialog");
-            MyDialog.show();
-    }
-        if (marker.equals(markerClinicaCVPets)){
-            MyDialog = new Dialog(MapScreen.this);
-            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            MyDialog.setContentView(R.layout.fragment_clinica_cvpets);
+            MyDialog.setContentView(R.layout.fragment_kanu);
             MyDialog.setTitle("My Custom Dialog");
             MyDialog.show();
         }
+
+        if (marker.equals(markerPetLand)){
+            MyDialog = new Dialog(MapScreen.this);
+            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            MyDialog.setContentView(R.layout.fragment_petland);
+            MyDialog.setTitle("My Custom Dialog");
+            MyDialog.show();
+        }
+
+        if (marker.equals(markerPetigree)){
+            MyDialog = new Dialog(MapScreen.this);
+            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            MyDialog.setContentView(R.layout.fragment_petigree);
+            MyDialog.setTitle("My Custom Dialog");
+            MyDialog.show();
+        }
+
+        if (marker.equals(markerOrejasYColas)){
+            MyDialog = new Dialog(MapScreen.this);
+            MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            MyDialog.setContentView(R.layout.fragment_orejas_colas);
+            MyDialog.setTitle("My Custom Dialog");
+            MyDialog.show();
+        }
+
+
 
 
 

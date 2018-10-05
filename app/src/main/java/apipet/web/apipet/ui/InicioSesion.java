@@ -1,12 +1,15 @@
 package apipet.web.apipet.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -20,6 +23,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,9 +41,19 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
     EditText etEmail, etPassword;
     Button btnIngresar;
     int cont =0;
+    private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +62,10 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         etEmail =  findViewById(R.id.etUser);
         etPassword = findViewById(R.id.etPassword);
         btnIngresar =  findViewById(R.id.btn_ingresar);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        progressDialog = new ProgressDialog(this);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
@@ -58,15 +82,69 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent i2 = new Intent(getApplicationContext(),MainScreen.class);
-                startActivity(i2);
-                finish();
-                cargarWebService();
+                Ingresar();
+                //cargarWebService();
+
 
             }
         });
 
     }
+
+    private void Ingresar() {
+
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        final TextView tv = new TextView(InicioSesion.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+        tv.setPadding(10, 10, 10, 10);
+
+        //Obtenemos el email y la contraseña desde las cajas de texto
+        String email = etEmail.getText().toString().trim();
+        String password  = etPassword.getText().toString().trim();
+
+        //Verificamos que las cajas de texto no esten vacías
+        if(TextUtils.isEmpty(email)){
+            tv.setText("Debes ingresar un correo");
+            toast.setView(tv);
+            toast.show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(password)){
+            tv.setText("Debes ingresar una contraseña");
+            toast.setView(tv);
+            toast.show();
+            return;
+        }
+        progressDialog.setMessage("Ingresando...");
+        progressDialog.show();
+
+            //buscar usuario
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            //verificando validación
+                            if (task.isSuccessful()) {
+                                Intent i3 = new Intent(getApplicationContext(), MainScreen.class);
+                                startActivity(i3);
+                            } else {
+                                tv.setText("Correo y/o Contraseña incorrectos");
+                                toast.setView(tv);
+                                toast.show();
+
+                            }
+                            progressDialog.dismiss();
+                        }
+                    });
+
+    }
+
 
     private void cargarWebService() {
         String url = "http://192.168.0.14/apipet/JSONInicio.php?correo="+etEmail.getText().toString();

@@ -1,12 +1,15 @@
 package apipet.web.apipet.ui;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -20,15 +23,24 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.json.JSONObject;
 import apipet.web.apipet.R;
 
 public class RegistroScreen extends AppCompatActivity implements com.android.volley.Response.Listener<JSONObject>, com.android.volley.Response.ErrorListener{
 
-   EditText correo_usuario, contrasena_usuario;
+   EditText correo_usuario, contrasena_usuario, contrasena_usuario2;
    Button btn_registrarse;
    RequestQueue request;
    JsonObjectRequest jsonObjectRequest;
+    private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -37,8 +49,13 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
         setContentView(R.layout.activity_registro_screen);
         hideNavigationBar();
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
+
+
         correo_usuario = findViewById(R.id.etUsuario);
         contrasena_usuario = findViewById(R.id.etclave);
+        contrasena_usuario2 = findViewById(R.id.etclave2);
         btn_registrarse = findViewById(R.id.btn_register);
 
         request = Volley.newRequestQueue(getApplicationContext());
@@ -47,10 +64,17 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
         btn_registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargarWebService();
+                //cargarWebService();
+                registrarUsuario();
 
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
     }
 
     private void cargarWebService() {
@@ -73,8 +97,8 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
         tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
         tv.setTextColor(Color.WHITE);
         tv.setTextSize(15);
-
         tv.setPadding(10, 10, 10, 10);
+
         tv.setText("Se ha registrado con éxito");
         toast.setView(tv);
         toast.show();
@@ -174,6 +198,78 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
             mHandler.post(decor_view_settings);
             hideNavigationBar();
         }
+    }
+
+    private void registrarUsuario(){
+
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        final TextView tv = new TextView(RegistroScreen.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+        tv.setPadding(10, 10, 10, 10);
+
+        //Obtenemos el email y la contraseña desde las cajas de texto
+        String email = correo_usuario.getText().toString().trim();
+        String password  = contrasena_usuario.getText().toString().trim();
+
+        //Verificamos que las cajas de texto no esten vacías
+        if(TextUtils.isEmpty(email)){
+            tv.setText("Debes ingresar un correo");
+            toast.setView(tv);
+            toast.show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(password)){
+            tv.setText("Debes ingresar una contraseña");
+            toast.setView(tv);
+            toast.show();
+            return;
+        }
+
+        progressDialog.setMessage("Realizando registro en linea...");
+        progressDialog.show();
+        if (contrasena_usuario.getText().toString().equals(contrasena_usuario2.getText().toString())){
+        //creando nuevo usuario
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //verificando validación
+                        if(task.isSuccessful()){
+
+                            tv.setText("Se ha registrado con éxito");
+                            toast.setView(tv);
+                            toast.show();
+                            Intent i3 = new Intent(getApplicationContext(),MainScreen.class);
+                            startActivity(i3);
+                        }else{
+                            if(task.getException() instanceof FirebaseAuthUserCollisionException){ //Si el usuario ya existe
+                                tv.setText("Este correo ya existe");
+                                toast.setView(tv);
+                                toast.show();
+                            }
+                            else{ tv.setText("No se ha podido registrar");
+                                toast.setView(tv);
+                                toast.show();
+                            }
+                        }
+                        progressDialog.dismiss();
+                    }
+                });
+        }
+        else {
+                tv.setText("Las contraseñas deben coincidir");
+                toast.setView(tv);
+                toast.show();
+                progressDialog.dismiss();
+
+            }
+
     }
 
 
