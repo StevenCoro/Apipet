@@ -2,29 +2,33 @@ package apipet.web.apipet.ui;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FileDownloadTask;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import apipet.web.apipet.R;
+import apipet.web.apipet.io.MascotasUsuario;
 import apipet.web.apipet.ui.fragment.AddPetScreen;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo1;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo2;
@@ -33,14 +37,16 @@ import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo4;
 public class MisMascotasScreen extends AppCompatActivity {
 
     public static ImageView imagenMascota1;
-    public static TextView tvNombreMascota1;
-    public static TextView tvNombreMascota2;
-    public static TextView tvNombreMascota3;
-    public static TextView tvNombreMascota4;
+    public static TextView tvMascota1;
+    public static TextView tvMascota2;
+    public static TextView tvMascota3;
+    public static TextView tvMascota4;
     boolean visible = false;
     Button btn_atras;
     CardView cardViewOpciones;
     private StorageReference mStorage;
+
+    DatabaseReference mRootReference;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -64,16 +70,62 @@ public class MisMascotasScreen extends AppCompatActivity {
         setContentView(R.layout.activity_mis_mascotas_screen);
         hideNavigationBar();
 
+        tvMascota1 =findViewById(R.id.tvNombreMascota1);
+        tvMascota2 =findViewById(R.id.tvNombreMascota2);
+        tvMascota3 =findViewById(R.id.tvNombreMascota3);
+        tvMascota4 =findViewById(R.id.tvNombreMascota4);
+
+
+        mRootReference = FirebaseDatabase.getInstance().getReference();
         mStorage = FirebaseStorage.getInstance().getReference();
+
+
+        mRootReference.child("Mascotas").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for( final DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    mRootReference.child("Mascotas").child( snapshot.getKey()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            MascotasUsuario mascota = snapshot.getValue(MascotasUsuario.class);
+
+                            String nombre_mascota = mascota.getNombreMascota();
+                            String tipo_mascota = mascota.getTipoMascota();
+                            String raza_mascota = mascota.getRazaMascota();
+                            String genero_mascota = mascota.getGeneroMascota();
+
+                            String [] nombres_mascotas = {mascota.getNombreMascota(), mascota.getNombreMascota()};
+
+                            tvMascota1.setText(nombre_mascota);
+
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
         cardViewOpciones = findViewById(R.id.cardViewOpciones);
 
          imagenMascota1 = (findViewById(R.id.imagen_mascota));
 
-         tvNombreMascota1 =findViewById(R.id.tvNombreMascota1);
-         tvNombreMascota2 =findViewById(R.id.tvNombreMascota2);
-         tvNombreMascota3 =findViewById(R.id.tvNombreMascota3);
-         tvNombreMascota4 =findViewById(R.id.tvNombreMascota4);
+
 
           CardView cardViewMascota1 = findViewById(R.id.cardViewMascota1);
           CardView cardViewMascota2 = findViewById(R.id.cardViewMascota2);
@@ -159,8 +211,8 @@ public class MisMascotasScreen extends AppCompatActivity {
             while ((nombreMascota1 = br.readLine()) !=null){
                 sb.append(nombreMascota1).append("\n");
             }
-            tvNombreMascota1.setText(sb.toString());
-            if (!tvNombreMascota1.toString().isEmpty()){
+            tvMascota1.setText(sb.toString());
+            if (!nombreMascota1.toString().isEmpty()){
                 cardViewMascota1.setVisibility(View.VISIBLE);
             }
 
@@ -179,8 +231,8 @@ public class MisMascotasScreen extends AppCompatActivity {
             while ((nombreMascota2 = br.readLine()) !=null){
                 sb.append(nombreMascota2).append("\n");
             }
-            tvNombreMascota2.setText(sb.toString());
-            if (!tvNombreMascota2.toString().isEmpty()){
+            tvMascota2.setText(sb.toString());
+            if (!tvMascota2.toString().isEmpty()){
                 cardViewMascota2.setVisibility(View.VISIBLE);
             }
 
@@ -200,8 +252,8 @@ public class MisMascotasScreen extends AppCompatActivity {
             while ((nombreMascota3 = br.readLine()) !=null){
                 sb.append(nombreMascota3).append("\n");
             }
-            tvNombreMascota3.setText(sb.toString());
-            if (!tvNombreMascota3.toString().isEmpty()){
+            tvMascota3.setText(sb.toString());
+            if (!tvMascota3.toString().isEmpty()){
                 cardViewMascota3.setVisibility(View.VISIBLE);
             }
 
@@ -221,9 +273,9 @@ public class MisMascotasScreen extends AppCompatActivity {
             while ((nombreMascota4 = br.readLine()) !=null){
                 sb.append(nombreMascota4).append("\n");
             }
-            tvNombreMascota4.setText(sb.toString());
+            tvMascota4.setText(sb.toString());
 
-            if (!tvNombreMascota4.toString().isEmpty()){
+            if (!tvMascota4.toString().isEmpty()){
                 cardViewMascota4.setVisibility(View.VISIBLE);
             }
 

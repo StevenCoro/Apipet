@@ -29,6 +29,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import apipet.web.apipet.ui.MainScreen.*;
 
 import org.json.JSONObject;
 import apipet.web.apipet.R;
@@ -41,6 +42,7 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
    JsonObjectRequest jsonObjectRequest;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+
 
 
     @Override

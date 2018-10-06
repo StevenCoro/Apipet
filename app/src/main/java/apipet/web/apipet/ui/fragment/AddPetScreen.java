@@ -18,8 +18,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,27 +28,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.BufferedReader;
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 import apipet.web.apipet.R;
 import apipet.web.apipet.io.GuardarImagenes;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
 import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota1;
-import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota1;
-import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota2;
-import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota3;
-import static apipet.web.apipet.ui.MisMascotasScreen.tvNombreMascota4;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 
 
 public class AddPetScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -62,8 +60,6 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     public static final String nombreDelArchivo3 = "datosNombre3.txt";
     public static final String nombreDelArchivo4 = "datosNombre4.txt";
     public static final String nombreDelArchivo5 = "datosNombre5.txt";
-
-
 
     EditText etNombre;
     ImageView imagenMascota;
@@ -85,13 +81,17 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
 
     ArrayAdapter<String> adapter_caninos, adapter_felinos, adapter_genero;
 
-
+    DatabaseReference mRootReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet_screen);
 
         mStorage = FirebaseStorage.getInstance().getReference();
+
+        mRootReference = FirebaseDatabase.getInstance().getReference();
+
+
 
 
         spinnerTipo = findViewById(R.id.spnTipo);
@@ -260,8 +260,23 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         String seleccionGenero = spinnerGenero.getSelectedItem().toString();
 
 
+        if (nombreMascota.isEmpty()){
+            tv.setText("Debes ingresar un nombre");
+            toast.setView(tv);
+            toast.show();
+        }
+        else{
+            SubirFirebase(nombreMascota, seleccionTipo, seleccionRaza, seleccionGenero);
 
-        FileOutputStream fos = null;
+            Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
+            startActivity(i2);
+            etNombre.getText().clear();
+        }
+
+
+
+
+        /*FileOutputStream fos = null;
 
         if (nombreMascota.isEmpty()){
             tv.setText("Debes ingresar un nombre");
@@ -277,6 +292,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                     tv.setText("Guardado con éxito en: "+ getFilesDir()+"/" + nombreDelArchivo1);
                     toast.setView(tv);
                     toast.show();
+                    cont=2;
 
 
                 }
@@ -285,13 +301,14 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                         fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
                         fos.write(nombreMascota.getBytes());
                         Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
-
+                        cont=3;
                     }
                 }
                 if (cont==3) {
                     fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
                     Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo3, Toast.LENGTH_LONG).show();
+                    cont=4;
 
                 }
                 else {
@@ -299,6 +316,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                         fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
                         fos.write(nombreMascota.getBytes());
                         Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
+                        cont=5;
 
                     }
                 }
@@ -328,10 +346,19 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }
             }
-        }
+        }*/
 
     }
 
+    private void SubirFirebase(String nombreMascota, String seleccionTipo, String seleccionRaza, String seleccionGenero) {
+        Map<String, Object> datosMascota = new HashMap<>();
+        datosMascota.put("NombreMascota", nombreMascota);
+        datosMascota.put("TipoMascota", seleccionTipo);
+        datosMascota.put("RazaMascota", seleccionRaza);
+        datosMascota.put("GeneroMascota", seleccionGenero);
+
+        mRootReference.child("Mascotas").push().setValue(datosMascota);
+    }
 
 
     public void hideNavigationBar(){

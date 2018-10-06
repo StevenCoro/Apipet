@@ -3,9 +3,9 @@ package apipet.web.apipet.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -24,6 +24,10 @@ import apipet.web.apipet.R;
 
 public class MainScreen extends AppCompatActivity  implements View.OnClickListener{
 
+    public static boolean inicioSesion = true;
+
+
+
 
 
     int cont = 0;
@@ -33,12 +37,15 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main_screen);
         hideNavigationBar();
         cardView_opciones = findViewById(R.id.card_view_opciones);
+
+        inicioSesion=true;
 
         Button btn_mapa = findViewById(R.id.btn_mapa);
         btn_mapa.setOnClickListener(new View.OnClickListener() {
@@ -96,13 +103,51 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
             @Override
             public void onClick(View v2) {
                 FirebaseAuth.getInstance().signOut();
-                finishAffinity();
-                System.exit(0);
+                Intent intent2 = new Intent(getApplicationContext(), InicioSesion.class);
+                startActivity(intent2); Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+                intent.putExtra("SesionIniciada", false);
+
 
             }
 
         });
 
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        inicioSesion=true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        inicioSesion=true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        inicioSesion=true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        inicioSesion=true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        inicioSesion=true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        inicioSesion=true;
     }
 
     @Override
@@ -158,6 +203,9 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
     protected void onPostResume() {
         super.onPostResume();
         hideNavigationBar();
+
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     public void hideNavigationBar(){

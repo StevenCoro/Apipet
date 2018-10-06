@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import apipet.web.apipet.R;
 
+import static apipet.web.apipet.ui.MainScreen.inicioSesion;
+
 public class SplashScreen extends AppCompatActivity {
     private static int pantallaEspera=1500;
 
@@ -20,14 +22,29 @@ public class SplashScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
         hideNavigationBar();
-        new Handler().postDelayed(new Runnable(){
-            @Override
-            public void run(){
-                Intent siguientePantalla = new Intent(SplashScreen.this, InicioSesion.class);
-                startActivity(siguientePantalla);
-                finish();
-            }
-        }, pantallaEspera);
+        if (inicioSesion){
+            new Handler().postDelayed(new Runnable(){
+                @Override
+                public void run(){
+                    Intent siguientePantalla = new Intent(SplashScreen.this, MainScreen.class);
+                    startActivity(siguientePantalla);
+                    finish();
+                }
+            }, pantallaEspera);
+
+        }
+        else{
+            new Handler().postDelayed(new Runnable(){
+                @Override
+                public void run(){
+                    Intent siguientePantalla = new Intent(SplashScreen.this, InicioSesion.class);
+                    startActivity(siguientePantalla);
+                    finish();
+                }
+            }, pantallaEspera);
+
+        }
+
     }
 
     @Override
