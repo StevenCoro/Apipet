@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import apipet.web.apipet.R;
+import apipet.web.apipet.io.CameraActivity;
 import apipet.web.apipet.io.GuardarImagenes;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
@@ -143,7 +144,9 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (opciones[i].equals("Tomar Foto")){
-                            TomarFoto();
+                           // TomarFoto();
+                            Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
+                            startActivity(intent);
                         }
                         else{
                             if (opciones[i].equals("Subir Imagen")){

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import apipet.web.apipet.R;
+import apipet.web.apipet.io.CameraActivity;
 
 public class MainScreen extends AppCompatActivity  implements View.OnClickListener{
 
