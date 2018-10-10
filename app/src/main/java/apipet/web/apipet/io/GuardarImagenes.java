@@ -30,7 +30,7 @@ public class GuardarImagenes {
             dir.mkdirs();
         }
 
-        File file = new File(dir, NameOfFile + CurrentDateAndTime + ".jpg");
+        File file = new File(dir, NameOfFile +" "+ CurrentDateAndTime + ".jpg");
 
         try {
             FileOutputStream fOut = new FileOutputStream(file);

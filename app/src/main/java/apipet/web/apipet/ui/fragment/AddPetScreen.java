@@ -46,7 +46,17 @@ import apipet.web.apipet.io.CameraActivity;
 import apipet.web.apipet.io.GuardarImagenes;
 import apipet.web.apipet.ui.MisMascotasScreen;
 
+import static apipet.web.apipet.ui.MisMascotasScreen.cardViewMascota1;
 import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota1;
+import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota1;
+
+import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota1;
+import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota2;
+import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota3;
+import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota4;
+import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota2;
+import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota3;
+import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota4;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +71,12 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     public static final String nombreDelArchivo3 = "datosNombre3.txt";
     public static final String nombreDelArchivo4 = "datosNombre4.txt";
     public static final String nombreDelArchivo5 = "datosNombre5.txt";
+
+    public static  String nombreMascotaUno = "";
+    public static  String nombreMascotaDos = "";
+    public static  String nombreMascotaTres = "";
+    public static  String nombreMascotaCuatro = "";
+    public static  String nombreMascotaCinco = "";
 
     EditText etNombre;
     ImageView imagenMascota;
@@ -205,13 +221,14 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                         }
                     });
                     imagenMascota.setImageURI(path2);
-                    imagenMascota1.setImageURI(path2);
 
                     imagenMascota.buildDrawingCache();
-                    Bitmap bmap = imagenMascota.getDrawingCache();
 
+                    Bitmap bmap = imagenMascota.getDrawingCache();
                     GuardarImagenes savefile = new GuardarImagenes();
                     savefile.SaveImage(getApplicationContext(), bmap);
+
+                    imagenMascota1.setImageBitmap(bmap);
 
 
                     break;
@@ -262,6 +279,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         String seleccionRaza = spinnerRaza.getSelectedItem().toString();
         String seleccionGenero = spinnerGenero.getSelectedItem().toString();
 
+        FileOutputStream fos = null;
 
         if (nombreMascota.isEmpty()){
             tv.setText("Debes ingresar un nombre");
@@ -271,9 +289,74 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         else{
             SubirFirebase(nombreMascota, seleccionTipo, seleccionRaza, seleccionGenero);
 
-            Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
-            startActivity(i2);
-            etNombre.getText().clear();
+            nombreMascotaUno = etNombre.getText().toString();
+            Intent intentoMascotaUno = new Intent(getApplicationContext(), MisMascotasScreen.class);
+            intentoMascotaUno.putExtra("primerNombre", nombreMascotaUno);
+
+
+            try {
+
+                if (tvMascota1.toString().equals("")){
+
+                    fos = openFileOutput(nombreDelArchivo1, MODE_PRIVATE);
+                    fos.write(nombreMascota.getBytes());
+                    tv.setText("Guardado con éxito en: "+ getFilesDir()+"/" + nombreDelArchivo1);
+                    toast.setView(tv);
+                    toast.show();
+
+
+                }
+                else {
+                    if (!tvMascota1.toString().equals("")&&tvMascota2.toString().equals("")){
+                        fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
+                        fos.write(nombreMascota.getBytes());
+                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
+
+                    }
+                }
+                if (!tvMascota2.toString().equals("")&&tvMascota3.toString().equals("")) {
+                    fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
+                    fos.write(nombreMascota.getBytes());
+                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo3, Toast.LENGTH_LONG).show();
+
+
+                }
+                else {
+                    if (!tvMascota3.toString().equals("")&&tvMascota4.toString().equals("")) {
+                        fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
+                        fos.write(nombreMascota.getBytes());
+                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
+
+
+                    }
+                }
+                if (cont==10){
+                    fos = openFileOutput(nombreDelArchivo5, MODE_PRIVATE);
+                    fos.write(nombreMascota.getBytes());
+                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo5, Toast.LENGTH_LONG).show();
+                }
+
+                Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
+                startActivity(i2);
+                etNombre.getText().clear();
+            }
+            catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            finally {
+                if(fos!=null){
+                    try {
+                        fos.close();
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
         }
 
 
@@ -359,6 +442,8 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         datosMascota.put("TipoMascota", seleccionTipo);
         datosMascota.put("RazaMascota", seleccionRaza);
         datosMascota.put("GeneroMascota", seleccionGenero);
+
+        cardViewMascota1.setVisibility(View.VISIBLE);
 
         mRootReference.child("Mascotas").push().setValue(datosMascota);
     }

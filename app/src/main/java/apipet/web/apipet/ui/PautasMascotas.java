@@ -68,7 +68,7 @@ public class PautasMascotas extends AppCompatActivity {
         }
 
 
-        String uriPath2 = "android.resource://apipet.web.apipet/"+R.raw.ejemplo;
+        String uriPath2 = "android.resource://apipet.web.apipet/"+R.raw.reglas_mascotas;
         Uri uri2 = Uri.parse(uriPath2);
         video.setVideoURI(uri2);
         video.setMediaController(controlVideo);
@@ -83,7 +83,7 @@ public class PautasMascotas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 video = (VideoView)findViewById(R.id.videoView);
-                String uriPath = "android.resource://apipet.web.apipet/"+R.raw.ejemplo;
+                String uriPath = "android.resource://apipet.web.apipet/"+R.raw.reglas_mascotas;
                 Uri uri2 = Uri.parse(uriPath);video.requestFocus(); video.start();
                 hideNavigationBar();
 

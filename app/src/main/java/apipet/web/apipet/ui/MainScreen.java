@@ -21,15 +21,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import apipet.web.apipet.R;
-import apipet.web.apipet.io.CameraActivity;
+
+
 
 public class MainScreen extends AppCompatActivity  implements View.OnClickListener{
-
-    public static boolean inicioSesion = true;
-
-
-
-
 
     int cont = 0;
     boolean visible = false;
@@ -39,6 +34,10 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
 
 
+       Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
+
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -46,7 +45,6 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
         hideNavigationBar();
         cardView_opciones = findViewById(R.id.card_view_opciones);
 
-        inicioSesion=true;
 
         Button btn_mapa = findViewById(R.id.btn_mapa);
         btn_mapa.setOnClickListener(new View.OnClickListener() {
@@ -118,37 +116,43 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        inicioSesion=true;
+        Intent intent = new Intent(MainScreen.this, SplashScreen.class);
+        intent.putExtra("SesionIniciada", true);
     }
 
     @Override

@@ -41,26 +41,19 @@ public class MisMascotasScreen extends AppCompatActivity {
     public static TextView tvMascota2;
     public static TextView tvMascota3;
     public static TextView tvMascota4;
+
+    public static String nombreMascota1;
+    public static String nombreMascota2;
+    public static String nombreMascota3;
+    public static String nombreMascota4;
+
+    public static CardView cardViewMascota1;
     boolean visible = false;
     Button btn_atras;
     CardView cardViewOpciones;
     private StorageReference mStorage;
 
     DatabaseReference mRootReference;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==RESULT_OK){
-            Uri path = data.getData();
-            imagenMascota1.setImageURI(path);
-        }
-
-    }
-
-
-
-
 
 
 
@@ -70,10 +63,47 @@ public class MisMascotasScreen extends AppCompatActivity {
         setContentView(R.layout.activity_mis_mascotas_screen);
         hideNavigationBar();
 
+        cardViewMascota1 = findViewById(R.id.cardViewMascota1);
+        CardView cardViewMascota2 = findViewById(R.id.cardViewMascota2);
+        CardView cardViewMascota3 = findViewById(R.id.cardViewMascota3);
+        CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
+
+
         tvMascota1 =findViewById(R.id.tvNombreMascota1);
         tvMascota2 =findViewById(R.id.tvNombreMascota2);
         tvMascota3 =findViewById(R.id.tvNombreMascota3);
         tvMascota4 =findViewById(R.id.tvNombreMascota4);
+
+
+        tvMascota1.setText(getIntent().getStringExtra("primerNombre"));
+        tvMascota2.setText(getIntent().getStringExtra("primerNombre"));
+        tvMascota3.setText(getIntent().getStringExtra("primerNombre"));
+        tvMascota4.setText(getIntent().getStringExtra("primerNombre"));
+
+
+        if (!tvMascota1.getText().toString().equals("")){
+            cardViewMascota1.setVisibility(View.VISIBLE);
+
+        }
+
+
+        if (!tvMascota2.getText().toString().equals("")){
+            cardViewMascota1.setVisibility(View.VISIBLE);
+
+        }
+
+        if (!tvMascota3.getText().toString().equals("")){
+            cardViewMascota1.setVisibility(View.VISIBLE);
+
+        }
+
+        if (!tvMascota4.getText().toString().equals("")){
+            cardViewMascota1.setVisibility(View.VISIBLE);
+
+        }
+
+
+
 
 
         mRootReference = FirebaseDatabase.getInstance().getReference();
@@ -97,7 +127,7 @@ public class MisMascotasScreen extends AppCompatActivity {
 
                             String [] nombres_mascotas = {mascota.getNombreMascota(), mascota.getNombreMascota()};
 
-                            tvMascota1.setText(nombre_mascota);
+
 
 
 
@@ -127,10 +157,7 @@ public class MisMascotasScreen extends AppCompatActivity {
 
 
 
-          CardView cardViewMascota1 = findViewById(R.id.cardViewMascota1);
-          CardView cardViewMascota2 = findViewById(R.id.cardViewMascota2);
-          CardView cardViewMascota3 = findViewById(R.id.cardViewMascota3);
-          CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
+
 
 
 
@@ -201,13 +228,12 @@ public class MisMascotasScreen extends AppCompatActivity {
 
 
 
-        FileInputStream fis = null;
+        /*FileInputStream fis = null;
         try {
             fis = openFileInput(nombreDelArchivo1);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String nombreMascota1;
             while ((nombreMascota1 = br.readLine()) !=null){
                 sb.append(nombreMascota1).append("\n");
             }
@@ -227,7 +253,6 @@ public class MisMascotasScreen extends AppCompatActivity {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String nombreMascota2;
             while ((nombreMascota2 = br.readLine()) !=null){
                 sb.append(nombreMascota2).append("\n");
             }
@@ -248,7 +273,6 @@ public class MisMascotasScreen extends AppCompatActivity {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String nombreMascota3;
             while ((nombreMascota3 = br.readLine()) !=null){
                 sb.append(nombreMascota3).append("\n");
             }
@@ -269,7 +293,6 @@ public class MisMascotasScreen extends AppCompatActivity {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String nombreMascota4;
             while ((nombreMascota4 = br.readLine()) !=null){
                 sb.append(nombreMascota4).append("\n");
             }
@@ -283,7 +306,7 @@ public class MisMascotasScreen extends AppCompatActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
