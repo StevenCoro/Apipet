@@ -1,24 +1,25 @@
 package apipet.web.apipet.io;
 
-import android.content.Intent;
-
 public class Usuario {
-    private String correo;
-    private String clave;
+    private String user;
+    private String pwd;
 
-    public String getCorreo() {
-        return correo;
+
+    public String getUser() {
+        return user;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getClave() {
-        return clave;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }
+
+

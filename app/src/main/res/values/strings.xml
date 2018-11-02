@@ -29,13 +29,14 @@ Teléfono: (4) 6152090</string>
     <string name="toggle">Use NNAPI</string>
 
 
-
-
     <string name="InformacionDoctorPet">
-        \n·Horario: Lunes - Viernes: 8:30 am - 6:00 pm
-        \nSab: 9:00 am - 2:00 pm
+        ·Aqui puedes encontrar todo en farmacia veterinaria, tiene un servicio increble que cuenta con peluquería, consultas, examenes de laboratorio y cirugias ambulatorias.
         \n
-        \n·Teléfono: 318 827 9616
+        \n·Horario: Lunes - Sábado: 9:00 am - 6:00 pm
+        \n
+        \n·Teléfono: 480 24 20 
+        \n
+        \n·Página Web: Doctorpet.co
         \n
     </string>
     <string name="DoctorPet">Doctor Pet</string>
@@ -185,10 +186,6 @@ Teléfono: (4) 6152090</string>
         \n
     </string>
     <string name="VeterinariaPetigree">Veterinaria PetLand</string>
-
-
-
-
 
 
     <string name="ingrese_un_email">Ingrese un correo</string>

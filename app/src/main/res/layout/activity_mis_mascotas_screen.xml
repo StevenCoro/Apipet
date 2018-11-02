@@ -274,7 +274,7 @@
             android:background="@drawable/icono_close" />
 
         <Button
-            android:id="@+id/btn_sobre_nosotros"
+            android:id="@+id/btn_editar"
             android:layout_width="57dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -285,7 +285,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btn_editar_perfil2"
+            android:id="@+id/btn_eliminar"
             android:layout_width="77dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

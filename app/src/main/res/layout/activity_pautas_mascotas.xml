@@ -74,14 +74,14 @@
             android:fontFamily="@font/lato_bold"
             android:text="Para tener una mascota tu debes considerar algunas pautas o normas para la sana convivencia de estas con ellas mismas o con su entorno (medio ambiente, ciudadanos, objetos, etc). Cuando decidimos adquirir una mascota es necesario tener conocimiento que estos dependen del ser humano y son los propietarios o tenededores quienes deben asegurar su bienestar y supervivencia; por lo que es necesario satisfacer sus necesidades básicas, a saber"
             android:textColor="@color/colorAccent"
-            android:textSize="15sp" />
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/btn_ver_mas"
             android:layout_width="300px"
             android:layout_height="100px"
             android:layout_marginLeft="140dp"
-            android:layout_marginTop="1200px"
+            android:layout_marginTop="1300px"
             android:background="@drawable/boton_negro"
             android:elevation="0px"
             android:fontFamily="@font/varela_round"

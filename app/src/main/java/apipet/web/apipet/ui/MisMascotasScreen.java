@@ -30,13 +30,24 @@ import java.io.InputStreamReader;
 import apipet.web.apipet.R;
 import apipet.web.apipet.io.MascotasUsuario;
 import apipet.web.apipet.ui.fragment.AddPetScreen;
+
+import static apipet.web.apipet.ui.fragment.AddPetScreen.bmap;
+import static apipet.web.apipet.ui.fragment.AddPetScreen.bmap2;
+import static apipet.web.apipet.ui.fragment.AddPetScreen.bmap3;
+import static apipet.web.apipet.ui.fragment.AddPetScreen.bmap4;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo1;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo2;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo3;
 import static apipet.web.apipet.ui.fragment.AddPetScreen.nombreDelArchivo4;
+
 public class MisMascotasScreen extends AppCompatActivity {
 
     public static ImageView imagenMascota1;
+    public static ImageView imagenMascota2;
+    public static ImageView imagenMascota3;
+    public static ImageView imagenMascota4;
+
+
     public static TextView tvMascota1;
     public static TextView tvMascota2;
     public static TextView tvMascota3;
@@ -68,6 +79,10 @@ public class MisMascotasScreen extends AppCompatActivity {
         CardView cardViewMascota3 = findViewById(R.id.cardViewMascota3);
         CardView cardViewMascota4 = findViewById(R.id.cardViewMascota4);
 
+        imagenMascota1 =findViewById(R.id.imagen_mascota);
+        imagenMascota2 =findViewById(R.id.imagen_mascota2);
+        imagenMascota3 =findViewById(R.id.imagen_mascota3);
+        imagenMascota4 =findViewById(R.id.imagen_mascota4);
 
         tvMascota1 =findViewById(R.id.tvNombreMascota1);
         tvMascota2 =findViewById(R.id.tvNombreMascota2);
@@ -79,6 +94,48 @@ public class MisMascotasScreen extends AppCompatActivity {
         tvMascota2.setText(getIntent().getStringExtra("primerNombre"));
         tvMascota3.setText(getIntent().getStringExtra("primerNombre"));
         tvMascota4.setText(getIntent().getStringExtra("primerNombre"));
+
+        Button btn_eliminar = (Button)findViewById(R.id.btn_eliminar);
+        btn_eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+
+               cardViewMascota2.setVisibility(View.GONE);
+
+               cardViewOpciones.setVisibility(View.GONE);
+               visible=false;
+            }
+
+        });
+
+        if(bmap==null){
+
+        }
+        else{
+            imagenMascota1.setImageBitmap(bmap);
+        }
+
+        if(bmap2==null){
+
+        }
+        else{
+            imagenMascota2.setImageBitmap(bmap2);
+        }
+
+        if(bmap3==null){
+
+        }
+        else{
+            imagenMascota3.setImageBitmap(bmap3);
+        }
+
+        if(bmap4==null){
+
+        }
+        else{
+            imagenMascota4.setImageBitmap(bmap4);
+        }
+
 
 
         if (!tvMascota1.getText().toString().equals("")){
@@ -100,6 +157,91 @@ public class MisMascotasScreen extends AppCompatActivity {
         if (!tvMascota4.getText().toString().equals("")){
             cardViewMascota1.setVisibility(View.VISIBLE);
 
+        }
+
+
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(nombreDelArchivo1);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota1;
+            while ((nombreMascota1 = br.readLine()) !=null){
+                sb.append(nombreMascota1).append("\n");
+            }
+            tvMascota1.setText(sb.toString());
+            if (!tvMascota1.toString().isEmpty()){
+                cardViewMascota1.setVisibility(View.VISIBLE);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fis = openFileInput(nombreDelArchivo2);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota2;
+            while ((nombreMascota2 = br.readLine()) !=null){
+                sb.append(nombreMascota2).append("\n");
+            }
+            tvMascota2.setText(sb.toString());
+            if (!tvMascota2.toString().isEmpty()){
+                cardViewMascota2.setVisibility(View.VISIBLE);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            fis = openFileInput(nombreDelArchivo3);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota3;
+            while ((nombreMascota3 = br.readLine()) !=null){
+                sb.append(nombreMascota3).append("\n");
+            }
+            tvMascota3.setText(sb.toString());
+            if (!tvMascota3.toString().isEmpty()){
+                cardViewMascota3.setVisibility(View.VISIBLE);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            fis = openFileInput(nombreDelArchivo4);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota4;
+            while ((nombreMascota4 = br.readLine()) !=null){
+                sb.append(nombreMascota4).append("\n");
+            }
+            tvMascota4.setText(sb.toString());
+
+            if (!tvMascota4.toString().isEmpty()){
+                cardViewMascota4.setVisibility(View.VISIBLE);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
@@ -183,7 +325,7 @@ public class MisMascotasScreen extends AppCompatActivity {
 
         });
 
-        Button btn_uno = findViewById(R.id.btn_uno);
+        Button btn_uno = findViewById(R.id.btn_dos);
         btn_uno.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v2) {
@@ -227,90 +369,6 @@ public class MisMascotasScreen extends AppCompatActivity {
         });
 
 
-
-        /*FileInputStream fis = null;
-        try {
-            fis = openFileInput(nombreDelArchivo1);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            while ((nombreMascota1 = br.readLine()) !=null){
-                sb.append(nombreMascota1).append("\n");
-            }
-            tvMascota1.setText(sb.toString());
-            if (!nombreMascota1.toString().isEmpty()){
-                cardViewMascota1.setVisibility(View.VISIBLE);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            fis = openFileInput(nombreDelArchivo2);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            while ((nombreMascota2 = br.readLine()) !=null){
-                sb.append(nombreMascota2).append("\n");
-            }
-            tvMascota2.setText(sb.toString());
-            if (!tvMascota2.toString().isEmpty()){
-                cardViewMascota2.setVisibility(View.VISIBLE);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        try {
-            fis = openFileInput(nombreDelArchivo3);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            while ((nombreMascota3 = br.readLine()) !=null){
-                sb.append(nombreMascota3).append("\n");
-            }
-            tvMascota3.setText(sb.toString());
-            if (!tvMascota3.toString().isEmpty()){
-                cardViewMascota3.setVisibility(View.VISIBLE);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        try {
-            fis = openFileInput(nombreDelArchivo4);
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            while ((nombreMascota4 = br.readLine()) !=null){
-                sb.append(nombreMascota4).append("\n");
-            }
-            tvMascota4.setText(sb.toString());
-
-            if (!tvMascota4.toString().isEmpty()){
-                cardViewMascota4.setVisibility(View.VISIBLE);
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-
-
-
     }
 
     @Override
@@ -322,7 +380,8 @@ public class MisMascotasScreen extends AppCompatActivity {
             visible = false;
         }
         else if(!visible){
-            super.onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), MascotasScreen.class);
+            startActivity(intent);
         }
     }
 

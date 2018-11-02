@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="apipet.web.apipet"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -11,8 +12,6 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
-
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -36,6 +35,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.SplashScreen_IA">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".ui.MainScreen" />
 
         <meta-data
@@ -51,10 +57,10 @@
         <activity android:name=".ui.ConsidScreen" />
         <activity android:name=".ui.PautasMascotas" />
         <activity android:name=".ui.WebPautasMascota" />
-        <activity android:name=".ui.MapScreen"
+        <activity
+            android:name=".ui.MapScreen"
             android:label="@string/title_activity_map_screen" />
         <activity android:name=".io.CameraActivity" />
-
         <activity android:name=".ui.RazasScreen" />
         <activity android:name=".ui.CaninosScreen" />
         <activity android:name=".ui.FelinosScreen" />
@@ -68,9 +74,12 @@
         <activity android:name=".ui.Informacion_felinos_persa" />
         <activity android:name=".ui.Informacion_felinos_angora" />
         <activity android:name=".ui.Informacion_felinos_ragdoll" />
-        <activity android:name=".ui.PetScreen">
-
-        </activity>
+        <activity android:name=".ui.PetScreen" />
+        <activity android:name=".ui.AlimentacionMascota" />
+        <activity android:name=".ui.WebAlimentacionMascota" />
+        <activity android:name=".ui.CuidadosMascotas" />
+        <activity android:name=".ui.WebCuidadosMascota" />
+        <activity android:name=".ui.WebSobreNosotros"></activity>
     </application>
 
 </manifest>

@@ -39,6 +39,26 @@ public class ConsidScreen extends AppCompatActivity {
             }
         });
 
+        Button btn_alimentacion = (Button)findViewById(R.id.btn_alimentacion);
+        btn_alimentacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v3) {
+                Intent i3 = new Intent(getApplicationContext(),AlimentacionMascota.class);
+                startActivity(i3);
+
+            }
+        });
+
+        Button btn_mascotas = (Button)findViewById(R.id.btn_cuidados);
+        btn_mascotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v4) {
+                Intent i4 = new Intent(getApplicationContext(),CuidadosMascotas.class);
+                startActivity(i4);
+
+            }
+        });
+
 
     }
     public void hideNavigationBar(){

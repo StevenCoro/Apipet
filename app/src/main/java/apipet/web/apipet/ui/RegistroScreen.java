@@ -66,8 +66,8 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
         btn_registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //cargarWebService();
-                registrarUsuario();
+                cargarWebService();
+                //registrarUsuario();
 
             }
         });

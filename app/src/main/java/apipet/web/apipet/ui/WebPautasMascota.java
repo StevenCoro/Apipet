@@ -1,6 +1,6 @@
 package apipet.web.apipet.ui;
 
-import android.content.Intent;
+
 import android.graphics.Rect;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;

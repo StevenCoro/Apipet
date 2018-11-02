@@ -27,7 +27,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 import org.json.JSONArray;
@@ -38,14 +37,18 @@ import apipet.web.apipet.io.Usuario;
 
 public class InicioSesion extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
-    EditText etEmail, etPassword;
+    EditText etEmailInicio, etPasswordInicio;
     Button btnIngresar;
     int cont =0;
-    private FirebaseAuth firebaseAuth;
+    //private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
-    RequestQueue request;
-    JsonObjectRequest jsonObjectRequest;
+    String validarcorreo, validarclave;
+
+    RequestQueue rq;
+    JsonObjectRequest jrq;
+
+
 
     @Override
     protected void onStart() {
@@ -59,15 +62,16 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
-        etEmail =  findViewById(R.id.etUser);
-        etPassword = findViewById(R.id.etPassword);
+        etEmailInicio =  findViewById(R.id.etUserInicio);
+        etPasswordInicio = findViewById(R.id.etPasswordInicio);
         btnIngresar =  findViewById(R.id.btn_ingresar);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        //firebaseAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
 
-        request = Volley.newRequestQueue(getApplicationContext());
+
+        rq = Volley.newRequestQueue(getApplicationContext());
 
         Button btn_registro = findViewById(R.id.btn_register);
         btn_registro.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +86,16 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Ingresar();
-                //cargarWebService();
+                //Ingresar();
+                cargarWebService();
+
 
 
             }
         });
+
+
+
 
     }
 
@@ -104,8 +112,8 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         tv.setPadding(10, 10, 10, 10);
 
         //Obtenemos el email y la contraseña desde las cajas de texto
-        String email = etEmail.getText().toString().trim();
-        String password  = etPassword.getText().toString().trim();
+        String email = etEmailInicio.getText().toString().trim();
+        String password  = etPasswordInicio.getText().toString().trim();
 
         //Verificamos que las cajas de texto no esten vacías
         if(TextUtils.isEmpty(email)){
@@ -124,8 +132,9 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         progressDialog.setMessage("Ingresando...");
         progressDialog.show();
 
+
             //buscar usuario
-            firebaseAuth.signInWithEmailAndPassword(email, password)
+            /*firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -141,47 +150,96 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
                             }
                             progressDialog.dismiss();
                         }
-                    });
+                    });*/
 
     }
 
 
-    private void cargarWebService() {
-        String url = "http://192.168.0.14/apipet/JSONInicio.php?correo="+etEmail.getText().toString();
 
-        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
-        request.add(jsonObjectRequest);
-    }
 
 
     @Override
     public void onErrorResponse(VolleyError error) {
+
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        final TextView tv = new TextView(InicioSesion.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+        tv.setPadding(10, 10, 10, 10);
+
+        tv.setText("Ha ocurrido un error de conexión");
+        toast.setView(tv);
+        toast.show();
 
     }
 
     @Override
     public void onResponse (JSONObject response) {
 
-        Toast.makeText(getApplicationContext(), "Mensaje: "+response, Toast.LENGTH_SHORT).show();
 
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_SHORT);
 
+        final TextView tv = new TextView(InicioSesion.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+        tv.setPadding(10, 10, 10, 10);
 
         Usuario miUsuario = new Usuario();
 
-        JSONArray json = response.optJSONArray("usuarios");
+        JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
 
-
         try {
-            jsonObject = json.getJSONObject(0);
-            miUsuario.setClave(jsonObject.optString("contrasena"));
-            miUsuario.setCorreo(jsonObject.optString("correo"));
+            jsonObject = jsonArray.getJSONObject(0);
+            miUsuario.setUser(jsonObject.optString("correo"));
+            miUsuario.setPwd(jsonObject.optString("contrasena"));
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        etPassword.setText(miUsuario.getClave());
+        validarcorreo= (jsonObject.optString("correo"));
+        validarclave= (jsonObject.optString("contrasena"));
 
+        if (validarcorreo.equals(etEmailInicio.getText().toString())){
+            if (validarclave.equals(etPasswordInicio.getText().toString())){
+                Intent noriel = new Intent(getApplicationContext(), MainScreen.class);
+                startActivity(noriel);
+            }
+            else if (!validarclave.equals(etPasswordInicio.getText().toString())){
+                tv.setText("Usuario y/o Contraseña Incorrectos.");
+                toast.setView(tv);
+                toast.show();
+            }
+        }
+
+        else if(!validarcorreo.equals(etEmailInicio.getText().toString())){
+            tv.setText("Usuario y/o Contraseña Incorrectos.");
+            toast.setView(tv);
+            toast.show();
+        }
+
+
+    }
+
+    private void cargarWebService() {
+
+
+        String url = "http://192.168.0.14/apipet/JSONInicio.php?correo="+etEmailInicio.getText().toString()+"&contrasena="+etPasswordInicio.getText().toString();
+        url = url.replace(" ", "%20");
+
+
+        jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        rq.add(jrq);
 
     }
 

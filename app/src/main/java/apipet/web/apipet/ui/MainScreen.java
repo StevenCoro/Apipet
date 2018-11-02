@@ -111,6 +111,20 @@ public class MainScreen extends AppCompatActivity  implements View.OnClickListen
 
         });
 
+        Button btn_sobre_nosotros = (Button)findViewById(R.id.btn_sobre_nosotros);
+        btn_sobre_nosotros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v2) {
+                Intent intent2 = new Intent(getApplicationContext(), WebSobreNosotros.class);
+                startActivity(intent2);
+                cardView_opciones.setVisibility(View.GONE);
+                btn_opciones.setVisibility(View.VISIBLE);
+                visible = false;
+
+            }
+
+        });
+
     }
 
     @Override

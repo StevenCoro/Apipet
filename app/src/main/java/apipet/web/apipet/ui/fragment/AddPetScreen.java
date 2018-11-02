@@ -26,34 +26,31 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-
 import apipet.web.apipet.R;
-import apipet.web.apipet.io.CameraActivity;
 import apipet.web.apipet.io.GuardarImagenes;
 import apipet.web.apipet.ui.MisMascotasScreen;
+import apipet.web.apipet.ui.SplashScreen_IA;
 
 import static apipet.web.apipet.ui.MisMascotasScreen.cardViewMascota1;
 import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota1;
+import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota2;
+import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota3;
+import static apipet.web.apipet.ui.MisMascotasScreen.imagenMascota4;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota1;
-
-import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota1;
-import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota2;
-import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota3;
-import static apipet.web.apipet.ui.MisMascotasScreen.nombreMascota4;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota2;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota3;
 import static apipet.web.apipet.ui.MisMascotasScreen.tvMascota4;
@@ -78,6 +75,8 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     public static  String nombreMascotaCuatro = "";
     public static  String nombreMascotaCinco = "";
 
+    int cont =1;
+
     EditText etNombre;
     ImageView imagenMascota;
     ImageView imagen_mascota, imagen_mascota2, imagen_mascota3, imagen_mascota4;
@@ -85,16 +84,20 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
     private StorageReference mStorage;
 
     public static String path;
+    public static Bitmap bmap;
+    public static Bitmap bmap2;
+    public static Bitmap bmap3;
+    public static Bitmap bmap4;
 
     public static final String carpetaRaiz="ImagenesDePeluditos/";
     public static final String rutaImagen =carpetaRaiz+"Peluditos";
 
     final int codigoSeleccionSubirImagen =10;
     final int codigoSeleccionTomarFoto =20;
-     String [] tipo = {"Canino", "Felino"};
-     String [] razas_caninos = {"Criollo", "Golden retriever", "Pitbull", "Bulldog"};
-     String [] razas_felinos = {"Criollo", "Persa", "Angora", "Ragdoll"};
-     String [] genero = {"Macho", "Hembra"};
+    String [] tipo = {"Canino", "Felino"};
+    String [] razas_caninos = {"Criollo", "Golden retriever", "Pitbull", "Bulldog", "Persa", "Angora", "Ragdoll"};
+    String [] razas_felinos = {"Criollo", "Persa", "Angora", "Ragdoll"};
+    String [] genero = {"Macho", "Hembra"};
 
     ArrayAdapter<String> adapter_caninos, adapter_felinos, adapter_genero;
 
@@ -145,6 +148,90 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         imagen_mascota3 =(findViewById(R.id.imagen_mascota3));
         imagen_mascota4 =(findViewById(R.id.imagen_mascota4));
 
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(nombreDelArchivo1);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota1;
+            while ((nombreMascota1 = br.readLine()) !=null){
+                sb.append(nombreMascota1).append("\n");
+            }
+            tvMascota1.setText(sb.toString());
+            if (!tvMascota1.toString().isEmpty()){
+                cont=2;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fis = openFileInput(nombreDelArchivo2);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota2;
+            while ((nombreMascota2 = br.readLine()) !=null){
+                sb.append(nombreMascota2).append("\n");
+            }
+            tvMascota2.setText(sb.toString());
+            if (!tvMascota2.toString().isEmpty()){
+                cont=3;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            fis = openFileInput(nombreDelArchivo3);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota3;
+            while ((nombreMascota3 = br.readLine()) !=null){
+                sb.append(nombreMascota3).append("\n");
+            }
+            tvMascota3.setText(sb.toString());
+            if (!tvMascota3.toString().isEmpty()){
+                cont=4;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            fis = openFileInput(nombreDelArchivo4);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String nombreMascota4;
+            while ((nombreMascota4 = br.readLine()) !=null){
+                sb.append(nombreMascota4).append("\n");
+            }
+            tvMascota4.setText(sb.toString());
+
+            if (!tvMascota4.toString().isEmpty()){
+                cont=5;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void AddImagenMascota(View view){
@@ -157,26 +244,26 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(AddPetScreen.this);
         alertOpciones.setTitle("Seleccione una opción");
         alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (opciones[i].equals("Tomar Foto")){
-                           // TomarFoto();
-                            Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
-                            startActivity(intent);
-                        }
-                        else{
-                            if (opciones[i].equals("Subir Imagen")){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (opciones[i].equals("Tomar Foto")){
+                    // TomarFoto();
+                    Intent intent = new Intent(getApplicationContext(), SplashScreen_IA.class);
+                    startActivity(intent);
+                }
+                else{
+                    if (opciones[i].equals("Subir Imagen")){
 
-                                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                intent.setType("image/");
-                                startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), codigoSeleccionSubirImagen);
+                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/");
+                        startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), codigoSeleccionSubirImagen);
 
 
-                            }
-                        }
                     }
-                });
-                alertOpciones.show();
+                }
+            }
+        });
+        alertOpciones.show();
 
 
     }
@@ -217,18 +304,40 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                     destino.putFile(path2).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(AddPetScreen.this, "Se ha guardado la foto", Toast.LENGTH_SHORT).show();
                         }
                     });
                     imagenMascota.setImageURI(path2);
 
                     imagenMascota.buildDrawingCache();
+                    if (cont==1){
+                        bmap = imagenMascota.getDrawingCache();
+                        GuardarImagenes savefile = new GuardarImagenes();
+                        savefile.SaveImage(getApplicationContext(), bmap);
 
-                    Bitmap bmap = imagenMascota.getDrawingCache();
-                    GuardarImagenes savefile = new GuardarImagenes();
-                    savefile.SaveImage(getApplicationContext(), bmap);
+                        imagenMascota1.setImageBitmap(bmap);
+                    }
+                    if (cont==2){
+                        bmap2 = imagenMascota.getDrawingCache();
+                        GuardarImagenes savefile = new GuardarImagenes();
+                        savefile.SaveImage(getApplicationContext(), bmap2);
 
-                    imagenMascota1.setImageBitmap(bmap);
+                        imagenMascota2.setImageBitmap(bmap2);
+                    }
+                    if (cont==3){
+                        bmap3 = imagenMascota.getDrawingCache();
+                        GuardarImagenes savefile = new GuardarImagenes();
+                        savefile.SaveImage(getApplicationContext(), bmap3);
+
+                        imagenMascota3.setImageBitmap(bmap3);
+                    }
+                    if (cont==4){
+                        bmap4 = imagenMascota.getDrawingCache();
+                        GuardarImagenes savefile = new GuardarImagenes();
+                        savefile.SaveImage(getApplicationContext(), bmap4);
+
+                        imagenMascota4.setImageBitmap(bmap4);
+                    }
+
 
 
                     break;
@@ -254,7 +363,8 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+       Intent intent = new Intent(getApplicationContext(), MisMascotasScreen.class);
+       startActivity(intent);
 
     }
 
@@ -270,7 +380,6 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
         tv.setTextSize(15);
 
         tv.setPadding(10, 10,10,10);
-        int cont =1;
 
 
         etNombre = findViewById(R.id.etNombre);
@@ -287,53 +396,56 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
             toast.show();
         }
         else{
-            SubirFirebase(nombreMascota, seleccionTipo, seleccionRaza, seleccionGenero);
-
-            nombreMascotaUno = etNombre.getText().toString();
-            Intent intentoMascotaUno = new Intent(getApplicationContext(), MisMascotasScreen.class);
-            intentoMascotaUno.putExtra("primerNombre", nombreMascotaUno);
-
-
             try {
 
-                if (tvMascota1.toString().equals("")){
-
+                if (cont==1){
                     fos = openFileOutput(nombreDelArchivo1, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
-                    tv.setText("Guardado con éxito en: "+ getFilesDir()+"/" + nombreDelArchivo1);
+                    tv.setText("Mascota Registrada");
+                    toast.setView(tv);
+                    toast.show();
+
+
+
+
+
+
+                }
+                if (cont==2){
+                    fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
+                    fos.write(nombreMascota.getBytes());
+                    tv.setText("Mascota Registrada");
+                    toast.setView(tv);
+                    toast.show();
+
+
+
+                }
+                if (cont==3) {
+                    fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
+                    fos.write(nombreMascota.getBytes());
+                    tv.setText("Mascota Registrada");
                     toast.setView(tv);
                     toast.show();
 
 
                 }
-                else {
-                    if (!tvMascota1.toString().equals("")&&tvMascota2.toString().equals("")){
-                        fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
-                        fos.write(nombreMascota.getBytes());
-                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
-
-                    }
-                }
-                if (!tvMascota2.toString().equals("")&&tvMascota3.toString().equals("")) {
-                    fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
+                if(cont==4) {
+                    fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo3, Toast.LENGTH_LONG).show();
+                    tv.setText("Mascota Registrada");
+                    toast.setView(tv);
+                    toast.show();
+
 
 
                 }
-                else {
-                    if (!tvMascota3.toString().equals("")&&tvMascota4.toString().equals("")) {
-                        fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
-                        fos.write(nombreMascota.getBytes());
-                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
-
-
-                    }
-                }
-                if (cont==10){
+                if (cont==5){
                     fos = openFileOutput(nombreDelArchivo5, MODE_PRIVATE);
                     fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo5, Toast.LENGTH_LONG).show();
+                    tv.setText("Mascota Registrada");
+                    toast.setView(tv);
+                    toast.show();
                 }
 
                 Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
@@ -356,83 +468,7 @@ public class AddPetScreen extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }
             }
-
         }
-
-
-
-
-        /*FileOutputStream fos = null;
-
-        if (nombreMascota.isEmpty()){
-            tv.setText("Debes ingresar un nombre");
-            toast.setView(tv);
-            toast.show();
-        }
-        else{
-            try {
-
-                if (cont==1){
-                    fos = openFileOutput(nombreDelArchivo1, MODE_PRIVATE);
-                    fos.write(nombreMascota.getBytes());
-                    tv.setText("Guardado con éxito en: "+ getFilesDir()+"/" + nombreDelArchivo1);
-                    toast.setView(tv);
-                    toast.show();
-                    cont=2;
-
-
-                }
-                else {
-                    if (cont==2){
-                        fos = openFileOutput(nombreDelArchivo2, MODE_PRIVATE);
-                        fos.write(nombreMascota.getBytes());
-                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo2, Toast.LENGTH_LONG).show();
-                        cont=3;
-                    }
-                }
-                if (cont==3) {
-                    fos = openFileOutput(nombreDelArchivo3, MODE_PRIVATE);
-                    fos.write(nombreMascota.getBytes());
-                    Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo3, Toast.LENGTH_LONG).show();
-                    cont=4;
-
-                }
-                else {
-                    if (cont==4) {
-                        fos = openFileOutput(nombreDelArchivo4, MODE_PRIVATE);
-                        fos.write(nombreMascota.getBytes());
-                        Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo4, Toast.LENGTH_LONG).show();
-                        cont=5;
-
-                    }
-                }
-                if (cont==5){
-                   fos = openFileOutput(nombreDelArchivo5, MODE_PRIVATE);
-                   fos.write(nombreMascota.getBytes());
-                   Toast.makeText(this, "Guardado con éxito en: " + getFilesDir() + "/" + nombreDelArchivo5, Toast.LENGTH_LONG).show();
-                }
-
-                Intent i2 = new Intent(getApplicationContext(),MisMascotasScreen.class);
-                startActivity(i2);
-                etNombre.getText().clear();
-            }
-            catch (FileNotFoundException e) {
-                   e.printStackTrace();
-            }
-            catch (IOException e) {
-                  e.printStackTrace();
-            }
-            finally {
-                if(fos!=null){
-                    try {
-                        fos.close();
-                    }
-                    catch (IOException e) {
-                          e.printStackTrace();
-                    }
-                }
-            }
-        }*/
 
     }
 

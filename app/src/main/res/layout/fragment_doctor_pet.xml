@@ -27,7 +27,7 @@
         android:id="@+id/iv_san_antonio"
         android:layout_width="412dp"
         android:layout_height="247dp"
-        android:background="@drawable/fv_agro_quirama"
+        android:background="@drawable/fv_doctor_pet"
         android:contentDescription="TODO"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
