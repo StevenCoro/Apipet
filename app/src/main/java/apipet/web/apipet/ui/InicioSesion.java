@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 import org.json.JSONArray;
@@ -40,21 +41,17 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
     EditText etEmailInicio, etPasswordInicio;
     Button btnIngresar;
     int cont =0;
-    //private FirebaseAuth firebaseAuth;
-    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+    //private ProgressDialog progressDialog;
 
     String validarcorreo, validarclave;
 
-    RequestQueue rq;
-    JsonObjectRequest jrq;
+    //RequestQueue rq;
+    //JsonObjectRequest jrq;
 
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 
 
     @Override
@@ -66,12 +63,43 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         etPasswordInicio = findViewById(R.id.etPasswordInicio);
         btnIngresar =  findViewById(R.id.btn_ingresar);
 
-        //firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        progressDialog = new ProgressDialog(this);
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 750);
+        toast.setDuration(Toast.LENGTH_LONG);
+
+        final TextView tv = new TextView(InicioSesion.this);
+        tv.setBackgroundColor(Color.argb(100, 0, 0, 0));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(15);
+        tv.setPadding(10, 10, 10, 10);
 
 
-        rq = Volley.newRequestQueue(getApplicationContext());
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if(user != null){
+                    if (!user.isEmailVerified()){
+                        tv.setText("Por favor verifica el correo electrónico");
+                        toast.setView(tv);
+                        toast.show();
+
+                    }else{
+                        Intent i3 = new Intent(getApplicationContext(), MainScreen.class);
+                        startActivity(i3);
+                    }
+                }
+
+            }
+        };
+
+        //progressDialog = new ProgressDialog(this);
+
+
+        //rq = Volley.newRequestQueue(getApplicationContext());
 
         Button btn_registro = findViewById(R.id.btn_register);
         btn_registro.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +114,11 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                //Ingresar();
-                cargarWebService();
+                Ingresar();
+
+
+
+                //cargarWebService();
 
 
 
@@ -96,6 +127,21 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
 
 
 
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseAuth.addAuthStateListener(authStateListener);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(authStateListener != null)
+            firebaseAuth.removeAuthStateListener(authStateListener);
 
     }
 
@@ -129,28 +175,20 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
             toast.show();
             return;
         }
-        progressDialog.setMessage("Ingresando...");
-        progressDialog.show();
 
 
-            //buscar usuario
-            /*firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            //verificando validación
-                            if (task.isSuccessful()) {
-                                Intent i3 = new Intent(getApplicationContext(), MainScreen.class);
-                                startActivity(i3);
-                            } else {
-                                tv.setText("Correo y/o Contraseña incorrectos");
-                                toast.setView(tv);
-                                toast.show();
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (!task.isSuccessful()){
+                    tv.setText("Corrreo y/o contraseña incorrectos");
+                    toast.setView(tv);
+                    toast.show();
+                }
 
-                            }
-                            progressDialog.dismiss();
-                        }
-                    });*/
+                authStateListener.onAuthStateChanged(firebaseAuth);
+            }
+        });
 
     }
 
@@ -231,7 +269,7 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
 
     }
 
-    private void cargarWebService() {
+    /*private void cargarWebService() {
 
 
         String url = "http://192.168.0.14/apipet/JSONInicio.php?correo="+etEmailInicio.getText().toString()+"&contrasena="+etPasswordInicio.getText().toString();
@@ -241,7 +279,7 @@ public class InicioSesion extends AppCompatActivity implements Response.Listener
         jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq.add(jrq);
 
-    }
+    }*/
 
 
 

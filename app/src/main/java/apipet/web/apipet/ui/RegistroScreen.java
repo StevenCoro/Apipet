@@ -66,8 +66,8 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
         btn_registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargarWebService();
-                //registrarUsuario();
+                //cargarWebService();
+                registrarUsuario();
 
             }
         });
@@ -244,12 +244,18 @@ public class RegistroScreen extends AppCompatActivity implements com.android.vol
                         //verificando validación
                         if(task.isSuccessful()){
 
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            user.sendEmailVerification();
+
                             tv.setText("Se ha registrado con éxito");
                             toast.setView(tv);
                             toast.show();
-                            Intent i3 = new Intent(getApplicationContext(),MainScreen.class);
+                            Intent i3 = new Intent(getApplicationContext(),InicioSesion.class);
                             startActivity(i3);
                         }else{
+
+
+
                             if(task.getException() instanceof FirebaseAuthUserCollisionException){ //Si el usuario ya existe
                                 tv.setText("Este correo ya existe");
                                 toast.setView(tv);
