@@ -16,27 +16,25 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="Felinos"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/texto_titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/back_btn"
+        android:layout_height="@dimen/back_btn"
         android:layout_marginTop="10dp"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_persa"
-        android:layout_width="850px"
-        android:layout_height="180px"
+        android:layout_width="@dimen/card_view_raza_ancho"
+        android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
         app:layout_constraintBottom_toTopOf="@+id/card_view_angora"
@@ -52,8 +50,8 @@
 
         <ImageView
             android:id="@+id/img_persa"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/imagen_raza"
+            android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             app:srcCompat="@drawable/persa_icono" />
@@ -65,13 +63,13 @@
             android:layout_gravity="center"
             android:text="Persa"
             android:textColor="@color/colorPrimary"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_ragdoll"
-        android:layout_width="850px"
-        android:layout_height="180px"
+        android:layout_width="@dimen/card_view_raza_ancho"
+        android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,8 +86,8 @@
 
         <ImageView
             android:id="@+id/img_ragdoll"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/imagen_raza"
+            android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             app:srcCompat="@drawable/ragdoll_icono" />
@@ -101,13 +99,13 @@
             android:layout_gravity="center"
             android:text="Ragdoll"
             android:textColor="@color/colorPrimary"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_angora"
-        android:layout_width="850px"
-        android:layout_height="180px"
+        android:layout_width="@dimen/card_view_raza_ancho"
+        android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
         app:layout_constraintBottom_toTopOf="@+id/card_view_ragdoll"
@@ -124,8 +122,8 @@
 
         <ImageView
             android:id="@+id/img_angora"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/imagen_raza"
+            android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             app:srcCompat="@drawable/angora_icono" />
@@ -137,13 +135,13 @@
             android:layout_gravity="center"
             android:text="Angora"
             android:textColor="@color/colorPrimary"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_felino_criollo"
-        android:layout_width="850px"
-        android:layout_height="180px"
+        android:layout_width="@dimen/card_view_raza_ancho"
+        android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
         app:layout_constraintBottom_toTopOf="@+id/card_view_persa"
@@ -165,12 +163,12 @@
             android:fontFamily="@font/varela_round"
             android:text="Criollo"
             android:textColor="@color/colorPrimary"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
 
         <ImageView
             android:id="@+id/img_felino_criollo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/imagen_raza"
+            android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             app:srcCompat="@drawable/felino_criollo_icono" />

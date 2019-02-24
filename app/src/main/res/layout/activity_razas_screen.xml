@@ -15,7 +15,7 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="Razas"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/titulo"
+        android:textSize="@dimen/texto_titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,11 +33,11 @@
 
     <Button
         android:id="@+id/btn_caninos"
-        android:layout_width="@dimen/btn_principal_largo"
-        android:layout_height="@dimen/btn_principal_ancho"
-        android:layout_marginEnd="50dp"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/boton_principal"
         android:fontFamily="@font/varela_round"
         android:text="Caninos"
@@ -51,11 +51,11 @@
 
     <Button
         android:id="@+id/btn_felinos"
-        android:layout_width="@dimen/btn_principal_largo"
-        android:layout_height="@dimen/btn_principal_ancho"
-        android:layout_marginEnd="50dp"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/boton_principal"
         android:fontFamily="@font/varela_round"
         android:text="Felinos"

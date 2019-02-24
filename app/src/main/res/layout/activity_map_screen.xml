@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/back_btn"
+        android:layout_height="@dimen/back_btn"
         android:layout_marginTop="10dp"
         android:background="@drawable/icono_back"
         android:elevation="0dp"

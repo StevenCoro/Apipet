@@ -23,8 +23,8 @@
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/back_btn"
+        android:layout_height="@dimen/back_btn"
         android:layout_marginTop="10dp"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
@@ -35,8 +35,8 @@
 
     <Button
         android:id="@+id/btn_cuidados"
-        android:layout_width="786px"
-        android:layout_height="120px"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
@@ -45,7 +45,7 @@
         android:fontFamily="@font/varela_round"
         android:text="Cuidados de tu mascota"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +54,8 @@
 
     <Button
         android:id="@+id/btn_pautas"
-        android:layout_width="786px"
-        android:layout_height="120px"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="50dp"
 
@@ -66,7 +66,7 @@
         android:fontFamily="@font/varela_round"
         android:text="Pautas para tener mascota"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,8 +75,8 @@
 
     <Button
         android:id="@+id/btn_alimentacion"
-        android:layout_width="786px"
-        android:layout_height="120px"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
@@ -86,7 +86,7 @@
         android:fontFamily="@font/varela_round"
         android:text="Alimentación de tu mascota"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -17,15 +17,15 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="@string/BienvenidoPantallaMain"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/texto_titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/option_btn"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="@dimen/option_btn"
+        android:layout_height="@dimen/option_btn"
         android:layout_marginTop="10dp"
         android:background="@drawable/icono_options"
         android:elevation="0dp"
@@ -36,13 +36,13 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_mapa"
-        android:layout_width="786px"
-        android:layout_height="120px"
-        android:layout_marginEnd="50dp"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
         android:elevation="0dp"
-        app:cardCornerRadius="55px"
+        app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +52,8 @@
 
         <ImageView
             android:id="@+id/imagen_mapa"
-            android:layout_width="74px"
-            android:layout_height="76px"
+            android:layout_width="@dimen/icono_btn_principal"
+            android:layout_height="@dimen/icono_btn_principal"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="false"
@@ -70,19 +70,19 @@
             android:fontFamily="@font/varela_round"
             android:text="Mapa"
             android:textColor="@color/textColor"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_mascotas"
-        android:layout_width="786px"
-        android:layout_height="120px"
-        android:layout_marginEnd="50dp"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
         android:elevation="0dp"
-        app:cardCornerRadius="55px"
+        app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +93,8 @@
 
         <ImageView
             android:id="@+id/imagen_mascotas"
-            android:layout_width="74px"
-            android:layout_height="76px"
+            android:layout_width="@dimen/icono_btn_principal"
+            android:layout_height="@dimen/icono_btn_principal"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="false"
@@ -111,19 +111,19 @@
             android:fontFamily="@font/varela_round"
             android:text="Mascotas"
             android:textColor="@color/textColor"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
 
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_consideraciones"
-        android:layout_width="786px"
-        android:layout_height="120px"
-        android:layout_marginEnd="50dp"
+        android:layout_width="@dimen/btn_principal_ancho"
+        android:layout_height="@dimen/btn_principal_largo"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
         android:elevation="0dp"
-        app:cardCornerRadius="55px"
+        app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,8 +134,8 @@
 
         <ImageView
             android:id="@+id/imagen_consideraciones"
-            android:layout_width="74px"
-            android:layout_height="76px"
+            android:layout_width="@dimen/icono_btn_principal"
+            android:layout_height="@dimen/icono_btn_principal"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:elevation="0dp"
@@ -150,13 +150,13 @@
             android:fontFamily="@font/varela_round"
             android:text="Consideraciones"
             android:textColor="@color/textColor"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view_opciones"
         android:layout_width="0dp"
-        android:layout_height="135dp"
+        android:layout_height="@dimen/card_view_opciones_pantalla_principal"
         android:visibility="gone"
         app:cardBackgroundColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -167,8 +167,8 @@
 
         <Button
             android:id="@+id/btn_close"
-            android:layout_width="48px"
-            android:layout_height="48px"
+            android:layout_width="@dimen/btn_close_options"
+            android:layout_height="@dimen/btn_close_options"
             android:layout_marginLeft="435dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/icono_close" />
@@ -182,7 +182,7 @@
             android:background="@android:color/transparent"
             android:text="Sobre nosotros"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="@dimen/texto_normal" />
 
         <Button
             android:id="@+id/btn_salir"
@@ -193,7 +193,7 @@
             android:background="@android:color/transparent"
             android:text="Salir"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="@dimen/texto_normal" />
 
         <Button
             android:id="@+id/btn_editar_perfil2"
@@ -204,7 +204,7 @@
             android:background="@android:color/transparent"
             android:text="Editar perfil"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
 

@@ -95,18 +95,8 @@ public class MisMascotasScreen extends AppCompatActivity {
         tvMascota3.setText(getIntent().getStringExtra("primerNombre"));
         tvMascota4.setText(getIntent().getStringExtra("primerNombre"));
 
-        Button btn_eliminar = (Button)findViewById(R.id.btn_eliminar);
-        btn_eliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
 
-               cardViewMascota2.setVisibility(View.GONE);
 
-               cardViewOpciones.setVisibility(View.GONE);
-               visible=false;
-            }
-
-        });
 
         if(bmap==null){
 

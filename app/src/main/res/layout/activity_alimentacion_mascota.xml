@@ -14,7 +14,7 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="Alimentación de tu mascota"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/titulo"
+        android:textSize="@dimen/texto_titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,8 +33,8 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="@dimen/card_view_fondo_ancho"
-        android:layout_height="@dimen/card_view_fondo_largo"
-        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
         android:elevation="0px"
         app:cardBackgroundColor="@color/colorNegroTranslucido"
         app:cardElevation="0px"
@@ -48,8 +48,8 @@
             android:id="@+id/videoView"
             android:layout_width="@dimen/videos_ancho"
             android:layout_height="@dimen/videos_largo"
-            android:layout_marginLeft="175px"
-            android:layout_marginTop="150px"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="40dp"
             android:elevation="0px" />
 
 
@@ -65,26 +65,27 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="@dimen/texto_pautas_ancho"
-            android:layout_height="@dimen/texto_pautas_largo"
+            android:layout_width="@dimen/tv_pautas_ancho"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="100px"
-            android:layout_marginTop="700px"
+            android:layout_marginTop="200dp"
             android:fontFamily="@font/lato_bold"
             android:text="Para alimentar de forma adecuada a tu mascota debes prestar mucha atención a los requerimientos nutricionales en cada etapa de su vida y teniendo en cuenta las características particulares de tu peludo. Por otra parte, más allá del tipo de comida que elijas -comercial o casera– lo importante es que sea de calidad.   "
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/texto_pautas" />
+            android:textSize="@dimen/texto_normal" />
 
         <Button
             android:id="@+id/btn_ver_mas"
             android:layout_width="@dimen/btn_peque_ancho"
-            android:layout_height="@dimen/btn_peque_largo"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="1300px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="112dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/boton_negro"
             android:elevation="0px"
             android:fontFamily="@font/varela_round"
             android:text="Ver mas"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/texto_btn_peque" />
+            android:textSize="@dimen/texto_btnes_pequenios" />
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

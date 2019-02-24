@@ -6,29 +6,33 @@
     <dimen name="logo_apipet_largo">78dp</dimen>
     <dimen name="edit_text_ancho">300dp</dimen>
     <dimen name="edit_text_largo">50dp</dimen>
-    <dimen name="btn_principal_ancho">40dp</dimen>
-    <dimen name="btn_principal_largo">262dp</dimen>
-    <dimen name="titulo">24sp</dimen>
+    <dimen name="btn_principal_largo">46dp</dimen>
+    <dimen name="btn_principal_ancho">300dp</dimen>
+    <dimen name="texto_titulos">24sp</dimen>
+    <dimen name="texto_normal">18sp</dimen>
     <dimen name="option_btn">26dp</dimen>
     <dimen name="tv_ancho">370dp</dimen>
     <dimen name="tv_largo">50dp</dimen>
     <dimen name="card_view_fondo_ancho">360dp</dimen>
     <dimen name="card_view_fondo_largo">575dp</dimen>
+    <dimen name="texto_btnes_pequenios">16sp</dimen>
+    <dimen name="card_view_opciones_largo">110dp</dimen>
+    <dimen name="et_ingresar_campo_ancho">300dp</dimen>
+    <dimen name="et_ingresar_campo_largo">50dp</dimen>
+    <dimen name="tv_pequenio_ancho">300dp</dimen>
+    <dimen name="tv_pequenio_largo">300dp</dimen>
 
 
 
     <!-- fragments -->
-    <dimen name="imagen_fragment_ancho">412dp</dimen>
+
     <dimen name="imagen_fragment_largo">247dp</dimen>
-    <dimen name="fragment_nombre_veterinaria">25sp</dimen>
-    <dimen name="fragment_texto_veterinaria">18sp</dimen>
     <dimen name="fragment_texto_ancho">331dp</dimen>
 
 
     <!-- splash screen camara -->
-    <dimen name="texto_splash_screen_camara_ancho">255.667dp</dimen>
-    <dimen name="texto_splash_screen_camara_largo">383dp</dimen>
-    <dimen name="texto_splash_screen_camara">24sp</dimen>
+    <dimen name="tv_splash_screen_camara_ancho">255.667dp</dimen>
+    <dimen name="tv_splash_screen_camara_largo">383dp</dimen>
     <dimen name="logo_splash_screen_cara">90dp</dimen>
 
 
@@ -42,25 +46,70 @@
     <dimen name="card_splash_screen_largo">46dp</dimen>
     <dimen name="texto_splash_screen_inicio">15.5sp</dimen>
     <dimen name="tamanio_gif">200dp</dimen>
+
+
+    <!-- registro -->
     <dimen name="btn_registrar_registro_ancho">167dp</dimen>
     <dimen name="btn_registrar_registro_largo">35dp</dimen>
-    <dimen name="texto_btn_registro">16sp</dimen>
+
 
 
     <!-- pet screen -->
     <dimen name="foto_mascota_ancho">102dp</dimen>
     <dimen name="foto_mascota_largo">92dp</dimen>
+    <dimen name="btn_editar_ancho">57dp</dimen>
+    <dimen name="btn_eliminar_ancho">77dp</dimen>
+    <dimen name="btn_close_options">18dp</dimen>
 
 
     <!-- pautas -->
-    <dimen name="videos_ancho">228dp</dimen>
-    <dimen name="videos_largo">153dp</dimen>
-    <dimen name="texto_pautas_ancho">280dp</dimen>
-    <dimen name="texto_pautas_largo">210dp</dimen>
-    <dimen name="texto_pautas">17sp</dimen>
+    <dimen name="videos_ancho">260dp</dimen>
+    <dimen name="videos_largo">168dp</dimen>
+    <dimen name="tv_pautas_ancho">280dp</dimen>
     <dimen name="btn_peque_largo">38dp</dimen>
     <dimen name="btn_peque_ancho">115dp</dimen>
-    <dimen name="texto_btn_peque">15sp</dimen>
+
+
+    <!-- mis mascotas -->
+    <dimen name="card_view_mascotas_ancho">323dp</dimen>
+    <dimen name="card_view_mascotas_largo">68dp</dimen>
+    <dimen name="btn_invisible_mascotas_ancho">300</dimen>
+    <dimen name="btn_invisible_mascotas_largo">60dp</dimen>
+    <dimen name="imagen_mascotas_card_view">57dp</dimen>
+    <dimen name="tv_card_view_mascotas_ancho">190dp</dimen>
+    <dimen name="tv_card_view_mascotas_largo">22dp</dimen>
+
+
+    <!-- main screen -->
+    <dimen name="icono_btn_principal">28dp</dimen>
+    <dimen name="card_view_opciones_pantalla_principal">135dp</dimen>
+
+
+
+
+    <!-- inicio sesion -->
+    <dimen name="btn_inicion_sesion_ancho">160dp</dimen>
+    <dimen name="btn_inicion_sesion_largo">35dp</dimen>
+
+
+
+    <!-- fragment informacion gatos y perros -->
+    <dimen name="texto_grande">22sp</dimen>
+    <dimen name="texto_pequenio">16sp</dimen>
+
+
+
+    <!-- razas felinos y caninos -->
+    <dimen name="card_view_raza_ancho">323dp</dimen>
+    <dimen name="card_view_raza_largo">68dp</dimen>
+    <dimen name="imagen_raza">60dp</dimen>
+
+
+
+    <!-- añadir mascotas usuarios -->
+    <dimen name="imagen_mascota_agregar">105dp</dimen>
+
+
 
 
 
