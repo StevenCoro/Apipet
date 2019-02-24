@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/apipet"
-        android:layout_width="293dp"
-        android:layout_height="78dp"
+        android:layout_width="@dimen/logo_apipet_ancho"
+        android:layout_height="@dimen/logo_apipet_largo"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/kfossf"
-        android:layout_width="767px"
-        android:layout_height="383dp"
+        android:layout_width="@dimen/texto_splash_screen_camara_ancho"
+        android:layout_height="@dimen/texto_splash_screen_camara_largo"
         android:layout_marginStart="8dp"
         android:layout_marginTop="212dp"
         android:layout_marginEnd="8dp"
@@ -35,7 +35,7 @@
         android:text="HOLA! Amante de los peludos esta función es exclusivamente para mascotas de raza ya que los criollos se caracterizan por los cruces de razas. Tienes que enfocar con la camara de tu dispositivo a tu mascota y el te dira que raza es para facilitar el registro de tu mascota y hacerlo mas divertido."
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+        android:textSize="@dimen/texto_splash_screen_camara"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +43,8 @@
 
     <ImageButton
         android:id="@+id/faceID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/logo_splash_screen_cara"
+        android:layout_height="@dimen/logo_splash_screen_cara"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="152dp"

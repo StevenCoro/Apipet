@@ -13,17 +13,17 @@ android:layout_height="match_parent">
 <FrameLayout
     android:id="@+id/control"
     android:layout_width="match_parent"
-    android:layout_height="112dp"
+    android:layout_height="@dimen/frame_largo_negro_a_i"
     android:layout_alignParentBottom="true"
     android:layout_alignParentStart="true"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorNegroTranslucido">
 
     <TextView android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="80dp"
         android:textColor="#FFF"
-        android:textSize="20sp"
+        android:textSize="@dimen/texto_fragment_a_i"
         android:textStyle="bold" />
 
 </FrameLayout>

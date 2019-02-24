@@ -14,15 +14,15 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="Cuidados de tu mascota"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/titulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/back_btn"
+        android:layout_height="@dimen/back_btn"
         android:layout_marginTop="10dp"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
@@ -32,8 +32,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.CardView
-        android:layout_width="950px"
-        android:layout_height="1510px"
+        android:layout_width="@dimen/card_view_fondo_ancho"
+        android:layout_height="@dimen/card_view_fondo_largo"
         android:layout_marginTop="150dp"
         android:elevation="0px"
         app:cardBackgroundColor="@color/colorNegroTranslucido"
@@ -46,8 +46,8 @@
 
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="600px"
-            android:layout_height="400px"
+            android:layout_width="@dimen/videos_ancho"
+            android:layout_height="@dimen/videos_largo"
             android:layout_marginLeft="175px"
             android:layout_marginTop="150px"
             android:elevation="0px" />
@@ -65,19 +65,19 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="748px"
-            android:layout_height="547px"
+            android:layout_width="@dimen/texto_pautas_ancho"
+            android:layout_height="@dimen/texto_pautas_largo"
             android:layout_marginLeft="100px"
             android:layout_marginTop="700px"
             android:fontFamily="@font/lato_bold"
             android:text="¡Hola propietarios novatos! Vamos a dar un repaso por los puntos básicos a tener en cuenta para comenzar a ser un propietario responsable. Si quieres empezar con la pata derecha, sigue estos consejos."
             android:textColor="@color/colorAccent"
-            android:textSize="17sp" />
+            android:textSize="@dimen/texto_pautas" />
 
         <Button
             android:id="@+id/btn_ver_mas"
-            android:layout_width="300px"
-            android:layout_height="100px"
+            android:layout_width="@dimen/btn_peque_ancho"
+            android:layout_height="@dimen/btn_peque_laego"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="1300px"
             android:background="@drawable/boton_negro"
@@ -85,6 +85,6 @@
             android:fontFamily="@font/varela_round"
             android:text="Ver mas"
             android:textColor="@color/colorAccent"
-            android:textSize="15sp" />
+            android:textSize="@dimen/texto_btn_peque" />
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
