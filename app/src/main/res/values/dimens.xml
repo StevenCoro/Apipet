@@ -1,5 +1,18 @@
 <resources>
 
+
+    <!-- formula para cambiar valores de dimensiones
+
+    x = dimension que vas a cambiar*160/360  -> a mdpi
+    x = dimension que vas a cambiar*240/360  -> a hdpi
+    x = dimension que vas a cambiar*320/360  -> a xhdpi
+    x = dimension que vas a cambiar*480/360  -> a xxhdpi
+    x = dimension que vas a cambiar*640/360  -> a xxxhdpi
+
+    -->
+
+
+
     <!-- Globales -->
     <dimen name="back_btn">30dp</dimen>
     <dimen name="logo_apipet_ancho">293dp</dimen>
