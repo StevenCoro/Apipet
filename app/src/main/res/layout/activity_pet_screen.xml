@@ -11,7 +11,7 @@
         android:id="@+id/back_btn"
         android:layout_width="@dimen/back_btn"
         android:layout_height="@dimen/back_btn"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin_general"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,16 +21,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagen_add_mascota"
-        android:layout_width="290px"
-        android:layout_height="290px"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/imagen_mascota_agregar"
+        android:layout_height="@dimen/imagen_mascota_agregar"
         android:src="@drawable/icono_add_imagen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.099" />
@@ -55,81 +50,61 @@
         android:id="@+id/tvNombre"
         android:layout_width="@dimen/tv_ancho"
         android:layout_height="@dimen/tv_largo"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/margin_distancia_btn_et_add_pet_screen"
         android:ems="10"
         android:fontFamily="@font/varela_round"
         android:hint="Nombre:"
         android:inputType="textPersonName"
         android:textColor="@color/textColor"
         android:textSize="45px"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_imagen"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_imagen" />
 
     <TextView
         android:id="@+id/tvTipo"
         android:layout_width="@dimen/tv_ancho"
         android:layout_height="@dimen/tv_largo"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         android:fontFamily="@font/varela_round"
         android:hint="Tipo:"
         android:textColor="@color/textColor"
         android:textSize="45px"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombre"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
     <TextView
         android:id="@+id/tvGenero"
         android:layout_width="@dimen/tv_ancho"
         android:layout_height="@dimen/tv_largo"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         android:fontFamily="@font/varela_round"
         android:hint="Género:"
         android:textColor="@color/textColor"
         android:textSize="45px"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRaza"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRaza" />
 
     <TextView
         android:id="@+id/tvRaza"
         android:layout_width="@dimen/tv_ancho"
         android:layout_height="@dimen/tv_largo"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         android:fontFamily="@font/varela_round"
         android:hint="Raza:"
         android:textColor="@color/textColor"
         android:textSize="45px"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipo"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTipo" />
 
     <Button
         android:id="@+id/option_btn"
         android:layout_width="@dimen/option_btn"
         android:layout_height="@dimen/option_btn"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin_general"
         android:background="@drawable/icono_options"
         android:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/card_view_opciones_largo"
         android:visibility="gone"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@color/colorNegroMasTranslucido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,31 +129,31 @@
             android:id="@+id/btn_close"
             android:layout_width="@dimen/btn_close_options"
             android:layout_height="@dimen/btn_close_options"
-            android:layout_marginLeft="435dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="@dimen/margin_boton_close_opciones_left"
+            android:layout_marginTop="@dimen/margin_boton_close_opciones_top"
             android:background="@drawable/icono_close" />
 
         <Button
             android:id="@+id/btn_sobre_nosotros"
-            android:layout_width="57dp"
+            android:layout_width="@dimen/btn_editar_ancho"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="@dimen/margin_editar_perfil_opciones_left"
+            android:layout_marginTop="@dimen/btn_editar_opciones_top"
             android:background="@android:color/transparent"
             android:text="Editar"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="@dimen/texto_normal" />
 
         <Button
             android:id="@+id/btn_editar_perfil2"
-            android:layout_width="77dp"
+            android:layout_width="@dimen/btn_eliminar_ancho"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginLeft="@dimen/margin_general"
+            android:layout_marginTop="@dimen/btn_eliminar_opciones_top"
             android:background="@android:color/transparent"
             android:text="Eliminar"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="@dimen/texto_normal" />
     </android.support.v7.widget.CardView>
 
 

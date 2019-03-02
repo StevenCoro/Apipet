@@ -24,10 +24,71 @@
 
 
 
-    <!-- fragments -->
 
+    <!--Margenes-->
+    <dimen name="margin_texto_splash_screen_card_view_top">11dp</dimen>
+    <dimen name="margin_texto_splash_screen_card_view_left_right">10dp</dimen>
+    <dimen name="margin_card_view_splash_screen_top">215dp</dimen>
+    <dimen name="margin_general_2">30dp</dimen>
+    <dimen name="margin_distancia_entre_et_registro">60dp</dimen>
+    <dimen name="margin_distancia_entre_et_inicio_y_boton">100dp</dimen>
+    <dimen name="margin_general">10dp</dimen>
+    <dimen name="margin_titulos_pantallas">110dp</dimen>
+    <dimen name="margin_distancia_botones_principales">40dp</dimen>
+    <dimen name="margin_fragment_mapa_top">48dp</dimen>
+    <dimen name="margin_videos_consideraciones_left">45dp</dimen>
+    <dimen name="margin_videos_consideraciones_top">40dp</dimen>
+    <dimen name="margin_texto_consideraciones_top">200dp</dimen>
+    <dimen name="margin_texto_consideraciones_left">40dp</dimen>
+    <dimen name="margin_boton_consideraciones_left">122dp</dimen>
+    <dimen name="margin_boton_consideraciones_top">500dp</dimen>
+    <dimen name="margin_boton_consideraciones_bottom">20dp</dimen>
+    <dimen name="margin_boton_close_opciones_top">15dp</dimen>
+    <dimen name="margin_boton_close_opciones_left">435dp</dimen>
+    <dimen name="margin_boton_sobre_nosotros_opciones_top">5dp</dimen>
+    <dimen name="margin_boton_sobre_nosotros_opciones_left">10dp</dimen>
+    <dimen name="margin_editar_perfil_opciones_top">45dp</dimen>
+    <dimen name="margin_editar_perfil_opciones_left">10dp</dimen>
+    <dimen name="margin_boton_salir_opciones_top">85dp</dimen>
+    <dimen name="margin_boton_salir_opciones_left">10dp</dimen>
+    <dimen name="margin_distancia_boton_principal_mascotas_razas">125dp</dimen>
+    <dimen name="margin_distancia_boton_principal_mascotas_mis_mascotas">80dp</dimen>
+    <dimen name="margin_distancia_boton_razas_felinos">160dp</dimen>
+    <dimen name="margin_scroll_view_informacion_mascotas">280dp</dimen>
+    <dimen name="padding_scroll_view_informacion_masacotas">3dp</dimen>
+    <dimen name="padding_scroll_view_texto">5dp</dimen>
+    <dimen name="margin_texto_pequeño_informacion_mascotas">6dp</dimen>
+    <dimen name="margin_texto_grande_informacion_mascotas">20dp</dimen>
+    <dimen name="margin_card_view_mis_mascotas_left">18dp</dimen>
+    <dimen name="margin_general_3">8dp</dimen>
+    <dimen name="margin_card_view">40dp</dimen>
+    <dimen name="margin_card_view_2">160dp</dimen>
+    <dimen name="margin_card_view_3">270dp</dimen>
+    <dimen name="margin_card_view_4">380dp</dimen>
+    <dimen name="margin_btn_add_pet_left">330dp</dimen>
+    <dimen name="margin_btn_add_pet_top">580dp</dimen>
+    <dimen name="margin_tv_nombre_mascota_left">70dp</dimen>
+    <dimen name="margin_tv_nombre_mascota_top">26dp</dimen>
+    <dimen name="margin_distancia_btn_et_add_pet_screen">150dp</dimen>
+    <dimen name="btn_editar_opciones_top">15dp</dimen>
+    <dimen name="btn_eliminar_opciones_top">55dp</dimen>
+    <dimen name="margin_logo_registro_screen">68dp</dimen>
+    <dimen name="margin_card_view_registro_screen">200dp</dimen>
+    <dimen name="margin_logo_apipet_splash_screen_camara">44dp</dimen>
+    <dimen name="margin_texto_apipet_splash_screen_camara">212dp</dimen>
+    <dimen name="margin_imagen_splash_screen_camara">152dp</dimen>
+    <dimen name="margin_web_view_top">43dp</dimen>
+    <dimen name="margin_texto_largo_fragment">15dp</dimen>
+    <dimen name="margin_texto_titulos_fragment">20dp</dimen>
+    <dimen name="padding_nombre_raza_camara_i_a">80dp</dimen>
+
+
+
+
+    <!-- fragments -->
     <dimen name="imagen_fragment_largo">247dp</dimen>
     <dimen name="fragment_texto_ancho">331dp</dimen>
+
 
 
     <!-- splash screen camara -->
@@ -36,9 +97,11 @@
     <dimen name="logo_splash_screen_cara">90dp</dimen>
 
 
+
     <!-- fragment camera2 basic (A.I) -->
     <dimen name="texto_fragment_a_i">20sp</dimen>
     <dimen name="frame_largo_negro_a_i">112dp</dimen>
+
 
 
     <!-- splash screen inicio -->
@@ -48,9 +111,11 @@
     <dimen name="tamanio_gif">200dp</dimen>
 
 
+
     <!-- registro -->
     <dimen name="btn_registrar_registro_ancho">167dp</dimen>
     <dimen name="btn_registrar_registro_largo">35dp</dimen>
+
 
 
 
@@ -62,12 +127,14 @@
     <dimen name="btn_close_options">18dp</dimen>
 
 
+
     <!-- pautas -->
     <dimen name="videos_ancho">260dp</dimen>
     <dimen name="videos_largo">168dp</dimen>
     <dimen name="tv_pautas_ancho">280dp</dimen>
     <dimen name="btn_peque_largo">38dp</dimen>
     <dimen name="btn_peque_ancho">115dp</dimen>
+
 
 
     <!-- mis mascotas -->
@@ -78,12 +145,13 @@
     <dimen name="imagen_mascotas_card_view">57dp</dimen>
     <dimen name="tv_card_view_mascotas_ancho">190dp</dimen>
     <dimen name="tv_card_view_mascotas_largo">22dp</dimen>
+    <dimen name="btn_add_pet">70dp</dimen>
+
 
 
     <!-- main screen -->
     <dimen name="icono_btn_principal">28dp</dimen>
     <dimen name="card_view_opciones_pantalla_principal">135dp</dimen>
-
 
 
 

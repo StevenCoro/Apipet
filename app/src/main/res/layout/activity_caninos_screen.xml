@@ -11,7 +11,7 @@
         android:id="@+id/text_view_bienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="@dimen/margin_titulos_pantallas"
         android:elevation="0dp"
         android:fontFamily="@font/comfortaa_bold"
         android:text="Caninos"
@@ -25,7 +25,7 @@
         android:id="@+id/back_btn"
         android:layout_width="@dimen/back_btn"
         android:layout_height="@dimen/back_btn"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin_general"
         android:background="@drawable/icono_back"
         android:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +38,8 @@
         android:layout_width="@dimen/card_view_raza_ancho"
         android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toTopOf="@+id/card_view_pitbull"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_canino_criollo">
@@ -55,7 +55,7 @@
             android:layout_width="@dimen/imagen_raza"
             android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/margin_general"
             app:srcCompat="@drawable/golden_retriever_icono" />
 
         <TextView
@@ -73,8 +73,8 @@
         android:layout_width="@dimen/card_view_raza_ancho"
         android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_pitbull">
@@ -90,7 +90,7 @@
             android:layout_width="@dimen/imagen_raza"
             android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/margin_general"
             app:srcCompat="@drawable/bulldog_icono" />
 
         <TextView
@@ -108,8 +108,8 @@
         android:layout_width="@dimen/card_view_raza_ancho"
         android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_distancia_botones_principales"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toTopOf="@+id/card_view_bulldog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_view_golden_retriever">
@@ -125,7 +125,7 @@
             android:layout_width="@dimen/imagen_raza"
             android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/margin_general"
             app:srcCompat="@drawable/pitbull_icono" />
 
         <TextView
@@ -143,8 +143,8 @@
         android:layout_width="@dimen/card_view_raza_ancho"
         android:layout_height="@dimen/card_view_raza_largo"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_distancia_entre_et_registro"
         app:cardBackgroundColor="@color/colorBlancoMascotas"
-        app:layout_constraintBottom_toTopOf="@+id/card_view_golden_retriever"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_bienvenido">
@@ -170,7 +170,7 @@
             android:layout_width="@dimen/imagen_raza"
             android:layout_height="@dimen/imagen_raza"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/margin_general"
             app:srcCompat="@drawable/canino_criollo_icono" />
 
     </android.support.v7.widget.CardView>
