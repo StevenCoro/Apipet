@@ -303,17 +303,7 @@ public class MisMascotasScreen extends AppCompatActivity {
         });
 
 
-        Button btn_close_option = findViewById(R.id.btn_close);
-        btn_close_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v2) {
 
-                cardViewOpciones.setVisibility(View.GONE);
-                visible = false;
-
-            }
-
-        });
 
         Button btn_uno = findViewById(R.id.btn_dos);
         btn_uno.setOnLongClickListener(new View.OnLongClickListener(){

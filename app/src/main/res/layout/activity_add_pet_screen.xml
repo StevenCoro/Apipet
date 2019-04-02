@@ -47,13 +47,14 @@
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_btn_et_add_pet_screen"
         android:ems="10"
         android:fontFamily="@font/varela_round"
         android:hint="Nombre:"
         android:inputType="textPersonName"
         android:textColor="@color/textColor"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_add_imagen" />
@@ -61,8 +62,9 @@
     <Spinner
         android:id="@+id/spnTipo"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_botones_principales"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNombre" />
@@ -70,8 +72,9 @@
     <Spinner
         android:id="@+id/spnGenero"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_botones_principales"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spnRaza" />
@@ -79,8 +82,9 @@
     <Spinner
         android:id="@+id/spnRaza"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_botones_principales"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spnTipo" />

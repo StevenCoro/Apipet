@@ -34,6 +34,7 @@
     <dimen name="et_ingresar_campo_largo">50dp</dimen>
     <dimen name="tv_pequenio_ancho">300dp</dimen>
     <dimen name="tv_pequenio_largo">300dp</dimen>
+    <dimen name="corner_radio_btn_principal">20dp</dimen>
 
 
 
@@ -120,7 +121,7 @@
     <!-- splash screen inicio -->
     <dimen name="card_splash_screen_ancho">450dp</dimen>
     <dimen name="card_splash_screen_largo">46dp</dimen>
-    <dimen name="texto_splash_screen_inicio">15.5sp</dimen>
+    <dimen name="texto_splash_screen_inicio">15sp</dimen>
     <dimen name="tamanio_gif">200dp</dimen>
 
 
@@ -153,7 +154,7 @@
     <!-- mis mascotas -->
     <dimen name="card_view_mascotas_ancho">323dp</dimen>
     <dimen name="card_view_mascotas_largo">68dp</dimen>
-    <dimen name="btn_invisible_mascotas_ancho">300</dimen>
+    <dimen name="btn_invisible_mascotas_ancho">300dp</dimen>
     <dimen name="btn_invisible_mascotas_largo">60dp</dimen>
     <dimen name="imagen_mascotas_card_view">57dp</dimen>
     <dimen name="tv_card_view_mascotas_ancho">190dp</dimen>

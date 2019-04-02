@@ -15,7 +15,7 @@
         android:fontFamily="@font/comfortaa_bold"
         android:text="Mascotas"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/texto_titulos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         android:fontFamily="@font/varela_round"
         android:text="Razas"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_mascotas" />
@@ -54,7 +54,7 @@
         android:fontFamily="@font/varela_round"
         android:text="Mis mascotas"
         android:textColor="@color/colorAccent"
-        android:textSize="17sp"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"

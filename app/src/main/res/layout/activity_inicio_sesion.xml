@@ -52,13 +52,11 @@
     <EditText
         android:id="@+id/etUserInicio"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_entre_et_inicio_y_boton"
-        android:drawableLeft="@drawable/icono_usuario_dos"
-        android:drawablePadding="5dp"
-        android:ems="10"
         android:hint="Usuario"
         android:inputType="textEmailAddress"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_register" />
@@ -66,13 +64,12 @@
     <EditText
         android:id="@+id/etPasswordInicio"
         android:layout_width="@dimen/et_ingresar_campo_ancho"
-        android:layout_height="@dimen/et_ingresar_campo_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_entre_et_registro"
-        android:drawableLeft="@drawable/icono_password_dos"
-        android:drawablePadding="5dp"
-        android:ems="10"
+
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUserInicio" />

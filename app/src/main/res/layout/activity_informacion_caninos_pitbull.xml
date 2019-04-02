@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/info_caninos_pitbull"
     tools:context=".ui.Informacion_caninos_pitbull">
+
     <Button
         android:id="@+id/back_btn"
         android:layout_width="@dimen/back_btn"

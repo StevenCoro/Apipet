@@ -40,13 +40,11 @@
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="@dimen/edit_text_ancho"
-        android:layout_height="@dimen/edit_text_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_btn_et_add_pet_screen"
-        android:drawableLeft="@drawable/icono_usuario_dos"
-        android:drawablePadding="5dp"
-        android:ems="10"
         android:hint="@string/ingrese_un_email"
         android:inputType="textEmailAddress"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
@@ -54,13 +52,11 @@
     <EditText
         android:id="@+id/etclave"
         android:layout_width="@dimen/edit_text_ancho"
-        android:layout_height="@dimen/edit_text_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_botones_principales"
-        android:drawableLeft="@drawable/icono_password_dos"
-        android:drawablePadding="5dp"
-        android:ems="10"
         android:hint="@string/ingrese_una_contrase_a"
         android:inputType="textPassword"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
@@ -68,13 +64,11 @@
     <EditText
         android:id="@+id/etclave2"
         android:layout_width="@dimen/edit_text_ancho"
-        android:layout_height="@dimen/edit_text_largo"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_distancia_botones_principales"
-        android:drawableLeft="@drawable/icono_password_dos"
-        android:drawablePadding="5dp"
-        android:ems="10"
         android:hint="Repita su contraseña"
         android:inputType="textPassword"
+        android:textSize="@dimen/texto_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etclave" />
@@ -84,7 +78,7 @@
         android:layout_width="@dimen/card_splash_screen_ancho"
         android:layout_height="@dimen/card_splash_screen_largo"
         android:layout_marginTop="@dimen/margin_card_view_registro_screen"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="@dimen/corner_radio_btn_principal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
